@@ -195,7 +195,7 @@ export const content = {
         title: 'UKM Sepakbola Universitas Airlangga',
         role: 'Team Member',
         period: '2021-2025',
-        image: '/UKM.jpeg', // taruh di public/
+        image: '/ukm.jpeg', // taruh di public/
         bullets: ['Juara 1 SuperSoccer Futsal Championsip Regional Surabaya', 'Juara 4 SuperSoccer Futsal Championsip Nasional', 'Berpartisipasi di Tournament Sepakbola UGMFC'],
       },
       {
