@@ -332,26 +332,63 @@ export default function Home() {
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {content.orgSection.items.map((it: any) => (
-                <article key={`${it.title}-${it.role}`} className="rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-sm md:h-[320px] overflow-hidden">
-                  <div className="flex gap-5 h-full">
-                    {/* image */}
-                    <div className="w-40 shrink-0 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
-                      <img src={it.image} alt={it.title} className="h-full w-full object-cover object-center" />
+                <article key={`${it.title}-${it.role}`} className={['group overflow-hidden rounded-3xl border border-slate-200/70 bg-white/60 shadow-sm', 'hover:bg-white/85 hover:shadow-md transition'].join(' ')}>
+                  {/* MOBILE IMAGE (atas, full width) */}
+                  <div className="relative md:hidden">
+                    <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                      <img
+                        src={it.image}
+                        alt={it.title}
+                        className="h-full w-full object-cover md:object-center"
+                        style={{ objectPosition: '0% 20%' }} // naikkan fokus (20% dari atas)
+                      />{' '}
                     </div>
 
-                    {/* content */}
-                    <div className="flex-1 flex flex-col min-w-0">
+                    {/* overlay tipis biar elegan */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/25 via-transparent to-transparent" />
+                  </div>
+
+                  <div className="p-6">
+                    {/* DESKTOP LAYOUT (gambar kiri, teks kanan) */}
+                    <div className="hidden md:flex gap-5">
+                      <div className="w-full md:w-40 h-44 md:h-full shrink-0 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
+                        <img src={it.image} alt={it.title} className="h-full w-full object-cover object-top md:object-center" />
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="min-w-0">
+                            <h3 className="text-lg font-extrabold text-slate-950 leading-snug line-clamp-2">{it.title}</h3>
+                            <p className="mt-1 text-sm font-semibold text-blue-700">{it.role}</p>
+                          </div>
+
+                          {it.period && <span className="shrink-0 rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">{it.period}</span>}
+                        </div>
+
+                        <ul className="mt-4 space-y-2 text-sm text-slate-700">
+                          {it.bullets.slice(0, 4).map((b: string) => (
+                            <li key={b} className="flex items-start gap-3">
+                              <span className="mt-2 h-2 w-2 rounded-full bg-blue-600 shrink-0" />
+                              <span className="leading-relaxed">{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {it.bullets.length > 4 && <p className="mt-4 text-xs text-slate-500">+{it.bullets.length - 4} poin lainnya</p>}
+                      </div>
+                    </div>
+
+                    {/* MOBILE TEXT (teks bawah gambar) */}
+                    <div className="md:hidden">
                       <div className="flex items-start justify-between gap-3">
-                        <div>
-                          {/* judul wrap max 2 baris (bukan truncate) */}
-                          <h3 className="text-lg font-extrabold text-slate-950 leading-snug line-clamp-2">{it.title}</h3>
+                        <div className="min-w-0">
+                          <h3 className="text-base font-extrabold text-slate-950 leading-snug">{it.title}</h3>
                           <p className="mt-1 text-sm font-semibold text-blue-700">{it.role}</p>
                         </div>
 
-                        {it.period && <span className="shrink-0 rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">{it.period}</span>}
+                        {it.period && <span className="shrink-0 rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-[11px] font-semibold text-slate-600">{it.period}</span>}
                       </div>
 
-                      {/* bullets: batasi 4 poin agar tinggi konsisten */}
                       <ul className="mt-4 space-y-2 text-sm text-slate-700">
                         {it.bullets.slice(0, 4).map((b: string) => (
                           <li key={b} className="flex items-start gap-3">
@@ -361,8 +398,7 @@ export default function Home() {
                         ))}
                       </ul>
 
-                      {/* kalau bullet lebih dari 4, kasih hint kecil */}
-                      {it.bullets.length > 4 && <p className="mt-auto pt-3 text-xs text-slate-500">+{it.bullets.length - 4} poin lainnya</p>}
+                      {it.bullets.length > 4 && <p className="mt-4 text-xs text-slate-500">+{it.bullets.length - 4} poin lainnya</p>}
                     </div>
                   </div>
                 </article>
