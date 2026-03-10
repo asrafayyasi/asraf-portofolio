@@ -395,8 +395,8 @@ export const content = {
         tools: ['SQL', 'Excel', 'Python'], // opsional
       },
       {
-        role: 'Percetakan Sukses Abadi ',
-        company: 'PT Mandiri Tunas Finance',
+        role: 'Office Administrator',
+        company: 'Percetakan dan Fotocopy Sukses Abadi ',
         location: 'Pekanbaru, Indonesia',
         period: 'April 2025 - Juli 2025',
         type: 'Internship', // opsional
