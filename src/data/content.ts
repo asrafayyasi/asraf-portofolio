@@ -113,6 +113,15 @@ export const content = {
       type: '',
       year: '2024',
     },
+    {
+      title: 'Banking IT Infrastructure Monitoring Dashboard',
+      desc: 'Dashboard ini merupakan proyek dummy yang dibuat untuk keperluan portofolio. Data yang digunakan telah dimodifikasi dan dianonimkan sehingga menyerupai data operasional nyata tanpa mengungkapkan informasi sensitif atau rahasia. Demi menjaga kerahasiaan data, proyek ini hanya menampilkan preview dashboard tanpa memperlihatkan tampilan detail secara penuh.',
+      tech: ['Power BI', 'Excel', 'DAX'],
+      link: 'https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view',
+      embed: 'https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view?embed',
+      type: '',
+      year: '2024',
+    },
   ],
   certificates: [
     { title: 'Certificate A', issuer: 'Platform' },
@@ -349,7 +358,7 @@ export const content = {
     subtitle: 'Ringkasan peran, tanggung jawab, dan dampak yang saya hasilkan.',
     items: [
       {
-        role: 'Quality Assurance Computing (Analyst)',
+        role: 'Data Analyst',
         company: 'PT Bank Rakyat Indonesia Tbk ',
         location: 'Jakarta, Indonesia',
         period: 'Desember 2025 - Sekarang',
