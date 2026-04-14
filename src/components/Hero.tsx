@@ -1,15 +1,15 @@
 import { ArrowRight, Download, Mail, Sparkles, BarChart3, Database } from "lucide-react";
-import { content } from "@/data/content";
+import { getContent } from "@/data/content";
 
 export default function Hero() {
+  const content = getContent("en");
+
   return (
     <section id="beranda" className="relative overflow-hidden">
-      {/* dekorasi */}
       <div className="pointer-events-none absolute -top-24 -left-28 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -right-28 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
 
       <div className="min-h-[calc(100vh-96px)] grid items-center gap-10 py-10 md:grid-cols-2">
-        {/* KIRI */}
         <div className="text-left">
           <div className="inline-flex items-center gap-2 rounded-full border bg-white/60 px-4 py-2 backdrop-blur">
             <Sparkles className="h-4 w-4 text-blue-600" />
@@ -19,7 +19,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-6 text-sm font-semibold tracking-[0.25em] text-blue-600">
-            HALO, SAYA
+            HELLO, I'M
           </p>
 
           <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-950">
@@ -29,15 +29,14 @@ export default function Hero() {
           <p className="mt-3 text-lg md:text-xl text-slate-600">{content.title}</p>
 
           <p className="mt-6 max-w-xl text-slate-600 leading-relaxed">
-            Saya mengubah data mentah menjadi insight yang jelas lewat{" "}
+            I turn raw data into clear insights through{" "}
             <span className="font-semibold text-slate-800">SQL</span>,{" "}
-            <span className="font-semibold text-slate-800">Python</span>, dan{" "}
-            <span className="font-semibold text-slate-800">dashboard</span> yang mudah dipahami.
+            <span className="font-semibold text-slate-800">Python</span>, and{" "}
+            <span className="font-semibold text-slate-800">easy-to-understand dashboards</span>.
           </p>
 
           <p className="mt-4 italic text-slate-500">{content.quote}</p>
 
-          {/* tags */}
           <div className="mt-6 flex flex-wrap gap-2">
             {content.about.skills.slice(0, 6).map((s) => (
               <span
@@ -49,32 +48,30 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <a
               href={content.cta.portfolio}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition"
             >
-              Lihat Portofolio <ArrowRight size={18} />
+              View Portfolio <ArrowRight size={18} />
             </a>
 
             <a
               href={content.cta.cv}
               className="inline-flex items-center justify-center gap-2 rounded-full border bg-white/70 px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-white transition"
             >
-              Unduh CV <Download size={18} />
+              Download CV <Download size={18} />
             </a>
 
             <a
               href={content.cta.contact}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition"
             >
-              Hubungi Saya <Mail size={18} />
+              Contact Me <Mail size={18} />
             </a>
           </div>
         </div>
 
-        {/* KANAN - mini dashboard */}
         <div className="relative">
           <div className="rounded-3xl border bg-white/65 p-6 shadow-sm backdrop-blur">
             <div className="flex items-center justify-between">
@@ -94,7 +91,7 @@ export default function Hero() {
                   <span className="text-xs font-semibold">Data Processing</span>
                 </div>
                 <p className="mt-2 text-2xl font-extrabold text-slate-950">+35%</p>
-                <p className="text-xs text-slate-500">efisiensi pipeline</p>
+                <p className="text-xs text-slate-500">pipeline efficiency</p>
               </div>
 
               <div className="rounded-2xl border bg-white/70 p-4">
@@ -103,7 +100,7 @@ export default function Hero() {
                   <span className="text-xs font-semibold">Reporting</span>
                 </div>
                 <p className="mt-2 text-2xl font-extrabold text-slate-950">-50%</p>
-                <p className="text-xs text-slate-500">waktu buat laporan</p>
+                <p className="text-xs text-slate-500">reporting time</p>
               </div>
             </div>
 
@@ -118,7 +115,7 @@ export default function Hero() {
                 ))}
               </div>
               <p className="mt-3 text-xs text-slate-500">
-                Tampilan dashboard kecil biar vibe data-nya kuat dan beda dari template.
+                A compact dashboard preview to strengthen the data vibe and stand out from common templates.
               </p>
             </div>
           </div>
