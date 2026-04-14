@@ -9,7 +9,7 @@ export const contents = {
 
     cta: {
       portfolio: "#proyek",
-      cv: "https://docs.google.com/document/d/1U8DgaPPsy6aNBMZnfkhqcISmF1kmy9DhJ42XfRCmxc0/edit?usp=sharing",
+      cv: "https://docs.google.com/document/d/1gIpcABkziePAz8Iae1mGF5NXtSup2HUP44-SxqT9mTI/edit?usp=sharing",
       contact: "#kontak",
     },
 
