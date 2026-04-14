@@ -1,419 +1,1056 @@
-export const content = {
-  name: 'ASRAF AYYASI PUTRA',
-  title: 'Data & Digital Marketing Enthusiast',
-  quote: '“Most of the world will make decisions by either guessing or using their gut. They will be either lucky or wrong.”',
-  cta: {
-    portfolio: '#proyek',
-    cv: 'https://docs.google.com/document/d/1U8DgaPPsy6aNBMZnfkhqcISmF1kmy9DhJ42XfRCmxc0/edit?usp=sharing',
-    contact: '#kontak',
-  },
-  about: {
-    text: 'Tulis underline tentang kamu (1 paragraf). Fokus di skill data: SQL, Excel, Python, dashboard, dsb.',
-    skills: ['Algoritma dan Pemrograman', 'Basis Data', 'Analisis dan Visualisasi Data', 'Machine Learning', 'Computer Vision', 'Analisis Data Bisnis', 'Data Mining', 'Statistika'],
-    kicker: 'TENTANG SAYA',
-    headline: 'Insight-Driven Data Analyst (Marketing & Business)',
-    summary:
-      'Memiliki pengalaman di bidang data analyst, data science, dan digital marketing melalui kegiatan akademik, program magang, studi independent dan bootcamp. Terampil dalam pengolahan data, analisis data, visualisasi data, pembelajaran mesin dan pemasaran digital. Aktif terlibat dalam organisasi dan beberapa kepanitiaan mahasiswa sebagai bentuk kontribusi sekaligus untuk mengembangkan kemampuan kepemimpinan, pemecahan masalah, dan komunikasi. Merupakan individu yang berorientasi pada proses dan hasil, serta siap berkontribusi di lingkungan profesional manapun',
-    meta: [
-      { label: 'Lokasi', value: 'Jakarta, Indonesia' },
-      { label: 'Role', value: 'Data Analyst' },
-      { label: 'Availability', value: 'Open to work' },
-    ],
-    timeline: [
+export type Lang = "en" | "id";
+
+export const contents = {
+  en: {
+    name: "ASRAF AYYASI PUTRA",
+    title: "Data & Digital Marketing Enthusiast",
+    quote:
+      "“Most of the world will make decisions by either guessing or using their gut. They will be either lucky or wrong.”",
+
+    cta: {
+      portfolio: "#proyek",
+      cv: "https://docs.google.com/document/d/1U8DgaPPsy6aNBMZnfkhqcISmF1kmy9DhJ42XfRCmxc0/edit?usp=sharing",
+      contact: "#kontak",
+    },
+
+    labels: {
+      navHome: "Home",
+      navAbout: "About",
+      navSkills: "Skills",
+      navExperience: "Experience",
+      navProjects: "Projects",
+      navCertificates: "Certificates",
+      navContact: "Contact",
+      downloadCv: "Download CV",
+
+      letsConnect: "Let's Connect",
+      checkMyWork: "Check My Work",
+      scroll: "SCROLL",
+
+      education: "EDUCATION",
+      thesis: "Thesis",
+
+      coreSkills: "Core Skills",
+      softSkills: "Soft Skills",
+      coursesTraining: "Courses & Training",
+      viewCertificates: "View Certificate ↗",
+      items: "items",
+
+      portfolioKicker: "PORTFOLIO",
+      featuredProjects: "Featured Projects",
+      projectsSubtitle:
+        "A collection of data projects that highlight my thinking process, analysis, and impact.",
+      open: "Open ↗",
+      previewUnavailable: "Preview unavailable",
+
+      otherCertificates: "Other Certificates",
+
+      contactKicker: "GET IN TOUCH",
+      contactTitle: "Contact",
+      contactSubtitle:
+        "Open to collaboration, projects, or a short discussion.",
+      availableForCollab: "Available for collaboration",
+      connectTitle: "Let's Connect",
+      connectSubtitle:
+        "Choose the channel you're most comfortable with. (Email for formal matters)",
+
+      email: "EMAIL",
+      linkedin: "LINKEDIN",
+      whatsapp: "WHATSAPP",
+      instagram: "INSTAGRAM",
+
+      footerLinkedin: "LinkedIn",
+      footerGithub: "Github",
+      footerEmail: "Email",
+
+      morePoints: "more points",
+    },
+
+    about: {
+      text: "Write a short personal summary here.",
+      skills: [
+        "Algorithms and Programming",
+        "Database",
+        "Data Analysis and Visualization",
+        "Machine Learning",
+        "Computer Vision",
+        "Business Data Analysis",
+        "Data Mining",
+        "Statistics",
+      ],
+      kicker: "ABOUT ME",
+      headline: "Insight-Driven Data Analyst (Marketing & Business)",
+      summary:
+        "Experienced in data analytics, data science, and digital marketing through academic activities, internships, independent study programs, and bootcamps. Skilled in data processing, data analysis, data visualization, machine learning, and digital marketing. Actively involved in organizations and student committees as a way to contribute while developing leadership, problem-solving, and communication skills. A process- and results-oriented individual who is ready to contribute in any professional environment.",
+      meta: [
+        { label: "Location", value: "Jakarta, Indonesia" },
+        { label: "Role", value: "Data Analyst" },
+        { label: "Availability", value: "Open to work" },
+      ],
+      timeline: [
+        {
+          title: "Education",
+          place: "Universitas Airlangga",
+          desc: "Bachelor's Degree - Information Systems",
+          thesis:
+            "Vehicle Object Detection and Accident Classification Using Convolutional Neural Networks",
+          year: "2021 - 2025",
+        },
+        {
+          title: "Experience",
+          place: "BRI / …",
+          desc: "Operational reporting, risk insight, data cleanup",
+          year: "2024–Present",
+        },
+      ],
+    },
+
+    projects: [
       {
-        title: 'Pendidikan',
-        place: 'Universitas Airlangga',
-        desc: 'S1 - Sistem Informasi',
-        thesis: 'Deteksi Objek Kendaraan dan Klasifikasi Kecelakaan Menggunakan Convolutional Neural Network',
-        year: '2021 - 2025',
-      },
-      {
-        title: 'Pengalaman',
-        place: 'BRI / …',
-        desc: 'Operational reporting, risk insight, data cleanup',
-        year: '2024–Sekarang',
-      },
-    ],
-  },
-  projects: [
-    {
-      title: 'Vehicle Object Detection and Traffic Accident Classification Using Convolutional Neural Network',
-      desc: 'Pengembangan model deteksi objek kendaraan menggunakan YOLOv9 dan dikombinasikan dengan Algoritma SMA dan ByteTrack untuk mendeteksi anomali, serta mengklasifikasikan suatu kejadian di jalan raya apakah termasuk kecelakaan atau bukan.',
-      tech: ['Python', 'TensorFlow', 'CNN', 'YOLOv9', 'MobileNetv2', 'Algoritma SMA', 'Object Tracking', 'ByteTrack '],
-      thumb: '/projectdl.jpg', // taruh gambar di public/
-      link: 'https://www.canva.com/design/DAGerHm8eRs/IWuM7fsHu6SNUDI-js5BVg/edit?utm_content=DAGerHm8eRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', // link repo / slide / demo
-      highlights: ['Computer Vision', 'Deep Learning', 'Actionable insights'],
-      type: 'Deep Learning', // optional badge
-      embed: 'https://www.canva.com/design/DAGerHm8eRs/IWuM7fsHu6SNUDI-js5BVg/edit?embed_content=DAGerHm8eRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', // link repo / slide / demo
-    },
-    {
-      title: 'Vehicle Object Detection and Traffic Accident Classification Using Convolutional Neural Network',
-      desc: 'Pengembangan model deteksi objek kendaraan menggunakan YOLOv9 dan dikombinasikan dengan Algoritma SMA dan ByteTrack untuk mendeteksi anomali, serta mengklasifikasikan suatu kejadian di jalan raya apakah termasuk kecelakaan atau bukan.',
-      tech: ['Python', 'TensorFlow', 'CNN', 'YOLOv9', 'MobileNetv2', 'Algoritma SMA', 'Object Tracking', 'ByteTrack '],
-      thumb: '/projectdl.jpg', // taruh gambar di public/
-      link: 'https://www.canva.com/design/DAHBpPSSRG4/P2E_wVhBwXs4NzjaGwYj7g/view', // link repo / slide / demo
-      highlights: ['Computer Vision', 'Deep Learning', 'Actionable insights'],
-      type: 'Deep Learning', // optional badge
-      embed: 'https://www.canva.com/design/DAHBpPSSRG4/P2E_wVhBwXs4NzjaGwYj7g/view?embed', // link repo / slide / demo
-    },
-    {
-      title: 'Analyse HR Data Using Python',
-      desc: 'Analisis ini bertujuan mengeksplorasi dan memahami data karyawan perusahaan multinasional untuk mengidentifikasi tren utama tenaga kerja. Melalui proses persiapan, pembersihan, dan analisis data eksploratori, studi ini menghasilkan wawasan terkait distribusi karyawan, turnover, kinerja, mode kerja, dan kompensasi guna mendukung pengambilan keputusan strategis HR seperti peningkatan retensi, evaluasi kinerja, dan penyusunan struktur gaji yang kompetitif.',
-      tech: ['Python', 'Google Colab', 'Kaggle', 'Pandas', 'Matplotlib', 'Seaborn', 'Numpy'],
-      thumb: '/project_hr_analyst.png',
-      link: 'https://www.canva.com/design/DAGxPtvqPCc/jJqeedxAjb5QzlJQoPXkEg/view',
-      type: 'EDA',
-      embed: 'https://www.canva.com/design/DAGxPtvqPCc/jJqeedxAjb5QzlJQoPXkEg/view?embed',
-      year: '2024',
-    },
-    {
-      title: 'Teman Tani (Capstone Project Bangkit Academy by Google, GoTo, Traveloka)',
-      desc: 'Penelitian ini berfokus pada pengembangan aplikasi deteksi penyakit tanaman padi berbasis machine learning untuk membantu petani mengidentifikasi gejala penyakit secara dini dan mengurangi risiko gagal panen. Aplikasi dikembangkan dalam tiga bidang utama: Machine Learning, Cloud Computing, dan Mobile Development.Peran saya berada pada bidang Machine Learning, yaitu melatih model klasifikasi gambar menggunakan arsitektur MobileNetV2 serta mengimplementasikannya melalui API berbasis Flask.',
-      tech: ['Python', 'TensorFlow', 'MobileNetv2', 'Flask API'],
-      thumb: '/project-eth.png',
-      link: 'https://www.canva.com/design/DAHBpM14Ixg/MOJG8e3eq4kYG3b6QkzQJg/view',
-      embed: 'https://www.canva.com/design/DAHBpM14Ixg/MOJG8e3eq4kYG3b6QkzQJg/view?embed',
-      type: 'Machine Learning',
-      year: '2024',
-    },
-    {
-      title: 'Digital Marketing Optimization (Final Project Bootcamp Rakamin Academy)',
-      desc: 'Proyek ini merupakan tugas akhir dari program bootcamp di Rakamin Academy yang dilaksanakan selama satu bulan. Dalam proyek ini, tim kami menangani UMKM makanan ringan asal Yogyakarta, yaitu QPcamils. Kami bertanggung jawab untuk meningkatkan performa pemasaran digital UMKM tersebut melalui optimalisasi platform media sosial seperti Instagram serta pengelolaan iklan berbayar menggunakan Meta Ads, dengan tujuan meningkatkan brand awareness dan penjualan.',
-      tech: ['Meta Ads', 'Market Research', 'UberSuggest'],
-      thumb: '/project-eth.png',
-      link: 'https://www.canva.com/design/DAG0JeLfc9U/Ig_gXbvZleqYHS6kvuc98A/view',
-      embed: 'https://www.canva.com/design/DAG0JeLfc9U/Ig_gXbvZleqYHS6kvuc98A/view?embed',
-      type: 'Digital Marketing',
-      year: '2024',
-    },
-    {
-      title: 'Library Management System using SQL',
-      desc: 'Proyek Library Management System berfokus pada implementasi database perpustakaan menggunakan SQL. Proyek ini mencakup perancangan dan pengelolaan tabel, penerapan operasi CRUD, penggunaan CTAS untuk membangun tabel turunan, serta penulisan query SQL tingkat lanjut untuk analisis. Tujuan utamanya adalah membangun sistem database yang terstruktur dan efisien, mengelola data perpustakaan secara optimal, serta menghasilkan laporan analitis—seperti pelacakan keterlambatan pengembalian buku, identifikasi anggota berisiko tinggi, pengukuran kinerja, dan penyusunan laporan untuk mendukung pengambilan keputusan.',
-      tech: ['SQL', ' Github'],
-      link: 'https://www.canva.com/design/DAHBppAhiEE/oT-YohLjUvRN0W_JYTPA8A/view',
-      embed: 'https://www.canva.com/design/DAHBppAhiEE/oT-YohLjUvRN0W_JYTPA8A/view?embed',
-      type: '',
-      year: '2024',
-    },
-    {
-      title: 'Retail Sales Analysis - SQL Project',
-      desc: 'Proyek Retail Sales Analysis berfokus pada penerapan SQL untuk membangun database penjualan ritel, melakukan pembersihan data, exploratory data analysis (EDA), serta menghasilkan insight bisnis. Melalui analisis data transaksi—meliputi tanggal, demografi pelanggan, kategori produk, jumlah pembelian, dan total penjualan—proyek ini menunjukkan kemampuan dalam pengelolaan data dan pemanfaatan query SQL untuk mendukung pengambilan keputusan berbasis data.',
-      tech: ['SQL', ' Github'],
-      link: 'https://www.canva.com/design/DAHBpumK024/VNtEVeEGU29Ov-OtkyUFrA/view',
-      embed: 'https://www.canva.com/design/DAHBpumK024/VNtEVeEGU29Ov-OtkyUFrA/view?embed',
-      type: '',
-      year: '2024',
-    },
-    {
-      title: 'Interactive Sales Dashboard with Power Pivot: Sales Data Analysis for Business Decision-Making',
-      desc: 'Proyek ini berfokus pada pengembangan dashboard penjualan interaktif menggunakan Power Pivot di Microsoft Excel untuk memvisualisasikan dan menganalisis data penjualan. Dashboard ini dirancang guna mendukung pengambilan keputusan yang lebih efektif, mengoptimalkan strategi penjualan, serta mengidentifikasi peluang bisnis utama. Dibangun dengan Power Pivot dan DAX untuk pengelolaan serta pemodelan data, dashboard dilengkapi dengan grafik dinamis, pivot table, dan slicer sehingga memungkinkan analisis data yang lebih fleksibel dan mudah dipahami.',
-      tech: ['Microsoft Excel', 'Pivot'],
-      link: 'https://www.canva.com/design/DAHBpq_xClI/9GXDkIQqtwLdN5t-YkIMkg/view',
-      embed: 'https://www.canva.com/design/DAHBpq_xClI/9GXDkIQqtwLdN5t-YkIMkg/view?embed',
-      type: '',
-      year: '2024',
-    },
-    {
-      title: 'Banking IT Infrastructure Monitoring Dashboard',
-      desc: 'Dashboard ini merupakan proyek dummy yang dibuat untuk keperluan portofolio. Data yang digunakan telah dimodifikasi dan dianonimkan sehingga menyerupai data operasional nyata tanpa mengungkapkan informasi sensitif atau rahasia. Demi menjaga kerahasiaan data, proyek ini hanya menampilkan preview dashboard tanpa memperlihatkan tampilan detail secara penuh.',
-      tech: ['Power BI', 'Excel', 'DAX'],
-      link: 'https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view',
-      embed: 'https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view?embed',
-      type: '',
-      year: '2024',
-    },
-  ],
-  certificates: [
-    { title: 'Certificate A', issuer: 'Platform' },
-    { title: 'Certificate B', issuer: 'Platform' },
-  ],
-  contact: {
-    email: 'ayyasiasraf@email.com',
-
-    linkedin: {
-      url: 'https://www.linkedin.com/in/asrafayyasi/',
-      label: 'Asraf Ayyasi Putra',
-    },
-
-    whatsapp: {
-      number: '08xxxxxxxxxx',
-      label: 'Chat WhatsApp',
-    },
-
-    instagram: {
-      url: 'https://instagram.com/asrafayyasii_',
-      label: '@asrafayyasii_',
-    },
-
-    github: {
-      url: 'https://github.com/asrafayyasi',
-      label: 'asrafayyasi',
-    },
-
-    photo: '/3.jpeg',
-  },
-
-  skillsSection: {
-    kicker: 'KEAHLIAAN',
-    title: 'Skill & Pelatihan',
-    hard: [
-      'SQL',
-      'Python (Pandas, NumPy)',
-      'Power BI',
-      'Tableau',
-      'Looker Studio',
-      'Machine Learning',
-      'Deep Learning',
-      'Excel (Pivot, Lookup, VBA)',
-      'Data Cleaning',
-      'Data Entry',
-      'EDA',
-      'Data Visualization',
-      'Digital Marketing',
-      'SEO',
-      'Market Research',
-      'Meta Ads',
-      'Microsoft (Word, Excel, dan Power Point',
-      'Campaign Reporting',
-      'Strategic Planning',
-    ],
-    soft: ['Berpikir Analitis', 'Pemecahan Masalah', 'Komunikasi', 'Manajemen Waktu', 'Ketelitian', 'Kerja Sama Tim'],
-    trainings: [
-      { name: 'Digital Marketing', org: 'Rakamin Academy', year: '2025' },
-      { name: 'Machine Learning', org: 'Bangkit Academy', year: '2024' },
-      { name: 'TOEFL Prediction', org: 'Golden English', year: '2025' },
-    ],
-  },
-
-  orgSection: {
-    kicker: 'KEPEMIMPINAN',
-    title: 'Pengalaman Organisasi',
-    items: [
-      {
-        title: 'KKN-Belajar Bersama Komunitas ',
-        role: 'Staff KKN',
-        period: '2024',
-        image: '/kkn.jpeg', // taruh di public/
-        bullets: [
-          'Melaksanakan program pemberdayaan masyarakat bersama komunitas setempat.',
-          'Terjun langsung mengajar dan mendampingi kegiatan belajar di Sekolah Dasar Desa Balongtunjung.',
-          'Berpartisipasi aktif dalam kegiatan sosial dan agenda kemasyarakatan desa.',
+        title:
+          "Vehicle Object Detection and Traffic Accident Classification Using Convolutional Neural Network",
+        desc: "Development of a vehicle object detection model using YOLOv9 combined with the SMA Algorithm and ByteTrack to detect anomalies and classify road events as accidents or non-accidents.",
+        tech: [
+          "Python",
+          "TensorFlow",
+          "CNN",
+          "YOLOv9",
+          "MobileNetv2",
+          "SMA Algorithm",
+          "Object Tracking",
+          "ByteTrack",
         ],
+        thumb: "/projectdl.jpg",
+        link: "https://www.canva.com/design/DAGerHm8eRs/IWuM7fsHu6SNUDI-js5BVg/edit?utm_content=DAGerHm8eRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+        highlights: ["Computer Vision", "Deep Learning", "Actionable insights"],
+        type: "Deep Learning",
+        embed:
+          "https://www.canva.com/design/DAGerHm8eRs/IWuM7fsHu6SNUDI-js5BVg/edit?embed_content=DAGerHm8eRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       },
       {
-        title: 'UKM Sepakbola Universitas Airlangga',
-        role: 'Team Member',
-        period: '2021-2025',
-        image: '/ukm.jpeg', // taruh di public/
-        bullets: ['Juara 1 SuperSoccer Futsal Championsip Regional Surabaya', 'Juara 4 SuperSoccer Futsal Championsip Nasional', 'Berpartisipasi di Tournament Sepakbola UGMFC'],
-      },
-      {
-        title: 'Kompetisi Dekan Fakultas Sains dan Teknologi ',
-        role: 'Koordinator Futsal',
-        period: '2023',
-        image: '/decup2.jpeg', // taruh di public/
-        bullets: [
-          'Mengelola tim untuk memastikan kelancaran pertandingan',
-          'Menjadwalkan dan mengawasi lebih dari 10 sesi pertandingan agar kompetisi berjalan lancar dan tepat waktu',
-          'Menyusun laporan evaluasi kegiatan pertandingan sebagai dokumentasi dan dasar perbaikan program di masa depan',
+        title:
+          "Vehicle Object Detection and Traffic Accident Classification Using Convolutional Neural Network",
+        desc: "Development of a vehicle object detection model using YOLOv9 combined with the SMA Algorithm and ByteTrack to detect anomalies and classify road events as accidents or non-accidents.",
+        tech: [
+          "Python",
+          "TensorFlow",
+          "CNN",
+          "YOLOv9",
+          "MobileNetv2",
+          "SMA Algorithm",
+          "Object Tracking",
+          "ByteTrack",
         ],
+        thumb: "/projectdl.jpg",
+        link: "https://www.canva.com/design/DAHBpPSSRG4/P2E_wVhBwXs4NzjaGwYj7g/view",
+        highlights: ["Computer Vision", "Deep Learning", "Actionable insights"],
+        type: "Deep Learning",
+        embed: "https://www.canva.com/design/DAHBpPSSRG4/P2E_wVhBwXs4NzjaGwYj7g/view?embed",
       },
       {
-        title: 'Himpunan Mahasiswa Sistem Informasi',
-        role: 'Staff Seni dan Olahraga',
-        period: '2022',
-        image: '/himsi.jpeg', // taruh di public/
-        bullets: [
-          'Berpartisipasi dalam perencanaan dan pelaksanaan lebih dari 5 program olahraga dan seni.',
-          'Menyusun laporan evaluasi kegiatan olahraga.',
-          'Bertanggung jawab dalam proses seleksi dan pembinaan delegasi untuk ajang Dekan Cup.',
-        ],
+        title: "Analyse HR Data Using Python",
+        desc: "This analysis explores and examines employee data from a multinational company to identify key workforce trends. Through data preparation, cleaning, and exploratory data analysis, the study generates insights related to employee distribution, turnover, performance, work modes, and compensation to support strategic HR decisions such as improving retention, evaluating performance, and designing a competitive salary structure.",
+        tech: ["Python", "Google Colab", "Kaggle", "Pandas", "Matplotlib", "Seaborn", "Numpy"],
+        thumb: "/project_hr_analyst.png",
+        link: "https://www.canva.com/design/DAGxPtvqPCc/jJqeedxAjb5QzlJQoPXkEg/view",
+        type: "EDA",
+        embed: "https://www.canva.com/design/DAGxPtvqPCc/jJqeedxAjb5QzlJQoPXkEg/view?embed",
+        year: "2024",
       },
       {
-        title: 'Festival Sistem Informasi',
-        role: 'Staff Inventory',
-        period: '2022',
-        image: '/infest.jpeg', // taruh di public/
-        bullets: [
-          'Mendukung kelancaran pelaksanaan acara dengan memastikan seluruh kebutuhan teknis dan perlengkapan tersedia',
-          'Mengelola data hasil kegiatan dengan tertib dan akurat, termasuk proses dokumentasi dan penyimpanan data',
-          'Mengkoordinasikan persiapan peralatan yang dibutuhkan untuk mendukung acara',
-        ],
+        title: "Teman Tani (Bangkit Academy Capstone Project by Google, GoTo, Traveloka)",
+        desc: "This project focuses on developing a machine learning-based rice plant disease detection application to help farmers identify symptoms early and reduce the risk of crop failure. The application was developed across three main areas: Machine Learning, Cloud Computing, and Mobile Development. My role was in Machine Learning, where I trained an image classification model using the MobileNetV2 architecture and implemented it through a Flask-based API.",
+        tech: ["Python", "TensorFlow", "MobileNetv2", "Flask API"],
+        thumb: "/project-eth.png",
+        link: "https://www.canva.com/design/DAHBpM14Ixg/MOJG8e3eq4kYG3b6QkzQJg/view",
+        embed: "https://www.canva.com/design/DAHBpM14Ixg/MOJG8e3eq4kYG3b6QkzQJg/view?embed",
+        type: "Machine Learning",
+        year: "2024",
       },
       {
-        title: 'Kompetisi Dekan Fakultas Sains dan Teknologi',
-        role: 'Staff Ahli Futsal',
-        period: '2022',
-        image: '/decup1.jpeg', // taruh di public/
-        bullets: ['Berkoordinasi dengan Koordinator Futsal untuk mendukung kelancaran acara.', 'Menyusun Jadwal dan sistem pertandingan dengan koordinator dan staff lainnya.'],
+        title: "Digital Marketing Optimization (Rakamin Academy Bootcamp Final Project)",
+        desc: "This project was the final assignment of a one-month bootcamp at Rakamin Academy. In this project, our team worked with a snack MSME from Yogyakarta, QPcamils. We were responsible for improving the MSME’s digital marketing performance through optimization of social media platforms such as Instagram and paid advertising using Meta Ads, with the goal of increasing brand awareness and sales.",
+        tech: ["Meta Ads", "Market Research", "UberSuggest"],
+        thumb: "/project-eth.png",
+        link: "https://www.canva.com/design/DAG0JeLfc9U/Ig_gXbvZleqYHS6kvuc98A/view",
+        embed: "https://www.canva.com/design/DAG0JeLfc9U/Ig_gXbvZleqYHS6kvuc98A/view?embed",
+        type: "Digital Marketing",
+        year: "2024",
+      },
+      {
+        title: "Library Management System using SQL",
+        desc: "The Library Management System project focuses on implementing a library database using SQL. It includes table design and management, CRUD operations, the use of CTAS to build derived tables, and advanced SQL queries for analysis. The main objective is to build a structured and efficient database system, manage library data optimally, and produce analytical reports—such as tracking overdue returns, identifying high-risk members, measuring performance, and preparing reports to support decision-making.",
+        tech: ["SQL", "Github"],
+        link: "https://www.canva.com/design/DAHBppAhiEE/oT-YohLjUvRN0W_JYTPA8A/view",
+        embed: "https://www.canva.com/design/DAHBppAhiEE/oT-YohLjUvRN0W_JYTPA8A/view?embed",
+        type: "",
+        year: "2024",
+      },
+      {
+        title: "Retail Sales Analysis - SQL Project",
+        desc: "The Retail Sales Analysis project focuses on using SQL to build a retail sales database, perform data cleaning, exploratory data analysis (EDA), and generate business insights. Through transaction data analysis—including dates, customer demographics, product categories, purchase quantities, and total sales—this project demonstrates the ability to manage data and use SQL queries to support data-driven decision-making.",
+        tech: ["SQL", "Github"],
+        link: "https://www.canva.com/design/DAHBpumK024/VNtEVeEGU29Ov-OtkyUFrA/view",
+        embed: "https://www.canva.com/design/DAHBpumK024/VNtEVeEGU29Ov-OtkyUFrA/view?embed",
+        type: "",
+        year: "2024",
+      },
+      {
+        title:
+          "Interactive Sales Dashboard with Power Pivot: Sales Data Analysis for Business Decision-Making",
+        desc: "This project focuses on developing an interactive sales dashboard using Power Pivot in Microsoft Excel to visualize and analyze sales data. The dashboard is designed to support more effective decision-making, optimize sales strategies, and identify key business opportunities. Built with Power Pivot and DAX for data management and modeling, the dashboard includes dynamic charts, pivot tables, and slicers, enabling more flexible and easy-to-understand analysis.",
+        tech: ["Microsoft Excel", "Pivot"],
+        link: "https://www.canva.com/design/DAHBpq_xClI/9GXDkIQqtwLdN5t-YkIMkg/view",
+        embed: "https://www.canva.com/design/DAHBpq_xClI/9GXDkIQqtwLdN5t-YkIMkg/view?embed",
+        type: "",
+        year: "2024",
+      },
+      {
+        title: "Banking IT Infrastructure Monitoring Dashboard",
+        desc: "This dashboard is a dummy project created for portfolio purposes. The data used has been modified and anonymized to resemble real operational data without revealing any sensitive or confidential information. To maintain data confidentiality, this project only displays a dashboard preview without showing the full detailed view.",
+        tech: ["Power BI", "Excel", "DAX"],
+        link: "https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view",
+        embed: "https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view?embed",
+        type: "",
+        year: "2024",
       },
     ],
+
+    contact: {
+      email: "ayyasiasraf@email.com",
+      linkedin: {
+        url: "https://www.linkedin.com/in/asrafayyasi/",
+        label: "Asraf Ayyasi Putra",
+      },
+      whatsapp: {
+        number: "08xxxxxxxxxx",
+        label: "Chat on WhatsApp",
+      },
+      instagram: {
+        url: "https://instagram.com/asrafayyasii_",
+        label: "@asrafayyasii_",
+      },
+      github: {
+        url: "https://github.com/asrafayyasi",
+        label: "asrafayyasi",
+      },
+      photo: "/3.jpeg",
+    },
+
+    skillsSection: {
+      kicker: "SKILLS",
+      title: "Skills & Training",
+      subtitle:
+        "Core tools, soft skills, and training that support my day-to-day work.",
+      hard: [
+        "SQL",
+        "Python (Pandas, NumPy)",
+        "Power BI",
+        "Tableau",
+        "Looker Studio",
+        "Machine Learning",
+        "Deep Learning",
+        "Excel (Pivot, Lookup, VBA)",
+        "Data Cleaning",
+        "Data Entry",
+        "EDA",
+        "Data Visualization",
+        "Digital Marketing",
+        "SEO",
+        "Market Research",
+        "Meta Ads",
+        "Microsoft Office (Word, Excel, and PowerPoint)",
+        "Campaign Reporting",
+        "Strategic Planning",
+      ],
+      soft: [
+        "Analytical Thinking",
+        "Problem Solving",
+        "Communication",
+        "Time Management",
+        "Attention to Detail",
+        "Teamwork",
+      ],
+      trainings: [
+        { name: "Digital Marketing", org: "Rakamin Academy", year: "2025" },
+        { name: "Machine Learning", org: "Bangkit Academy", year: "2024" },
+        { name: "TOEFL Prediction", org: "Golden English", year: "2025" },
+      ],
+    },
+
+    orgSection: {
+      kicker: "LEADERSHIP",
+      title: "Organizational Experience",
+      subtitle:
+        "My leadership roles and contributions in organizations and activities.",
+      items: [
+        {
+          title: "Community Service Program - Learning with the Community",
+          role: "KKN Staff",
+          period: "2024",
+          image: "/kkn.jpeg",
+          bullets: [
+            "Implemented community empowerment programs alongside the local community.",
+            "Directly taught and assisted learning activities at Balongtunjung Village Elementary School.",
+            "Actively participated in social activities and village community programs.",
+          ],
+        },
+        {
+          title: "Universitas Airlangga Football Club",
+          role: "Team Member",
+          period: "2021-2025",
+          image: "/ukm.jpeg",
+          bullets: [
+            "1st Place, SuperSoccer Futsal Championship Regional Surabaya",
+            "4th Place, SuperSoccer Futsal Championship National",
+            "Participated in the UGMFC Football Tournament",
+          ],
+        },
+        {
+          title: "Dean Cup, Faculty of Science and Technology",
+          role: "Futsal Coordinator",
+          period: "2023",
+          image: "/decup2.jpeg",
+          bullets: [
+            "Managed the team to ensure the smooth execution of matches.",
+            "Scheduled and supervised more than 10 match sessions to keep the competition running smoothly and on time.",
+            "Prepared activity evaluation reports for documentation and as a basis for future program improvement.",
+          ],
+        },
+        {
+          title: "Information Systems Student Association",
+          role: "Arts and Sports Staff",
+          period: "2022",
+          image: "/himsi.jpeg",
+          bullets: [
+            "Participated in planning and executing more than 5 sports and arts programs.",
+            "Prepared evaluation reports for sports activities.",
+            "Handled the selection and development process of delegates for the Dean Cup.",
+          ],
+        },
+        {
+          title: "Information Systems Festival",
+          role: "Inventory Staff",
+          period: "2022",
+          image: "/infest.jpeg",
+          bullets: [
+            "Supported the smooth execution of the event by ensuring all technical needs and equipment were available.",
+            "Managed activity data in an organized and accurate manner, including documentation and data storage.",
+            "Coordinated the preparation of equipment needed to support the event.",
+          ],
+        },
+        {
+          title: "Dean Cup, Faculty of Science and Technology",
+          role: "Expert Staff - Futsal",
+          period: "2022",
+          image: "/decup1.jpeg",
+          bullets: [
+            "Coordinated with the Futsal Coordinator to support the smooth execution of the event.",
+            "Prepared match schedules and competition systems with the coordinator and other staff members.",
+          ],
+        },
+      ],
+    },
+
+    certSection: {
+      kicker: "CREDENTIALS",
+      title: "Certificates",
+      subtitle:
+        "Selected certificates that support my competencies and experience.",
+      featured: [
+        {
+          title: "Machine Learning",
+          issuer: "Bangkit Academy by Google, GoTo & Traveloka",
+          year: "2024",
+          desc: "Completed the Machine Learning Learning Path at Bangkit Academy by Google, GoTo, and Traveloka with more than 300 hours of intensive study, lab practice, and AI/ML projects involving Python, TensorFlow, and mathematics for data science. Built an end-to-end Machine Learning Capstone project to solve real-world problems while strengthening soft skills such as communication, collaboration, and time management in a multidisciplinary team.",
+          logo: "/icons/Logo_Bangkit.png",
+          link: "https://drive.google.com/file/d/1GH77wlkxNz_P_Gqkjz3TZXKFRw78OMI9/view?usp=drive_link",
+        },
+        {
+          title: "Digital Marketing Fullstack",
+          issuer: "Rakamin Academy",
+          year: "2025",
+          desc: "Completed the Digital Marketing Bootcamp at Rakamin Academy, covering end-to-end digital marketing strategy, from SEO, SEM, and Social Media Marketing to Google Ads and Meta Ads management based on data. As the final project, managed an MSME for one month by developing strategies, analyzing campaign performance and customer journey, and optimizing content and marketplace presence to improve marketing results.",
+          logo: "/icons/Logo_Rakamin.png",
+          link: "https://drive.google.com/file/d/1GVGeUQ1e174x88N9561rgaGZtZ0Ks5MZ/view?usp=drive_link",
+        },
+      ],
+      micro: [
+        {
+          title: "Mathematics for Machine Learning and Data Science Specialization",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/specialization/P75HKNC9XTYN",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Calculus for Machine Learning and Data Science",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/SBWS67BY6M7T",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Linear Algebra for Machine Learning and Data Science",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/MY7GBHFQD5WB",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Probability & Statistics for Machine Learning & Data Science",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/LR82Y4AVA3ZS",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Process Data from Dirty to Clean",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/TPEHB3J78JRW",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Analyze Data to Answer Questions",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/6J5YHRJLNS3B",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Crash Course on Python",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/2BRMYMJ4YY65",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Share Data Through the Art of Visualization",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/PKXKHP28CG7G",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Using Python to Interact with the Operating System",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/PZ6CQTNXVWX9",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Introduction to Git and GitHub",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/MK8VL855WFUZ",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Getting Started with Microsoft Excel",
+          issuer: "Coursera (Google)",
+          year: "2023",
+          link: "https://www.coursera.org/account/accomplishments/verify/ZX4BTMCDW576?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=project",
+          icon: "/icons/coursera.svg",
+        },
+      ],
+    },
+
+    workSection: {
+      kicker: "PROFESSIONAL",
+      title: "Work Experience",
+      subtitle:
+        "A summary of my roles, responsibilities, and the impact I delivered.",
+      items: [
+        {
+          role: "Data Analyst",
+          company: "PT Bank Rakyat Indonesia Tbk",
+          location: "Jakarta, Indonesia",
+          period: "December 2025 - Present",
+          type: "Internship",
+          logo: "/icons/Logo_BRI.png",
+          link: "https://bri.co.id/",
+          bullets: [
+            "Prepared a monthly operational health bulletin for Compute infrastructure (QAC), covering Change Management, Incident Management, Asset Lifecycle, VM SLA, and OS Obsolescence.",
+            "Identified critical assets, EOS risks, provisioning bottlenecks, and VMs with extreme uptime, along with recommendations.",
+            "Presented data through visualizations and executive insights to support management decision-making and improve IT operational governance.",
+          ],
+          tools: ["Excel", "Tableau", "Google Slides", "Python"],
+        },
+        {
+          role: "Marketing Outreach",
+          company: "LifeVitae x Rakamin Academy",
+          location: "Online",
+          period: "November 2025 - December 2025",
+          type: "Project-Based Virtual",
+          logo: "/icons/Logo_Lifevitae.png",
+          link: "https://lifevitae.co/",
+          bullets: [
+            "Analyzed marketing trends and developed relevant outreach strategies.",
+            "Identified and selected potential webinar speakers based on trending topics.",
+            "Initiated and proposed partnership opportunities with companies for weekly webinars.",
+          ],
+          tools: ["Strategic Planning", "Market Research"],
+        },
+        {
+          role: "Recovery Analyst",
+          company: "PT Mandiri Tunas Finance",
+          location: "Jakarta, Indonesia",
+          period: "September 2025 - December 2025",
+          type: "Internship",
+          logo: "/icons/Logo_MTF.jpg",
+          link: "https://www.mtf.co.id/",
+          bullets: [
+            "Recapped more than 50 auction units per day, validated data, and prepared daily recovery achievement reports for Recovery Monitoring.",
+            "Built a pipeline to be filled in by each recovery area.",
+            "Analyzed vendor data and managed vendor takeout processes by recapping 20 to 40 agreements per batch while coordinating with IT.",
+            "Prepared and updated weekly and monthly strategic presentation materials for the Department Head, used in reports to the BOD.",
+          ],
+          tools: ["SQL", "Excel", "Python"],
+        },
+        {
+          role: "Office Administrator",
+          company: "Percetakan dan Fotocopy Sukses Abadi",
+          location: "Pekanbaru, Indonesia",
+          period: "April 2025 - July 2025",
+          type: "Internship",
+          logo: "/icons/Logo_SA.webp",
+          link: "https://suksesabadipku.com/",
+          bullets: [
+            "Served 30 customers per day.",
+            "Operated printers and photocopy machines.",
+            "Handled office administration.",
+          ],
+          tools: ["Excel", "Word"],
+        },
+      ],
+    },
   },
 
-  certSection: {
-    kicker: 'KREDENSIAL',
-    title: 'Sertifikat',
-    subtitle: 'Sertifikat pilihan yang mendukung kompetensi dan pengalaman saya.',
-    featured: [
+  id: {
+    name: "ASRAF AYYASI PUTRA",
+    title: "Data & Digital Marketing Enthusiast",
+    quote:
+      "“Most of the world will make decisions by either guessing or using their gut. They will be either lucky or wrong.”",
+
+    cta: {
+      portfolio: "#proyek",
+      cv: "https://docs.google.com/document/d/1U8DgaPPsy6aNBMZnfkhqcISmF1kmy9DhJ42XfRCmxc0/edit?usp=sharing",
+      contact: "#kontak",
+    },
+
+    labels: {
+      navHome: "Beranda",
+      navAbout: "Tentang",
+      navSkills: "Keahlian",
+      navExperience: "Pengalaman",
+      navProjects: "Proyek",
+      navCertificates: "Sertifikat",
+      navContact: "Kontak",
+      downloadCv: "Unduh CV",
+
+      letsConnect: "Mari Terhubung",
+      checkMyWork: "Lihat Karya Saya",
+      scroll: "SCROLL",
+
+      education: "PENDIDIKAN",
+      thesis: "Skripsi",
+
+      coreSkills: "Keahlian Utama",
+      softSkills: "Soft Skills",
+      coursesTraining: "Kursus & Pelatihan",
+      viewCertificates: "Lihat Sertifikat ↗",
+      items: "item",
+
+      portfolioKicker: "PORTOFOLIO",
+      featuredProjects: "Proyek Pilihan",
+      projectsSubtitle:
+        "Kumpulan proyek data yang menonjolkan proses berpikir, analisis, dan impact.",
+      open: "Buka ↗",
+      previewUnavailable: "Preview tidak tersedia",
+
+      otherCertificates: "Sertifikat Lainnya",
+
+      contactKicker: "HUBUNGI SAYA",
+      contactTitle: "Kontak",
+      contactSubtitle:
+        "Terbuka untuk kolaborasi, project, atau diskusi singkat.",
+      availableForCollab: "Tersedia untuk kolaborasi",
+      connectTitle: "Mari Terhubung",
+      connectSubtitle:
+        "Pilih channel yang paling nyaman. (Email untuk urusan formal)",
+
+      email: "EMAIL",
+      linkedin: "LINKEDIN",
+      whatsapp: "WHATSAPP",
+      instagram: "INSTAGRAM",
+
+      footerLinkedin: "LinkedIn",
+      footerGithub: "Github",
+      footerEmail: "Email",
+
+      morePoints: "poin lainnya",
+    },
+
+    about: {
+      text: "Tulis underline tentang kamu (1 paragraf). Fokus di skill data: SQL, Excel, Python, dashboard, dsb.",
+      skills: [
+        "Algoritma dan Pemrograman",
+        "Basis Data",
+        "Analisis dan Visualisasi Data",
+        "Machine Learning",
+        "Computer Vision",
+        "Analisis Data Bisnis",
+        "Data Mining",
+        "Statistika",
+      ],
+      kicker: "TENTANG SAYA",
+      headline: "Insight-Driven Data Analyst (Marketing & Business)",
+      summary:
+        "Memiliki pengalaman di bidang data analyst, data science, dan digital marketing melalui kegiatan akademik, program magang, studi independent dan bootcamp. Terampil dalam pengolahan data, analisis data, visualisasi data, pembelajaran mesin dan pemasaran digital. Aktif terlibat dalam organisasi dan beberapa kepanitiaan mahasiswa sebagai bentuk kontribusi sekaligus untuk mengembangkan kemampuan kepemimpinan, pemecahan masalah, dan komunikasi. Merupakan individu yang berorientasi pada proses dan hasil, serta siap berkontribusi di lingkungan profesional manapun",
+      meta: [
+        { label: "Lokasi", value: "Jakarta, Indonesia" },
+        { label: "Role", value: "Data Analyst" },
+        { label: "Availability", value: "Open to work" },
+      ],
+      timeline: [
+        {
+          title: "Pendidikan",
+          place: "Universitas Airlangga",
+          desc: "S1 - Sistem Informasi",
+          thesis:
+            "Deteksi Objek Kendaraan dan Klasifikasi Kecelakaan Menggunakan Convolutional Neural Network",
+          year: "2021 - 2025",
+        },
+        {
+          title: "Pengalaman",
+          place: "BRI / …",
+          desc: "Operational reporting, risk insight, data cleanup",
+          year: "2024–Sekarang",
+        },
+      ],
+    },
+
+    projects: [
       {
-        title: 'Machine Learning',
-        issuer: 'Bangkit Academy by Google, Goto & Traveloka',
-        year: '2024',
-        desc: 'Mengikuti Machine Learning Learning Path di Bangkit Academy yang diselenggarakan oleh Google, GoTo, dan Traveloka dengan menyelesaikan 300+ jam pembelajaran intensif, praktik laboratorium, dan proyek berbasis AI/ML, Python, TensorFlow, serta matematika untuk data science. Mengembangkan proyek Capstone Machine Learning end-to-end untuk menyelesaikan permasalahan nyata sekaligus memperkuat soft skills seperti komunikasi, kolaborasi, dan manajemen waktu dalam tim multidisiplin.',
-        logo: '/icons/Logo_Bangkit.png', // taruh di public/logos/
-        link: 'https://drive.google.com/file/d/1GH77wlkxNz_P_Gqkjz3TZXKFRw78OMI9/view?usp=drive_link', // link sertifikat
+        title:
+          "Vehicle Object Detection and Traffic Accident Classification Using Convolutional Neural Network",
+        desc: "Pengembangan model deteksi objek kendaraan menggunakan YOLOv9 dan dikombinasikan dengan Algoritma SMA dan ByteTrack untuk mendeteksi anomali, serta mengklasifikasikan suatu kejadian di jalan raya apakah termasuk kecelakaan atau bukan.",
+        tech: [
+          "Python",
+          "TensorFlow",
+          "CNN",
+          "YOLOv9",
+          "MobileNetv2",
+          "Algoritma SMA",
+          "Object Tracking",
+          "ByteTrack ",
+        ],
+        thumb: "/projectdl.jpg",
+        link: "https://www.canva.com/design/DAGerHm8eRs/IWuM7fsHu6SNUDI-js5BVg/edit?utm_content=DAGerHm8eRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+        highlights: ["Computer Vision", "Deep Learning", "Actionable insights"],
+        type: "Deep Learning",
+        embed:
+          "https://www.canva.com/design/DAGerHm8eRs/IWuM7fsHu6SNUDI-js5BVg/edit?embed_content=DAGerHm8eRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       },
       {
-        title: 'Digital Marketing Fullstack',
-        issuer: 'Rakamin Academy',
-        year: '2025',
-        desc: 'Mengikuti Bootcamp Digital Marketing di Rakamin Academy dengan mempelajari end-to-end digital marketing strategy, mulai dari SEO, SEM, Social Media Marketing, hingga pengelolaan Google Ads dan Meta Ads berbasis data. Sebagai proyek akhir, mengelola UMKM selama 1 bulan dengan menyusun strategi, menganalisis performa kampanye dan customer journey, serta mengoptimalkan konten dan marketplace untuk meningkatkan hasil pemasaran.',
-        logo: '/icons/Logo_Rakamin.png',
-        link: 'https://drive.google.com/file/d/1GVGeUQ1e174x88N9561rgaGZtZ0Ks5MZ/view?usp=drive_link',
+        title:
+          "Vehicle Object Detection and Traffic Accident Classification Using Convolutional Neural Network",
+        desc: "Pengembangan model deteksi objek kendaraan menggunakan YOLOv9 dan dikombinasikan dengan Algoritma SMA dan ByteTrack untuk mendeteksi anomali, serta mengklasifikasikan suatu kejadian di jalan raya apakah termasuk kecelakaan atau bukan.",
+        tech: [
+          "Python",
+          "TensorFlow",
+          "CNN",
+          "YOLOv9",
+          "MobileNetv2",
+          "Algoritma SMA",
+          "Object Tracking",
+          "ByteTrack ",
+        ],
+        thumb: "/projectdl.jpg",
+        link: "https://www.canva.com/design/DAHBpPSSRG4/P2E_wVhBwXs4NzjaGwYj7g/view",
+        highlights: ["Computer Vision", "Deep Learning", "Actionable insights"],
+        type: "Deep Learning",
+        embed: "https://www.canva.com/design/DAHBpPSSRG4/P2E_wVhBwXs4NzjaGwYj7g/view?embed",
+      },
+      {
+        title: "Analyse HR Data Using Python",
+        desc: "Analisis ini bertujuan mengeksplorasi dan memahami data karyawan perusahaan multinasional untuk mengidentifikasi tren utama tenaga kerja. Melalui proses persiapan, pembersihan, dan analisis data eksploratori, studi ini menghasilkan wawasan terkait distribusi karyawan, turnover, kinerja, mode kerja, dan kompensasi guna mendukung pengambilan keputusan strategis HR seperti peningkatan retensi, evaluasi kinerja, dan penyusunan struktur gaji yang kompetitif.",
+        tech: ["Python", "Google Colab", "Kaggle", "Pandas", "Matplotlib", "Seaborn", "Numpy"],
+        thumb: "/project_hr_analyst.png",
+        link: "https://www.canva.com/design/DAGxPtvqPCc/jJqeedxAjb5QzlJQoPXkEg/view",
+        type: "EDA",
+        embed: "https://www.canva.com/design/DAGxPtvqPCc/jJqeedxAjb5QzlJQoPXkEg/view?embed",
+        year: "2024",
+      },
+      {
+        title: "Teman Tani (Capstone Project Bangkit Academy by Google, GoTo, Traveloka)",
+        desc: "Penelitian ini berfokus pada pengembangan aplikasi deteksi penyakit tanaman padi berbasis machine learning untuk membantu petani mengidentifikasi gejala penyakit secara dini dan mengurangi risiko gagal panen. Aplikasi dikembangkan dalam tiga bidang utama: Machine Learning, Cloud Computing, dan Mobile Development.Peran saya berada pada bidang Machine Learning, yaitu melatih model klasifikasi gambar menggunakan arsitektur MobileNetV2 serta mengimplementasikannya melalui API berbasis Flask.",
+        tech: ["Python", "TensorFlow", "MobileNetv2", "Flask API"],
+        thumb: "/project-eth.png",
+        link: "https://www.canva.com/design/DAHBpM14Ixg/MOJG8e3eq4kYG3b6QkzQJg/view",
+        embed: "https://www.canva.com/design/DAHBpM14Ixg/MOJG8e3eq4kYG3b6QkzQJg/view?embed",
+        type: "Machine Learning",
+        year: "2024",
+      },
+      {
+        title: "Digital Marketing Optimization (Final Project Bootcamp Rakamin Academy)",
+        desc: "Proyek ini merupakan tugas akhir dari program bootcamp di Rakamin Academy yang dilaksanakan selama satu bulan. Dalam proyek ini, tim kami menangani UMKM makanan ringan asal Yogyakarta, yaitu QPcamils. Kami bertanggung jawab untuk meningkatkan performa pemasaran digital UMKM tersebut melalui optimalisasi platform media sosial seperti Instagram serta pengelolaan iklan berbayar menggunakan Meta Ads, dengan tujuan meningkatkan brand awareness dan penjualan.",
+        tech: ["Meta Ads", "Market Research", "UberSuggest"],
+        thumb: "/project-eth.png",
+        link: "https://www.canva.com/design/DAG0JeLfc9U/Ig_gXbvZleqYHS6kvuc98A/view",
+        embed: "https://www.canva.com/design/DAG0JeLfc9U/Ig_gXbvZleqYHS6kvuc98A/view?embed",
+        type: "Digital Marketing",
+        year: "2024",
+      },
+      {
+        title: "Library Management System using SQL",
+        desc: "Proyek Library Management System berfokus pada implementasi database perpustakaan menggunakan SQL. Proyek ini mencakup perancangan dan pengelolaan tabel, penerapan operasi CRUD, penggunaan CTAS untuk membangun tabel turunan, serta penulisan query SQL tingkat lanjut untuk analisis. Tujuan utamanya adalah membangun sistem database yang terstruktur dan efisien, mengelola data perpustakaan secara optimal, serta menghasilkan laporan analitis—seperti pelacakan keterlambatan pengembalian buku, identifikasi anggota berisiko tinggi, pengukuran kinerja, dan penyusunan laporan untuk mendukung pengambilan keputusan.",
+        tech: ["SQL", " Github"],
+        link: "https://www.canva.com/design/DAHBppAhiEE/oT-YohLjUvRN0W_JYTPA8A/view",
+        embed: "https://www.canva.com/design/DAHBppAhiEE/oT-YohLjUvRN0W_JYTPA8A/view?embed",
+        type: "",
+        year: "2024",
+      },
+      {
+        title: "Retail Sales Analysis - SQL Project",
+        desc: "Proyek Retail Sales Analysis berfokus pada penerapan SQL untuk membangun database penjualan ritel, melakukan pembersihan data, exploratory data analysis (EDA), serta menghasilkan insight bisnis. Melalui analisis data transaksi—meliputi tanggal, demografi pelanggan, kategori produk, jumlah pembelian, dan total penjualan—proyek ini menunjukkan kemampuan dalam pengelolaan data dan pemanfaatan query SQL untuk mendukung pengambilan keputusan berbasis data.",
+        tech: ["SQL", " Github"],
+        link: "https://www.canva.com/design/DAHBpumK024/VNtEVeEGU29Ov-OtkyUFrA/view",
+        embed: "https://www.canva.com/design/DAHBpumK024/VNtEVeEGU29Ov-OtkyUFrA/view?embed",
+        type: "",
+        year: "2024",
+      },
+      {
+        title:
+          "Interactive Sales Dashboard with Power Pivot: Sales Data Analysis for Business Decision-Making",
+        desc: "Proyek ini berfokus pada pengembangan dashboard penjualan interaktif menggunakan Power Pivot di Microsoft Excel untuk memvisualisasikan dan menganalisis data penjualan. Dashboard ini dirancang guna mendukung pengambilan keputusan yang lebih efektif, mengoptimalkan strategi penjualan, serta mengidentifikasi peluang bisnis utama. Dibangun dengan Power Pivot dan DAX untuk pengelolaan serta pemodelan data, dashboard dilengkapi dengan grafik dinamis, pivot table, dan slicer sehingga memungkinkan analisis data yang lebih fleksibel dan mudah dipahami.",
+        tech: ["Microsoft Excel", "Pivot"],
+        link: "https://www.canva.com/design/DAHBpq_xClI/9GXDkIQqtwLdN5t-YkIMkg/view",
+        embed: "https://www.canva.com/design/DAHBpq_xClI/9GXDkIQqtwLdN5t-YkIMkg/view?embed",
+        type: "",
+        year: "2024",
+      },
+      {
+        title: "Banking IT Infrastructure Monitoring Dashboard",
+        desc: "Dashboard ini merupakan proyek dummy yang dibuat untuk keperluan portofolio. Data yang digunakan telah dimodifikasi dan dianonimkan sehingga menyerupai data operasional nyata tanpa mengungkapkan informasi sensitif atau rahasia. Demi menjaga kerahasiaan data, proyek ini hanya menampilkan preview dashboard tanpa memperlihatkan tampilan detail secara penuh.",
+        tech: ["Power BI", "Excel", "DAX"],
+        link: "https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view",
+        embed: "https://www.canva.com/design/DAHDmwJJe98/83qKT6DRy1Xnzd1aTU-H8Q/view?embed",
+        type: "",
+        year: "2024",
       },
     ],
-    micro: [
-      {
-        title: 'Spesialisasi Mathematics for Machine Learning and Data Science',
-        issuer: 'DeepLearning.AI',
-        year: '2024', // opsional (boleh hapus kalau gak mau)
-        link: 'https://www.coursera.org/account/accomplishments/specialization/P75HKNC9XTYN',
-        icon: '/icons/Logo_DeepLearningAI.png', // <-- icon kamu di public/icons/
+
+    contact: {
+      email: "ayyasiasraf@email.com",
+      linkedin: {
+        url: "https://www.linkedin.com/in/asrafayyasi/",
+        label: "Asraf Ayyasi Putra",
       },
-      {
-        title: 'Calculus for Machine Learning and Data Science',
-        issuer: 'DeepLearning.AI',
-        year: '2024', // opsional (boleh hapus kalau gak mau)
-        link: 'https://www.coursera.org/account/accomplishments/verify/SBWS67BY6M7T',
-        icon: '/icons/Logo_DeepLearningAI.png', // <-- icon kamu di public/icons/
+      whatsapp: {
+        number: "08xxxxxxxxxx",
+        label: "Chat WhatsApp",
       },
-      {
-        title: 'Linear Algebra for Machine Learning and Data Science',
-        issuer: 'DeepLearning.AI',
-        year: '2024', // opsional (boleh hapus kalau gak mau)
-        link: 'https://www.coursera.org/account/accomplishments/verify/MY7GBHFQD5WB',
-        icon: '/icons/Logo_DeepLearningAI.png', // <-- icon kamu di public/icons/
+      instagram: {
+        url: "https://instagram.com/asrafayyasii_",
+        label: "@asrafayyasii_",
       },
-      {
-        title: 'Probability & Statistics for Machine Learning & Data Science',
-        issuer: 'DeepLearning.AI',
-        year: '2024', // opsional (boleh hapus kalau gak mau)
-        link: 'https://www.coursera.org/account/accomplishments/verify/LR82Y4AVA3ZS',
-        icon: '/icons/Logo_DeepLearningAI.png', // <-- icon kamu di public/icons/
+      github: {
+        url: "https://github.com/asrafayyasi",
+        label: "asrafayyasi",
       },
-      {
-        title: 'Process Data from Dirty to Clean',
-        issuer: 'Coursera (Google)',
-        year: '2024',
-        link: 'https://www.coursera.org/account/accomplishments/verify/TPEHB3J78JRW',
-        icon: '/icons/coursera.svg', // <-- icon kamu di public/icons/
-      },
-      {
-        title: 'Analyze Data to Answer Questions',
-        issuer: 'Coursera (Google)',
-        year: '2024',
-        link: 'https://www.coursera.org/account/accomplishments/verify/6J5YHRJLNS3B',
-        icon: '/icons/coursera.svg', // <-- icon kamu di public/icons/
-      },
-      {
-        title: 'Crash Course on Python',
-        issuer: 'Coursera (Google)',
-        year: '2024',
-        link: 'https://www.coursera.org/account/accomplishments/verify/2BRMYMJ4YY65',
-        icon: '/icons/coursera.svg', // <-- icon kamu di public/icons/
-      },
-      {
-        title: 'Share Data Through the Art of Visualization',
-        issuer: 'Coursera (Google)',
-        year: '2024',
-        link: 'https://www.coursera.org/account/accomplishments/verify/PKXKHP28CG7G',
-        icon: '/icons/coursera.svg', // <-- icon kamu di public/icons/
-      },
-      {
-        title: 'Using Python to Interact with the Operating System',
-        issuer: 'Coursera (Google)',
-        year: '2024',
-        link: 'https://www.coursera.org/account/accomplishments/verify/PZ6CQTNXVWX9',
-        icon: '/icons/coursera.svg', // <-- icon kamu di public/icons/
-      },
-      {
-        title: 'Introduction to Git and GitHub',
-        issuer: 'Coursera (Google)',
-        year: '2024',
-        link: 'https://www.coursera.org/account/accomplishments/verify/MK8VL855WFUZ',
-        icon: '/icons/coursera.svg', // <-- icon kamu di public/icons/
-      },
-      {
-        title: 'Getting Started with Microsoft Excel',
-        issuer: 'Coursera (Google)',
-        year: '2023',
-        link: 'https://www.coursera.org/account/accomplishments/verify/ZX4BTMCDW576?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=project',
-        icon: '/icons/coursera.svg', // <-- icon kamu di public/icons/
-      },
-    ],
+      photo: "/3.jpeg",
+    },
+
+    skillsSection: {
+      kicker: "KEAHLIAAN",
+      title: "Skill & Pelatihan",
+      subtitle:
+        "Tools inti, soft skill, dan pelatihan yang mendukung pekerjaan saya sehari-hari.",
+      hard: [
+        "SQL",
+        "Python (Pandas, NumPy)",
+        "Power BI",
+        "Tableau",
+        "Looker Studio",
+        "Machine Learning",
+        "Deep Learning",
+        "Excel (Pivot, Lookup, VBA)",
+        "Data Cleaning",
+        "Data Entry",
+        "EDA",
+        "Data Visualization",
+        "Digital Marketing",
+        "SEO",
+        "Market Research",
+        "Meta Ads",
+        "Microsoft (Word, Excel, dan Power Point",
+        "Campaign Reporting",
+        "Strategic Planning",
+      ],
+      soft: [
+        "Berpikir Analitis",
+        "Pemecahan Masalah",
+        "Komunikasi",
+        "Manajemen Waktu",
+        "Ketelitian",
+        "Kerja Sama Tim",
+      ],
+      trainings: [
+        { name: "Digital Marketing", org: "Rakamin Academy", year: "2025" },
+        { name: "Machine Learning", org: "Bangkit Academy", year: "2024" },
+        { name: "TOEFL Prediction", org: "Golden English", year: "2025" },
+      ],
+    },
+
+    orgSection: {
+      kicker: "KEPEMIMPINAN",
+      title: "Pengalaman Organisasi",
+      subtitle: "Peran kepemimpinan & kontribusi saya dalam organisasi/kegiatan.",
+      items: [
+        {
+          title: "KKN-Belajar Bersama Komunitas ",
+          role: "Staff KKN",
+          period: "2024",
+          image: "/kkn.jpeg",
+          bullets: [
+            "Melaksanakan program pemberdayaan masyarakat bersama komunitas setempat.",
+            "Terjun langsung mengajar dan mendampingi kegiatan belajar di Sekolah Dasar Desa Balongtunjung.",
+            "Berpartisipasi aktif dalam kegiatan sosial dan agenda kemasyarakatan desa.",
+          ],
+        },
+        {
+          title: "UKM Sepakbola Universitas Airlangga",
+          role: "Team Member",
+          period: "2021-2025",
+          image: "/ukm.jpeg",
+          bullets: [
+            "Juara 1 SuperSoccer Futsal Championsip Regional Surabaya",
+            "Juara 4 SuperSoccer Futsal Championsip Nasional",
+            "Berpartisipasi di Tournament Sepakbola UGMFC",
+          ],
+        },
+        {
+          title: "Kompetisi Dekan Fakultas Sains dan Teknologi ",
+          role: "Koordinator Futsal",
+          period: "2023",
+          image: "/decup2.jpeg",
+          bullets: [
+            "Mengelola tim untuk memastikan kelancaran pertandingan",
+            "Menjadwalkan dan mengawasi lebih dari 10 sesi pertandingan agar kompetisi berjalan lancar dan tepat waktu",
+            "Menyusun laporan evaluasi kegiatan pertandingan sebagai dokumentasi dan dasar perbaikan program di masa depan",
+          ],
+        },
+        {
+          title: "Himpunan Mahasiswa Sistem Informasi",
+          role: "Staff Seni dan Olahraga",
+          period: "2022",
+          image: "/himsi.jpeg",
+          bullets: [
+            "Berpartisipasi dalam perencanaan dan pelaksanaan lebih dari 5 program olahraga dan seni.",
+            "Menyusun laporan evaluasi kegiatan olahraga.",
+            "Bertanggung jawab dalam proses seleksi dan pembinaan delegasi untuk ajang Dekan Cup.",
+          ],
+        },
+        {
+          title: "Festival Sistem Informasi",
+          role: "Staff Inventory",
+          period: "2022",
+          image: "/infest.jpeg",
+          bullets: [
+            "Mendukung kelancaran pelaksanaan acara dengan memastikan seluruh kebutuhan teknis dan perlengkapan tersedia",
+            "Mengelola data hasil kegiatan dengan tertib dan akurat, termasuk proses dokumentasi dan penyimpanan data",
+            "Mengkoordinasikan persiapan peralatan yang dibutuhkan untuk mendukung acara",
+          ],
+        },
+        {
+          title: "Kompetisi Dekan Fakultas Sains dan Teknologi",
+          role: "Staff Ahli Futsal",
+          period: "2022",
+          image: "/decup1.jpeg",
+          bullets: [
+            "Berkoordinasi dengan Koordinator Futsal untuk mendukung kelancaran acara.",
+            "Menyusun Jadwal dan sistem pertandingan dengan koordinator dan staff lainnya.",
+          ],
+        },
+      ],
+    },
+
+    certSection: {
+      kicker: "KREDENSIAL",
+      title: "Sertifikat",
+      subtitle:
+        "Sertifikat pilihan yang mendukung kompetensi dan pengalaman saya.",
+      featured: [
+        {
+          title: "Machine Learning",
+          issuer: "Bangkit Academy by Google, Goto & Traveloka",
+          year: "2024",
+          desc: "Mengikuti Machine Learning Learning Path di Bangkit Academy yang diselenggarakan oleh Google, GoTo, dan Traveloka dengan menyelesaikan 300+ jam pembelajaran intensif, praktik laboratorium, dan proyek berbasis AI/ML, Python, TensorFlow, serta matematika untuk data science. Mengembangkan proyek Capstone Machine Learning end-to-end untuk menyelesaikan permasalahan nyata sekaligus memperkuat soft skills seperti komunikasi, kolaborasi, dan manajemen waktu dalam tim multidisiplin.",
+          logo: "/icons/Logo_Bangkit.png",
+          link: "https://drive.google.com/file/d/1GH77wlkxNz_P_Gqkjz3TZXKFRw78OMI9/view?usp=drive_link",
+        },
+        {
+          title: "Digital Marketing Fullstack",
+          issuer: "Rakamin Academy",
+          year: "2025",
+          desc: "Mengikuti Bootcamp Digital Marketing di Rakamin Academy dengan mempelajari end-to-end digital marketing strategy, mulai dari SEO, SEM, Social Media Marketing, hingga pengelolaan Google Ads dan Meta Ads berbasis data. Sebagai proyek akhir, mengelola UMKM selama 1 bulan dengan menyusun strategi, menganalisis performa kampanye dan customer journey, serta mengoptimalkan konten dan marketplace untuk meningkatkan hasil pemasaran.",
+          logo: "/icons/Logo_Rakamin.png",
+          link: "https://drive.google.com/file/d/1GVGeUQ1e174x88N9561rgaGZtZ0Ks5MZ/view?usp=drive_link",
+        },
+      ],
+      micro: [
+        {
+          title: "Spesialisasi Mathematics for Machine Learning and Data Science",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/specialization/P75HKNC9XTYN",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Calculus for Machine Learning and Data Science",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/SBWS67BY6M7T",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Linear Algebra for Machine Learning and Data Science",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/MY7GBHFQD5WB",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Probability & Statistics for Machine Learning & Data Science",
+          issuer: "DeepLearning.AI",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/LR82Y4AVA3ZS",
+          icon: "/icons/Logo_DeepLearningAI.png",
+        },
+        {
+          title: "Process Data from Dirty to Clean",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/TPEHB3J78JRW",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Analyze Data to Answer Questions",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/6J5YHRJLNS3B",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Crash Course on Python",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/2BRMYMJ4YY65",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Share Data Through the Art of Visualization",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/PKXKHP28CG7G",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Using Python to Interact with the Operating System",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/PZ6CQTNXVWX9",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Introduction to Git and GitHub",
+          issuer: "Coursera (Google)",
+          year: "2024",
+          link: "https://www.coursera.org/account/accomplishments/verify/MK8VL855WFUZ",
+          icon: "/icons/coursera.svg",
+        },
+        {
+          title: "Getting Started with Microsoft Excel",
+          issuer: "Coursera (Google)",
+          year: "2023",
+          link: "https://www.coursera.org/account/accomplishments/verify/ZX4BTMCDW576?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=project",
+          icon: "/icons/coursera.svg",
+        },
+      ],
+    },
+
+    workSection: {
+      kicker: "PROFESIONAL",
+      title: "Pengalaman Kerja",
+      subtitle:
+        "Ringkasan peran, tanggung jawab, dan dampak yang saya hasilkan.",
+      items: [
+        {
+          role: "Data Analyst",
+          company: "PT Bank Rakyat Indonesia Tbk ",
+          location: "Jakarta, Indonesia",
+          period: "Desember 2025 - Sekarang",
+          type: "Internship",
+          logo: "/icons/Logo_BRI.png",
+          link: "https://bri.co.id/",
+          bullets: [
+            "Menyusun bulletin bulanan kesehatan operasional infrastruktur Compute (QAC) yang mencakup Change Management, Incident Management, Asset Lifecycle, SLA VM, dan OS Obsolescence.",
+            "Mengidentifikasi aset kritikal, risiko EOS, bottleneck provisioning, serta VM dengan extreme uptime, disertai rekomendasi.",
+            "Menyajikan data dalam bentuk visualisasi dan insight eksekutif untuk mendukung pengambilan keputusan manajemen dan peningkatan tata kelola operasional TI.",
+          ],
+          tools: ["Excel", "Tableau", "Google Slide", "Python"],
+        },
+        {
+          role: "Marketing Outreach",
+          company: "LifeVitae x Rakamin Academy",
+          location: "Online",
+          period: "November 2025 — Desember 2025",
+          type: "Project-Based Virtual",
+          logo: "/icons/Logo_Lifevitae.png",
+          link: "https://lifevitae.co/",
+          bullets: [
+            "Menganalisis tren pemasaran dan mengembangkan strategi outreach yang relevan.",
+            " Mengidentifikasi dan memilih pembicara webinar potensial sesuai topik yang sedang tren.",
+            "Menginisiasi dan mengusulkan peluang kemitraan dengan perusahaan untuk webinar mingguan.",
+          ],
+          tools: ["Strategic Planning", "Market Research"],
+        },
+        {
+          role: "Recovery Analyst",
+          company: "PT Mandiri Tunas Finance",
+          location: "Jakarta, Indonesia",
+          period: "September 2025 - Desember 2025",
+          type: "Internship",
+          logo: "/icons/Logo_MTF.jpg",
+          link: "https://www.mtf.co.id/",
+          bullets: [
+            "Merekap lebih dari 50 unit hasil lelang per hari, memvalidasi data, dan menyusun laporan pencapaian recovery harian untuk Monitoring Recovery.",
+            "Menyusun pipeline yang akan diisi oleh setiap area recovery.",
+            "Menganalisis data vendor dan Mengelola proses takeout vendor dengan merekap 20 sampai 40 agreement per batch dan berkoordinasi dengan IT.",
+            "Menyusun dan memperbarui materi presentasi strategis mingguan dan bulanan untuk Department Head yang digunakan dalam laporan ke BOD",
+          ],
+          tools: ["SQL", "Excel", "Python"],
+        },
+        {
+          role: "Office Administrator",
+          company: "Percetakan dan Fotocopy Sukses Abadi ",
+          location: "Pekanbaru, Indonesia",
+          period: "April 2025 - Juli 2025",
+          type: "Internship",
+          logo: "/icons/Logo_SA.webp",
+          link: "https://suksesabadipku.com/",
+          bullets: [
+            "Melayani 30 Customer per hari",
+            "Mengoperasikan Printer dan Mesin Fotocopy",
+            "Mengurusi Administrasi Kantor",
+          ],
+          tools: ["Excel", "Word"],
+        },
+      ],
+    },
   },
-  workSection: {
-    kicker: 'PROFESIONAL',
-    title: 'Pengalaman Kerja',
-    subtitle: 'Ringkasan peran, tanggung jawab, dan dampak yang saya hasilkan.',
-    items: [
-      {
-        role: 'Data Analyst',
-        company: 'PT Bank Rakyat Indonesia Tbk ',
-        location: 'Jakarta, Indonesia',
-        period: 'Desember 2025 - Sekarang',
-        type: 'Internship', // opsional
-        logo: '/icons/Logo_BRI.png', // opsional
-        link: 'https://bri.co.id/', // opsional
-        bullets: [
-          'Menyusun bulletin bulanan kesehatan operasional infrastruktur Compute (QAC) yang mencakup Change Management, Incident Management, Asset Lifecycle, SLA VM, dan OS Obsolescence.',
-          'Mengidentifikasi aset kritikal, risiko EOS, bottleneck provisioning, serta VM dengan extreme uptime, disertai rekomendasi.',
-          'Menyajikan data dalam bentuk visualisasi dan insight eksekutif untuk mendukung pengambilan keputusan manajemen dan peningkatan tata kelola operasional TI.',
-        ],
-        tools: ['Excel', 'Tableau', 'Google Slide', 'Python'], // opsional
-      },
-      {
-        role: 'Marketing Outreach',
-        company: 'LifeVitae x Rakamin Academy',
-        location: 'Online',
-        period: 'November 2025 — Desember 2025',
-        type: 'Project-Based Virtual', // opsional
-        logo: '/icons/Logo_Lifevitae.png', // opsional
-        link: 'https://lifevitae.co/', // opsional
-        bullets: [
-          'Menganalisis tren pemasaran dan mengembangkan strategi outreach yang relevan.',
-          ' Mengidentifikasi dan memilih pembicara webinar potensial sesuai topik yang sedang tren.',
-          'Menginisiasi dan mengusulkan peluang kemitraan dengan perusahaan untuk webinar mingguan.',
-        ],
-        tools: ['Strategic Planning', 'Market Research'], // opsional
-      },
-      {
-        role: 'Recovery Analyst',
-        company: 'PT Mandiri Tunas Finance',
-        location: 'Jakarta, Indonesia',
-        period: 'September 2025 - Desember 2025',
-        type: 'Internship', // opsional
-        logo: '/icons/Logo_MTF.jpg', // opsional
-        link: 'https://www.mtf.co.id/', // opsional
-        bullets: [
-          'Merekap lebih dari 50 unit hasil lelang per hari, memvalidasi data, dan menyusun laporan pencapaian recovery harian untuk Monitoring Recovery.',
-          'Menyusun pipeline yang akan diisi oleh setiap area recovery.',
-          'Menganalisis data vendor dan Mengelola proses takeout vendor dengan merekap 20 sampai 40 agreement per batch dan berkoordinasi dengan IT.',
-          'Menyusun dan memperbarui materi presentasi strategis mingguan dan bulanan untuk Department Head yang digunakan dalam laporan ke BOD',
-        ],
-        tools: ['SQL', 'Excel', 'Python'], // opsional
-      },
-      {
-        role: 'Office Administrator',
-        company: 'Percetakan dan Fotocopy Sukses Abadi ',
-        location: 'Pekanbaru, Indonesia',
-        period: 'April 2025 - Juli 2025',
-        type: 'Internship', // opsional
-        logo: '/icons/Logo_SA.webp', // opsional
-        link: 'https://suksesabadipku.com/', // opsional
-        bullets: ['Melayani 30 Customer per hari', 'Mengoperasikan Printer dan Mesin Fotocopy', 'Mengurusi Administrasi Kantor'],
-        tools: ['Excel', 'Word'], // opsional
-      },
-    ],
-  },
-};
+} as const;
+
+export const getContent = (lang: Lang) => contents[lang];

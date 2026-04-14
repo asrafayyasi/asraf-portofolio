@@ -2,23 +2,29 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
-import { content } from "@/data/content";
-
+import { getContent, Lang } from "@/data/content";
 
 type NavItem = { label: string; href: string };
 
-export default function Navbar() {
+type NavbarProps = {
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+};
+
+export default function Navbar({ lang, setLang }: NavbarProps) {
+  const content = getContent(lang);
+
   const navItems: NavItem[] = useMemo(
     () => [
-      { label: "Beranda", href: "#beranda" },
-      { label: "Tentang", href: "#tentang" },
-      { label: "Keahlian", href: "#keahlian" },
-      { label: "Pengalaman", href: "#pengalaman" },
-      { label: "Proyek", href: "#proyek" },
-      { label: "Sertifikat", href: "#sertifikat" },
-      { label: "Kontak", href: "#kontak" },
+      { label: content.labels.navHome, href: "#beranda" },
+      { label: content.labels.navAbout, href: "#tentang" },
+      { label: content.labels.navSkills, href: "#keahlian" },
+      { label: content.labels.navExperience, href: "#pengalaman" },
+      { label: content.labels.navProjects, href: "#proyek" },
+      { label: content.labels.navCertificates, href: "#sertifikat" },
+      { label: content.labels.navContact, href: "#kontak" },
     ],
-    []
+    [content]
   );
 
   const [open, setOpen] = useState(false);
@@ -26,22 +32,26 @@ export default function Navbar() {
   const [active, setActive] = useState<string>("#beranda");
 
   useEffect(() => {
+    localStorage.setItem("lang", lang);
+  }, [lang]);
+
+  useEffect(() => {
     const hero = document.getElementById("beranda");
 
     const onScroll = () => {
-      // ubah style ketika keluar hero
       const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
       setPastHero(window.scrollY + 88 >= heroBottom);
 
-      // active section (simple)
       const ids = navItems.map((n) => n.href).filter((h) => h.startsWith("#"));
       let current = ids[0] || "#beranda";
+
       for (const id of ids) {
         const el = document.querySelector(id) as HTMLElement | null;
         if (!el) continue;
         const top = el.getBoundingClientRect().top;
         if (top <= 140) current = id;
       }
+
       setActive(current);
     };
 
@@ -71,7 +81,7 @@ export default function Navbar() {
               <span className={pastHero ? "text-slate-900" : "text-white"}>Ayyasi</span>
             </a>
 
-            <nav className={`hidden md:flex items-center gap-8 text-sm font-medium`}>
+            <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
               {navItems.map((it) => (
                 <a
                   key={it.href}
@@ -84,14 +94,46 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
-              {/* Unduh CV */}
+              <div
+                className={`hidden md:flex items-center rounded-xl border p-1 ${
+                  pastHero ? "border-slate-200/70 bg-white/60" : "border-white/15 bg-white/5"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setLang("en")}
+                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                    lang === "en"
+                      ? "bg-blue-600 text-white"
+                      : pastHero
+                      ? "text-slate-700"
+                      : "text-white/80"
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLang("id")}
+                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                    lang === "id"
+                      ? "bg-blue-600 text-white"
+                      : pastHero
+                      ? "text-slate-700"
+                      : "text-white/80"
+                  }`}
+                >
+                  ID
+                </button>
+              </div>
+
               <a
                 href={content.cta?.cv || "#"}
                 target={content.cta?.cv ? "_blank" : undefined}
                 rel={content.cta?.cv ? "noreferrer" : undefined}
                 className={`hidden md:inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition ${cvBtnClass}`}
               >
-                Unduh CV <Download size={16} />
+                {content.labels.downloadCv} <Download size={16} />
               </a>
 
               <button
@@ -109,6 +151,27 @@ export default function Navbar() {
 
           {open && (
             <div className={`md:hidden border-t px-4 py-3 transition ${pastHero ? "border-slate-200/70" : "border-white/10"}`}>
+              <div className="mb-3 flex items-center rounded-xl border border-slate-200/70 bg-white/60 p-1">
+                <button
+                  type="button"
+                  onClick={() => setLang("en")}
+                  className={`flex-1 rounded-lg px-3 py-2 text-xs font-semibold transition ${
+                    lang === "en" ? "bg-blue-600 text-white" : "text-slate-700"
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLang("id")}
+                  className={`flex-1 rounded-lg px-3 py-2 text-xs font-semibold transition ${
+                    lang === "id" ? "bg-blue-600 text-white" : "text-slate-700"
+                  }`}
+                >
+                  ID
+                </button>
+              </div>
+
               <nav className={`flex flex-col gap-3 text-sm font-medium ${pastHero ? "text-slate-700" : "text-white/80"}`}>
                 {navItems.map((it) => (
                   <a
@@ -121,14 +184,13 @@ export default function Navbar() {
                   </a>
                 ))}
 
-                {/* CV button mobile */}
                 <a
                   href={content.cta?.cv || "#"}
                   target={content.cta?.cv ? "_blank" : undefined}
                   rel={content.cta?.cv ? "noreferrer" : undefined}
                   className={`mt-2 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition ${cvBtnClass}`}
                 >
-                  Unduh CV <Download size={16} />
+                  {content.labels.downloadCv} <Download size={16} />
                 </a>
               </nav>
             </div>
