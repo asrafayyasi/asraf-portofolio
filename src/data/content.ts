@@ -178,14 +178,23 @@ export const contents = {
         type: '',
         year: '2024',
       },
-       {
+      {
         title: 'The Impact of Social Media Usage on Students’ Mental Health and Academic Performance',
         desc: 'This project analyzes the impact of social media usage on students’ mental health, sleep patterns, and academic performance. Using exploratory data analysis (EDA) and regression modeling, the project identifies key behavioral patterns and reveals a strong negative relationship between excessive social media usage and mental well-being. In addition, it provides data-driven recommendations to promote healthier digital habits.',
-        tech: ['Python'],
+        tech: ['Python', 'Pandas', 'Matplotlib'],
         link: 'https://www.canva.com/design/DAHG-RU2zxM/pIF7I_bbBkOYRpjlvUHv8w/view',
         embed: 'https://www.canva.com/design/DAHG-RU2zxM/pIF7I_bbBkOYRpjlvUHv8w/view?embed',
         type: '',
         year: '2024',
+      },
+      {
+        title: 'Analysis of Domestic Tourist Trips by Destination Province in Indonesia',
+        desc: 'This project analyzes real-world data from Badan Pusat Statistik (BPS) on domestic tourist travel patterns in Indonesia based on destination province and time period. Using Power BI, the dashboard presents key insights such as total tourist trips, monthly trends, top destination provinces, and the geographic distribution of tourist visits. The analysis highlights the dominance of several provinces, especially in Java, and provides insights into regional tourism distribution and potential development opportunities.',
+        tech: ['Power BI', 'Excel', 'DAX'],
+        link: 'https://www.canva.com/design/DAHIAxnlRVA/N1wQKUoeO5Fc7eLHmCf0og/view',
+        embed: 'https://www.canva.com/design/DAHIAxnlRVA/N1wQKUoeO5Fc7eLHmCf0og/view?embed',
+        type: '',
+        year: '2026',
       },
     ],
 
@@ -654,11 +663,20 @@ export const contents = {
       {
         title: 'The Impact of Social Media Usage on Students’ Mental Health and Academic Performance',
         desc: 'Proyek ini menganalisis dampak penggunaan media sosial terhadap kesehatan mental, pola tidur, dan performa akademik mahasiswa. Dengan menggunakan exploratory data analysis (EDA) dan model regresi, proyek ini mengidentifikasi pola perilaku utama serta menemukan hubungan negatif yang kuat antara penggunaan media sosial berlebih dan kesehatan mental. Selain itu, proyek ini juga memberikan rekomendasi berbasis data untuk mendorong kebiasaan digital yang lebih sehat.',
-        tech: ['Python'],
+        tech: ['Python', 'Pandas', 'Matplotlib'],
         link: 'https://www.canva.com/design/DAHG-RU2zxM/pIF7I_bbBkOYRpjlvUHv8w/view',
         embed: 'https://www.canva.com/design/DAHG-RU2zxM/pIF7I_bbBkOYRpjlvUHv8w/view?embed',
         type: '',
         year: '2024',
+      },
+      {
+        title: 'Analisis Perjalanan Wisatawan Nusantara Berdasarkan Provinsi Tujuan',
+        desc: 'Proyek ini menganalisis data riil dari Badan Pusat Statistik (BPS) terkait pola perjalanan wisatawan nusantara di Indonesia berdasarkan provinsi tujuan dan periode waktu. Menggunakan Power BI, dashboard menampilkan insight utama seperti total perjalanan wisatawan, tren bulanan, provinsi dengan kunjungan tertinggi, serta distribusi geografis wisatawan. Analisis ini menunjukkan dominasi beberapa provinsi, khususnya di Pulau Jawa, serta memberikan gambaran potensi pengembangan pariwisata di wilayah lain.',
+        tech: ['Power BI', 'Excel', 'DAX'],
+        link: 'https://www.canva.com/design/DAHIAxnlRVA/N1wQKUoeO5Fc7eLHmCf0og/view',
+        embed: 'https://www.canva.com/design/DAHIAxnlRVA/N1wQKUoeO5Fc7eLHmCf0og/view?embed',
+        type: '',
+        year: '2026',
       },
     ],
 
