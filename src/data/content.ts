@@ -133,6 +133,16 @@ export const contents = {
         year: '2024',
       },
       {
+        title: 'E-Commerce Sales Analytics Engineering Pipeline',
+        desc: 'This project is an end-to-end analytics engineering portfolio project that simulates a data workflow for an e-commerce business. In this project, raw transactional data in CSV format is loaded into PostgreSQL and transformed using dbt Core through multiple layers, including staging, intermediate, and marts. The cleaned, tested, and documented data is then used as the main source for a Power BI dashboard to analyze revenue performance, product performance, customer segments, refunds, and order activity. This project demonstrates skills in data modeling, SQL transformation, data quality testing, dbt documentation, and business dashboard development.',
+        tech: ['dbt Core', 'PostgreSQL', 'SQL', 'Power BI', 'pgAdmin', 'GitHub'],
+        thumb: '/project-dbt-ecommerce.png',
+        link: 'https://www.canva.com/design/DAHNRUucPPE/299dZ1V_i72esDwHw7f_xg/view',
+        embed: 'https://www.canva.com/design/DAHNRUucPPE/299dZ1V_i72esDwHw7f_xg/view?embed',
+        type: 'Analytics Engineering',
+        year: '2026',
+      },
+      {
         title: 'Digital Marketing Optimization (Rakamin Academy Bootcamp Final Project)',
         desc: 'This project was the final assignment of a one-month bootcamp at Rakamin Academy. In this project, our team worked with a snack MSME from Yogyakarta, QPcamils. We were responsible for improving the MSME’s digital marketing performance through optimization of social media platforms such as Instagram and paid advertising using Meta Ads, with the goal of increasing brand awareness and sales.',
         tech: ['Meta Ads', 'Market Research', 'UberSuggest'],
@@ -613,6 +623,16 @@ export const contents = {
         embed: 'https://www.canva.com/design/DAHBpM14Ixg/MOJG8e3eq4kYG3b6QkzQJg/view?embed',
         type: 'Machine Learning',
         year: '2024',
+      },
+      {
+        title: 'E-Commerce Sales Analytics Engineering Pipeline',
+        desc: 'Proyek ini merupakan portfolio end-to-end analytics engineering yang mensimulasikan alur kerja data pada bisnis e-commerce. Dalam proyek ini, data transaksi mentah dalam bentuk CSV dimuat ke PostgreSQL, kemudian ditransformasikan menggunakan dbt Core melalui beberapa layer, yaitu staging, intermediate, dan marts. Data yang sudah dibersihkan, diuji kualitasnya, dan didokumentasikan kemudian digunakan sebagai sumber utama dashboard Power BI untuk menganalisis performa revenue, product performance, customer segment, refund, dan aktivitas order. Proyek ini menunjukkan kemampuan dalam data modeling, SQL transformation, data quality testing, dokumentasi dbt, serta penyusunan dashboard bisnis berbasis data.',
+        tech: ['dbt Core', 'PostgreSQL', 'SQL', 'Power BI', 'pgAdmin', 'GitHub'],
+        thumb: '/project-dbt-ecommerce.png',
+        link: 'https://www.canva.com/design/DAHNRUucPPE/299dZ1V_i72esDwHw7f_xg/view',
+        embed: 'https://www.canva.com/design/DAHNRUucPPE/299dZ1V_i72esDwHw7f_xg/view?embed',
+        type: 'Analytics Engineering',
+        year: '2026',
       },
       {
         title: 'Digital Marketing Optimization (Final Project Bootcamp Rakamin Academy)',
