@@ -44,6 +44,13 @@ export default function Home() {
     { value: "100%", label: "Commitment", icon: Sparkles },
   ];
 
+  const skillHighlights = [
+    { title: "Data Analytics", desc: "SQL, Python, EDA, dashboarding", icon: BarChart3 },
+    { title: "Data Engineering Basics", desc: "Database, cleaning, transformation", icon: Database },
+    { title: "Machine Learning", desc: "Modeling, computer vision, evaluation", icon: Code2 },
+    { title: "Digital Growth", desc: "Campaign, SEO, reporting", icon: Sparkles },
+  ];
+
   return (
     <div className="min-h-screen">
       <Navbar lang={lang} setLang={setLang} />
@@ -278,84 +285,153 @@ export default function Home() {
       <div className="bg-dots">
         <main className="mx-auto max-w-6xl px-4">
           {/* ABOUT */}
-          <section id="tentang" className="py-20">
-            <div className="grid gap-10 md:grid-cols-2 md:items-start">
-              <div className="md:sticky md:top-28">
-                <div className="relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white/60 shadow-sm">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-slate-900/5" />
-                  <img src="/me.jpg" alt="Profile" className="h-[420px] w-full object-cover object-center" />
+          <section id="tentang" className="relative py-24">
+            <div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+              <div className="absolute left-[-120px] top-10 h-80 w-80 rounded-full bg-blue-600/10 blur-3xl" />
+              <div className="absolute right-[-120px] bottom-10 h-80 w-80 rounded-full bg-violet-600/10 blur-3xl" />
+            </div>
 
-                  <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/30 bg-slate-950/35 p-4 text-white backdrop-blur">
-                    <p className="text-sm font-semibold">{content.name}</p>
-                    <p className="text-xs text-white/80">{content.title}</p>
-                  </div>
-                </div>
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-5">
+                <div className="sticky top-28 space-y-5">
+                  <div className="tech-card overflow-hidden rounded-[2rem] p-4">
+                    <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-900">
+                      <img
+                        src={content.contact.photo || "/me.jpg"}
+                        alt={content.name}
+                        className="h-[420px] w-full object-cover object-center"
+                      />
 
-                <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                  {content.about.meta.map((m: any) => (
-                    <div key={m.label} className="rounded-2xl border border-slate-200/70 bg-white/60 p-4">
-                      <p className="text-xs text-slate-500">{m.label}</p>
-                      <p className="mt-1 text-sm font-semibold text-slate-900">{m.value}</p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+
+                      <div className="absolute left-5 top-5 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 font-code text-[11px] uppercase tracking-[0.2em] text-blue-200 backdrop-blur">
+                        profile.config
+                      </div>
+
+                      <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-slate-950/70 p-4 backdrop-blur-xl">
+                        <p className="text-lg font-black text-white">{content.name}</p>
+                        <p className="mt-1 text-sm text-slate-300">{content.title}</p>
+
+                        <div className="mt-4 grid gap-2 sm:grid-cols-3">
+                          {content.about.meta.map((m: any) => (
+                            <div key={m.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-3">
+                              <p className="text-[10px] uppercase tracking-[0.18em] text-slate-500">{m.label}</p>
+                              <p className="mt-1 text-xs font-bold text-slate-100">{m.value}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              <div>
-                <p className="text-xs font-semibold tracking-[0.35em] text-blue-600">
-                  {content.about.kicker}
-                </p>
+                  <div className="tech-card rounded-[2rem] p-5">
+                    <div className="flex items-center justify-between">
+                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
+                        education.track
+                      </p>
+                      <Database size={18} className="text-blue-300" />
+                    </div>
 
-                <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
-                  {content.about.headline}
-                </h2>
+                    <div className="mt-5 space-y-5">
+                      {content.about.timeline
+                        .filter((t: any) => ["pendidikan", "education"].includes(t.title?.toLowerCase()))
+                        .map((t: any) => (
+                          <div key={`${t.title}-${t.year}`} className="relative pl-6">
+                            <span className="absolute left-0 top-2 h-3 w-3 rounded-full bg-blue-400 shadow-[0_0_20px_rgba(96,165,250,0.8)]" />
+                            <span className="absolute bottom-0 left-[5px] top-6 w-px bg-blue-400/20" />
 
-                <p className="mt-4 text-slate-600 leading-relaxed">{content.about.summary}</p>
+                            <div className="flex flex-wrap items-start justify-between gap-3">
+                              <div>
+                                <h3 className="text-lg font-black text-white">{t.place}</h3>
+                                <p className="mt-1 text-sm font-semibold text-blue-200">{t.desc}</p>
+                              </div>
 
-                <h3 className="mt-10 text-sm font-bold tracking-[0.25em] text-slate-500">
-                  {content.labels.education}
-                </h3>
-
-                <div className="mt-4 rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-sm">
-                  <div className="space-y-5">
-                    {content.about.timeline
-                      .filter((t: any) =>
-                        ["pendidikan", "education"].includes(t.title?.toLowerCase())
-                      )
-                      .map((t: any) => (
-                        <div key={`${t.title}-${t.year}`} className="flex gap-4">
-                          <div className="mt-2 h-2 w-2 rounded-full bg-blue-600" />
-
-                          <div className="flex-1">
-                            <div className="flex flex-wrap items-start justify-between gap-2">
-                              <p className="text-lg font-extrabold text-slate-950">{t.place}</p>
-                              <p className="text-xs font-semibold text-slate-500">{t.year}</p>
+                              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-300">
+                                {t.year}
+                              </span>
                             </div>
 
-                            <p className="mt-1 text-sm font-semibold text-blue-700">{t.desc}</p>
-
                             {t.thesis && (
-                              <p className="mt-2 text-sm text-slate-600">
-                                <span className="font-semibold text-slate-800">
-                                  {content.labels.thesis}:
-                                </span>{" "}
+                              <p className="mt-4 text-sm leading-relaxed text-slate-400">
+                                <span className="font-semibold text-slate-200">{content.labels.thesis}:</span>{" "}
                                 <span className="italic">{t.thesis}</span>
                               </p>
                             )}
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                            <div className="mt-5 flex flex-wrap gap-2">
-                              {content.about.skills.slice(0, 10).map((s: string) => (
-                                <span
-                                  key={s}
-                                  className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-medium text-slate-700"
-                                >
-                                  {s}
-                                </span>
-                              ))}
-                            </div>
+              <div className="lg:col-span-7">
+                <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
+                  {content.about.kicker}
+                </p>
+
+                <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+                  {content.about.headline}
+                </h2>
+
+                <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-400 md:text-lg">
+                  {content.about.summary}
+                </p>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {skillHighlights.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div key={item.title} className="tech-card group rounded-3xl p-5 transition hover:-translate-y-1 hover:border-blue-400/30">
+                        <div className="flex items-start gap-4">
+                          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                            <Icon size={20} />
+                          </div>
+
+                          <div>
+                            <h3 className="font-black text-white">{item.title}</h3>
+                            <p className="mt-2 text-sm leading-relaxed text-slate-400">{item.desc}</p>
                           </div>
                         </div>
-                      ))}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-8 tech-card overflow-hidden rounded-[2rem]">
+                  <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+                    <div className="flex items-center gap-2">
+                      <span className="h-3 w-3 rounded-full bg-red-400/80" />
+                      <span className="h-3 w-3 rounded-full bg-yellow-400/80" />
+                      <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
+                    </div>
+                    <p className="font-code text-xs text-slate-500">about_asraf.ts</p>
+                  </div>
+
+                  <div className="grid gap-0 lg:grid-cols-12">
+                    <div className="border-b border-white/10 p-6 lg:col-span-7 lg:border-b-0 lg:border-r">
+                      <div className="space-y-2 font-code text-sm leading-relaxed">
+                        <p><span className="text-violet-300">const</span> profile = &#123;</p>
+                        <p className="pl-4"><span className="text-blue-200">role</span>: <span className="text-emerald-300">"Data Analyst"</span>,</p>
+                        <p className="pl-4"><span className="text-blue-200">focus</span>: <span className="text-emerald-300">"Insight, dashboard, growth"</span>,</p>
+                        <p className="pl-4"><span className="text-blue-200">mindset</span>: <span className="text-emerald-300">"analytical + impact-oriented"</span>,</p>
+                        <p>&#125;;</p>
+                      </div>
+                    </div>
+
+                    <div className="p-6 lg:col-span-5">
+                      <p className="text-sm font-bold text-slate-200">Profile Keywords</p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {content.about.skills.slice(0, 10).map((s: string) => (
+                          <span
+                            key={s}
+                            className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -363,84 +439,119 @@ export default function Home() {
           </section>
 
           {/* SKILLS */}
-          <section id="keahlian" className="py-20">
-            <div className="text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-blue-600">
+          <section id="keahlian" className="relative py-24">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
                 {content.skillsSection.kicker}
               </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
                 {content.skillsSection.title}
               </h2>
-              <p className="mt-3 text-slate-600">{content.skillsSection.subtitle}</p>
+              <p className="mt-4 text-slate-400">{content.skillsSection.subtitle}</p>
             </div>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              <div className="rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-semibold text-slate-900">
-                    {content.labels.coreSkills}
-                  </h3>
-                  <span className="text-xs text-slate-500">
+            <div className="mt-12 grid gap-6 lg:grid-cols-12">
+              <div className="tech-card rounded-[2rem] p-6 lg:col-span-7">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
+                      stack.matrix
+                    </p>
+                    <h3 className="mt-2 text-2xl font-black text-white">{content.labels.coreSkills}</h3>
+                  </div>
+
+                  <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-bold text-slate-300">
                     {content.skillsSection.hard.length} {content.labels.items}
                   </span>
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {content.skillsSection.hard.map((s: string) => (
-                    <span
-                      key={s}
-                      className="rounded-full border border-slate-200/70 bg-white/80 px-3 py-1 text-xs font-medium text-slate-700 hover:bg-white transition"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-sm">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  {content.labels.softSkills}
-                </h3>
-
-                <div className="mt-6 space-y-3">
-                  {content.skillsSection.soft.map((s: string) => (
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {content.skillsSection.hard.map((s: string, index: number) => (
                     <div
                       key={s}
-                      className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/70 px-4 py-3"
+                      className="group rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-blue-400/30 hover:bg-blue-500/10"
                     >
-                      <span className="h-2 w-2 rounded-full bg-blue-600" />
-                      <p className="text-sm font-medium text-slate-800">{s}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="text-sm font-bold text-slate-100">{s}</p>
+                        <span className="font-code text-[10px] text-slate-500">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
 
-              <div className="rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-sm">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  {content.labels.coursesTraining}
-                </h3>
-
-                <div className="mt-6 space-y-5">
-                  {content.skillsSection.trainings.map((t: any) => (
-                    <div key={`${t.name}-${t.org}`} className="flex gap-4">
-                      <div className="mt-1 h-2 w-2 rounded-full bg-blue-600" />
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between gap-3">
-                          <p className="text-sm font-semibold text-slate-950">{t.name}</p>
-                          <p className="text-xs font-semibold text-slate-500">{t.year}</p>
-                        </div>
-                        <p className="mt-1 text-sm text-slate-600">{t.org}</p>
+                      <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800">
+                        <div
+                          className="h-full rounded-full bg-gradient-to-r from-blue-600 via-cyan-400 to-violet-500"
+                          style={{ width: `${72 + (index % 5) * 5}%` }}
+                        />
                       </div>
                     </div>
                   ))}
                 </div>
+              </div>
 
-                <a
-                  href="#sertifikat"
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-2xl border border-slate-200/70 bg-white/80 px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-white transition"
-                >
-                  {content.labels.viewCertificates}
-                </a>
+              <div className="space-y-6 lg:col-span-5">
+                <div className="tech-card rounded-[2rem] p-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
+                        human.skills
+                      </p>
+                      <h3 className="mt-2 text-2xl font-black text-white">{content.labels.softSkills}</h3>
+                    </div>
+                    <Sparkles size={22} className="text-blue-300" />
+                  </div>
+
+                  <div className="mt-6 grid gap-3">
+                    {content.skillsSection.soft.map((s: string) => (
+                      <div
+                        key={s}
+                        className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3"
+                      >
+                        <span className="grid h-8 w-8 place-items-center rounded-xl border border-emerald-400/20 bg-emerald-500/10 text-emerald-300">
+                          <Sparkles size={14} />
+                        </span>
+                        <p className="text-sm font-semibold text-slate-200">{s}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="tech-card rounded-[2rem] p-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
+                        learning.log
+                      </p>
+                      <h3 className="mt-2 text-2xl font-black text-white">{content.labels.coursesTraining}</h3>
+                    </div>
+                    <Database size={22} className="text-blue-300" />
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    {content.skillsSection.trainings.map((t: any) => (
+                      <div key={`${t.name}-${t.org}`} className="relative rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className="font-bold text-white">{t.name}</p>
+                            <p className="mt-1 text-sm text-slate-400">{t.org}</p>
+                          </div>
+
+                          <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-blue-100">
+                            {t.year}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a
+                    href="#sertifikat"
+                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-blue-400/25 bg-blue-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500"
+                  >
+                    {content.labels.viewCertificates}
+                    <ArrowUpRight size={16} />
+                  </a>
+                </div>
               </div>
             </div>
           </section>
