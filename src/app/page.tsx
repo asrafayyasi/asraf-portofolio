@@ -790,77 +790,122 @@ export default function Home() {
 
 
           {/* PROJECTS */}
-          <section id="proyek" className="py-20">
-            <div className="text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-blue-600">
-                {content.labels.portfolioKicker}
-              </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
-                {content.labels.featuredProjects}
-              </h2>
-              <p className="mt-3 text-slate-600">{content.labels.projectsSubtitle}</p>
+          <section id="proyek" className="relative py-24">
+            <div className="pointer-events-none absolute inset-0 -z-10 opacity-80">
+              <div className="absolute left-[-140px] top-20 h-80 w-80 rounded-full bg-blue-600/10 blur-3xl" />
+              <div className="absolute right-[-140px] bottom-10 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
             </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {content.projects.slice(1).map((p: any) => (
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div>
+                <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
+                  {content.labels.portfolioKicker}
+                </p>
+                <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-5xl">
+                  {content.labels.featuredProjects}
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
+                  {content.labels.projectsSubtitle}
+                </p>
+              </div>
+
+              <div className="tech-card rounded-3xl p-4">
+                <div className="grid grid-cols-3 gap-3 text-center">
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                    <p className="text-2xl font-black text-white">{content.projects.length}</p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-slate-500">Projects</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                    <p className="text-2xl font-black text-white">4</p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-slate-500">Domains</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                    <p className="text-2xl font-black text-white">∞</p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-slate-500">Growth</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 grid gap-6 lg:grid-cols-2">
+              {content.projects.slice(1, 7).map((p: any, index: number) => (
                 <article
-                  key={p.title}
-                  className="group rounded-[24px] border border-slate-200/70 bg-white/60 shadow-sm overflow-hidden hover:bg-white/85 transition"
+                  key={`${p.title}-${index}`}
+                  className="group tech-card overflow-hidden rounded-[2rem] transition duration-300 hover:-translate-y-1 hover:border-blue-400/30"
                 >
-                  <div className="relative bg-slate-50/60">
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      {p.embed ? (
-                        <>
-                          <iframe
-                            src={p.embed}
-                            className="absolute inset-0 h-full w-full"
-                            loading="lazy"
-                            allow="fullscreen"
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-slate-950">
+                    {p.embed ? (
+                      <>
+                        <iframe
+                          src={p.embed}
+                          className="absolute inset-0 h-full w-full"
+                          loading="lazy"
+                          allow="fullscreen"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/10 opacity-70" />
+                        {p.link && (
+                          <a
+                            href={p.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="absolute inset-0"
+                            aria-label={`Open ${p.title}`}
                           />
-                          {p.link && (
-                            <a
-                              href={p.link}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="absolute inset-0"
-                              aria-label={`Open ${p.title}`}
-                            />
-                          )}
-                        </>
-                      ) : (
-                        <div className="absolute inset-0 grid place-items-center text-sm text-slate-500">
-                          {content.labels.previewUnavailable}
-                        </div>
+                        )}
+                      </>
+                    ) : p.thumb ? (
+                      <>
+                        <img src={p.thumb} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                      </>
+                    ) : (
+                      <div className="absolute inset-0 grid place-items-center bg-tech-grid text-sm text-slate-500">
+                        {content.labels.previewUnavailable}
+                      </div>
+                    )}
+
+                    <div className="absolute left-5 top-5 flex flex-wrap gap-2">
+                      {(p.type || p.year) && (
+                        <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-blue-100 backdrop-blur">
+                          {p.type || p.year}
+                        </span>
                       )}
                     </div>
-
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-slate-950/0 via-slate-950/0 to-slate-950/10 opacity-0 group-hover:opacity-100 transition" />
                   </div>
 
                   <div className="p-6">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div className="flex flex-wrap items-center gap-2" />
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-code text-[11px] uppercase tracking-[0.22em] text-slate-500">
+                          project.{String(index + 1).padStart(2, "0")}
+                        </p>
+                        <h3 className="mt-3 text-xl font-black leading-snug text-white">
+                          {p.title}
+                        </h3>
+                      </div>
 
                       {p.link && (
                         <a
                           href={p.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-sm font-semibold text-blue-700 hover:text-blue-800 transition"
+                          className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-blue-400/30 hover:bg-blue-500/10 hover:text-white"
+                          aria-label={`Open ${p.title}`}
                         >
-                          {content.labels.open}
+                          <ArrowUpRight size={18} />
                         </a>
                       )}
                     </div>
 
-                    <h3 className="mt-3 text-lg font-extrabold text-slate-950">{p.title}</h3>
-                    <p className="mt-2 text-sm text-slate-600 leading-relaxed">{p.desc}</p>
+                    <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-slate-400">
+                      {p.desc}
+                    </p>
 
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {p.tech?.slice(0, 8).map((t: string) => (
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {p.tech?.slice(0, 7).map((t: string) => (
                         <span
                           key={t}
-                          className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-medium text-slate-700"
+                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-300"
                         >
                           {t}
                         </span>
@@ -870,111 +915,176 @@ export default function Home() {
                 </article>
               ))}
             </div>
+
+            {content.projects.length > 7 && (
+              <div className="mt-8 tech-card rounded-[2rem] p-5">
+                <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+                  <div>
+                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
+                      project.archive
+                    </p>
+                    <p className="mt-2 text-sm text-slate-400">
+                      Additional portfolio works are kept in a compact archive to keep the page clean and fast.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {content.projects.slice(7).map((p: any, index: number) => (
+                      <a
+                        key={`${p.title}-archive-${index}`}
+                        href={p.link || "#"}
+                        target={p.link ? "_blank" : undefined}
+                        rel={p.link ? "noreferrer" : undefined}
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold text-slate-300 transition hover:border-blue-400/30 hover:bg-blue-500/10 hover:text-white"
+                      >
+                        {p.title.length > 34 ? `${p.title.slice(0, 34)}...` : p.title}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </section>
 
           {/* CERTIFICATES */}
-          <section id="sertifikat" className="py-20">
-            <div className="text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-blue-600">
-                {content.certSection.kicker}
-              </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
-                {content.certSection.title}
-              </h2>
-              <p className="mt-3 text-slate-600">{content.certSection.subtitle}</p>
+          <section id="sertifikat" className="relative py-24">
+            <div className="pointer-events-none absolute inset-0 -z-10 opacity-80">
+              <div className="absolute left-1/2 top-10 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-600/10 blur-3xl" />
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {content.certSection.featured.map((c: any) => (
-                <article
-                  key={c.title}
-                  className="rounded-[28px] border border-slate-200/70 bg-white/60 p-7 shadow-sm hover:bg-white/80 transition"
-                >
-                  <div className="flex items-start justify-between gap-4">
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-4">
+                <div className="sticky top-28">
+                  <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
+                    {content.certSection.kicker}
+                  </p>
+                  <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-5xl">
+                    {content.certSection.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-400 md:text-base">
+                    {content.certSection.subtitle}
+                  </p>
+
+                  <div className="mt-8 tech-card rounded-[2rem] p-5">
                     <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 overflow-hidden rounded-2xl border border-slate-200/70 bg-white grid place-items-center">
-                        <img src={c.logo} alt={c.issuer} className="h-8 w-8 object-contain" />
+                      <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                        <Sparkles size={20} />
                       </div>
-
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">{c.title}</p>
-                        <p className="text-sm text-blue-700 font-semibold">{c.issuer}</p>
+                        <p className="text-3xl font-black text-white">
+                          {content.certSection.featured.length + content.certSection.micro.length}+
+                        </p>
+                        <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
+                          Verified learning records
+                        </p>
                       </div>
                     </div>
 
-                    <span className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">
-                      {c.year}
-                    </span>
+                    <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/60 p-4 font-code text-xs leading-relaxed text-slate-400">
+                      <p><span className="text-blue-300">const</span> learning = [</p>
+                      <p className="pl-4 text-slate-300">"Machine Learning",</p>
+                      <p className="pl-4 text-slate-300">"Digital Marketing",</p>
+                      <p className="pl-4 text-slate-300">"Data Analytics"</p>
+                      <p>];</p>
+                    </div>
                   </div>
+                </div>
+              </div>
 
-                  <p className="mt-4 text-sm text-slate-600 leading-relaxed">{c.desc}</p>
-
-                  {c.link && (
-                    <a
-                      href={c.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-6 inline-flex items-center justify-center rounded-2xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-900 transition"
+              <div className="lg:col-span-8">
+                <div className="grid gap-6 md:grid-cols-2">
+                  {content.certSection.featured.map((c: any) => (
+                    <article
+                      key={c.title}
+                      className="group tech-card rounded-[2rem] p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-400/30"
                     >
-                      {content.labels.viewCertificates}
-                    </a>
-                  )}
-                </article>
-              ))}
-            </div>
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-center gap-4">
+                          <div className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-white/10 bg-white p-2">
+                            <img src={c.logo} alt={c.issuer} className="h-10 w-10 object-contain" />
+                          </div>
 
-            <div className="mt-14 flex items-center gap-4">
-              <div className="h-px flex-1 bg-slate-200/80" />
-              <p className="text-sm font-semibold text-slate-700">{content.labels.otherCertificates}</p>
-              <div className="h-px flex-1 bg-slate-200/80" />
-            </div>
+                          <div>
+                            <p className="text-lg font-black leading-snug text-white">{c.title}</p>
+                            <p className="mt-1 text-sm font-bold text-blue-200">{c.issuer}</p>
+                          </div>
+                        </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-1 lg:grid-cols-2">
-              {content.certSection.micro.map((m: any) => (
-                <a
-                  key={`${m.title}-${m.issuer}`}
-                  href={m.link || "#"}
-                  target={m.link ? "_blank" : undefined}
-                  rel={m.link ? "noreferrer" : undefined}
-                  className={[
-                    "group relative overflow-hidden rounded-xl",
-                    "border border-slate-200/70 bg-white/60 shadow-sm",
-                    "px-5 py-4",
-                    "transition-all duration-200",
-                    "hover:bg-blue-50/90 hover:border-blue-200",
-                    "hover:shadow-md hover:-translate-y-0.5",
-                    "hover:ring-2 hover:ring-blue-200/60",
-                  ].join(" ")}
-                >
-                  <span className="absolute left-0 top-0 h-full w-1 bg-transparent transition group-hover:bg-blue-500" />
+                        <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-300">
+                          {c.year}
+                        </span>
+                      </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="h-11 w-11 shrink-0 overflow-hidden rounded-lg border border-slate-200/70 bg-white grid place-items-center">
-                      <img
-                        src={m.icon || "/icons/certificate.svg"}
-                        alt={m.issuer}
-                        className="h-10 w-10 object-contain"
-                      />
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <p className="text-sm font-extrabold text-slate-950 leading-snug line-clamp-2">
-                        {m.title}
+                      <p className="mt-5 line-clamp-6 text-sm leading-relaxed text-slate-400">
+                        {c.desc}
                       </p>
-                      <p className="mt-1 text-xs font-semibold text-slate-600 truncate">{m.issuer}</p>
-                    </div>
 
-                    <div className="shrink-0 flex items-center gap-3">
-                      {m.year && <span className="text-[11px] font-semibold text-slate-500">{m.year}</span>}
-                      <span className="h-9 w-9 rounded-lg border border-slate-200/70 bg-white/70 grid place-items-center text-slate-500 transition group-hover:border-blue-200 group-hover:text-blue-700">
-                        ↗
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              ))}
+                      {c.link && (
+                        <a
+                          href={c.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-blue-400/20 bg-blue-500/10 px-4 py-2.5 text-sm font-bold text-blue-100 transition hover:border-blue-300/40 hover:bg-blue-500/20 hover:text-white"
+                        >
+                          {content.labels.viewCertificates}
+                          <ArrowUpRight size={16} />
+                        </a>
+                      )}
+                    </article>
+                  ))}
+                </div>
+
+                <div className="mt-10 flex items-center gap-4">
+                  <div className="h-px flex-1 bg-white/10" />
+                  <p className="font-code text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
+                    {content.labels.otherCertificates}
+                  </p>
+                  <div className="h-px flex-1 bg-white/10" />
+                </div>
+
+                <div className="mt-8 grid gap-3">
+                  {content.certSection.micro.map((m: any, index: number) => (
+                    <a
+                      key={`${m.title}-${m.issuer}-${index}`}
+                      href={m.link || "#"}
+                      target={m.link ? "_blank" : undefined}
+                      rel={m.link ? "noreferrer" : undefined}
+                      className="group tech-card flex items-center gap-4 rounded-2xl p-4 transition duration-300 hover:-translate-y-0.5 hover:border-blue-400/30"
+                    >
+                      <div className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-xl border border-white/10 bg-white p-2">
+                        <img
+                          src={m.icon || "/icons/certificate.svg"}
+                          alt={m.issuer}
+                          className="h-9 w-9 object-contain"
+                        />
+                      </div>
+
+                      <div className="min-w-0 flex-1">
+                        <p className="line-clamp-1 text-sm font-black text-white group-hover:text-blue-100">
+                          {m.title}
+                        </p>
+                        <p className="mt-1 truncate text-xs font-semibold text-slate-500">
+                          {m.issuer}
+                        </p>
+                      </div>
+
+                      <div className="flex shrink-0 items-center gap-3">
+                        {m.year && (
+                          <span className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-400 sm:inline-flex">
+                            {m.year}
+                          </span>
+                        )}
+                        <span className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-400 transition group-hover:border-blue-400/30 group-hover:text-white">
+                          <ArrowUpRight size={16} />
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
+
 
           {/* CONTACT */}
           <section id="kontak" className="py-24">
