@@ -3,7 +3,20 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import { getContent, Lang } from "@/data/content";
-import { Mail, Linkedin, Phone, Instagram, ArrowUpRight, ChevronDown } from "lucide-react";
+import {
+  Mail,
+  Linkedin,
+  Phone,
+  Instagram,
+  ArrowUpRight,
+  ChevronDown,
+  Github,
+  MapPin,
+  BarChart3,
+  Code2,
+  Database,
+  Sparkles,
+} from "lucide-react";
 import BackToTop from "@/components/BackToTop";
 
 function waHref(phone?: string) {
@@ -22,72 +35,243 @@ export default function Home() {
   }, []);
 
   const content = getContent(lang);
+  const featuredProject = content.projects?.[0];
+
+  const heroStats = [
+    { value: "3+", label: "Years of Learning", icon: BarChart3 },
+    { value: "20+", label: "Projects Completed", icon: Code2 },
+    { value: "5+", label: "Certificates Earned", icon: Database },
+    { value: "100%", label: "Commitment", icon: Sparkles },
+  ];
 
   return (
     <div className="min-h-screen">
       <Navbar lang={lang} setLang={setLang} />
 
       {/* HERO SECTION */}
-      <section id="beranda" className="relative h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900" />
-        <div className="pointer-events-none absolute -top-24 left-[-120px] h-[420px] w-[420px] rounded-full bg-blue-500/20 blur-3xl animate-blob1" />
-        <div className="pointer-events-none absolute -bottom-32 right-[-140px] h-[520px] w-[520px] rounded-full bg-sky-400/15 blur-3xl animate-blob2" />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:44px_44px]" />
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.10] mix-blend-overlay"
-          style={{ backgroundImage: "url('/noise.png')" }}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.35)_70%,rgba(0,0,0,0.55)_100%)]" />
+      <section id="beranda" className="relative min-h-screen overflow-hidden px-4 pb-20 pt-32">
+        <div className="pointer-events-none absolute inset-0 bg-tech-grid opacity-60" />
+        <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
+        <div className="pointer-events-none absolute right-[-120px] top-32 h-[460px] w-[460px] rounded-full bg-violet-600/16 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-[-180px] left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-6xl px-4 h-screen flex items-center justify-center text-center pt-24">
-          <div className="max-w-3xl">
-            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur animate-fadeUp">
-              <span className="h-2 w-2 rounded-full bg-blue-400" />
-              Data • Digital Marketing • Insights
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.26em] text-blue-200">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.8)]" />
+              Data • Analytics • Digital Marketing
             </div>
 
-            <h1 className="mt-7 text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.05] animate-fadeUp [animation-delay:120ms]">
-              {content.name}
+            <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.98] tracking-tight text-white md:text-7xl">
+              <span className="block">Asraf Ayyasi</span>
+              <span className="text-gradient-blue block">Putra</span>
             </h1>
 
-            <p className="text-sm md:text-base font-semibold tracking-wide">
-              <span className="bg-gradient-to-r from-blue-300 via-white to-sky-200 bg-clip-text text-transparent animate-titleGradient">
-                {content.title}
-              </span>
+            <p className="mt-5 text-xl font-semibold text-blue-100 md:text-2xl">
+              {content.title}
             </p>
 
-            <div className="pointer-events-none absolute inset-0 hero-aurora" />
-
-            <p className="mt-6 text-white/70 leading-relaxed animate-fadeUp [animation-delay:320ms]">
-              {content.quote}
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
+              Turning raw data into actionable insights and building strategies that drive growth,
+              clarity, and measurable impact.
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fadeUp [animation-delay:420ms]">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={content.cta.contact}
-                className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-7 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500"
               >
                 {content.labels.letsConnect}
+                <ArrowUpRight size={17} />
               </a>
 
               <a
                 href={content.cta.portfolio}
-                className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-7 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/[0.08]"
               >
                 {content.labels.checkMyWork}
+                <Code2 size={17} />
               </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={content.contact.github.url}
+                target="_blank"
+                rel="noreferrer"
+                className="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-blue-400/30 hover:text-white"
+                aria-label="Github"
+              >
+                <Github size={18} />
+              </a>
+
+              <a
+                href={content.contact.linkedin.url}
+                target="_blank"
+                rel="noreferrer"
+                className="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-blue-400/30 hover:text-white"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+
+              <a
+                href={`mailto:${content.contact.email}`}
+                className="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-blue-400/30 hover:text-white"
+                aria-label="Email"
+              >
+                <Mail size={18} />
+              </a>
+
+              <div className="ml-0 inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-slate-300 sm:ml-2">
+                <MapPin size={16} className="text-blue-300" />
+                Jakarta, Indonesia
+              </div>
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {heroStats.map((stat) => {
+                const Icon = stat.icon;
+
+                return (
+                  <div key={stat.label} className="tech-card rounded-3xl p-5">
+                    <div className="mb-4 grid h-10 w-10 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                      <Icon size={18} />
+                    </div>
+
+                    <p className="text-2xl font-black text-white">{stat.value}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-400">{stat.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto max-w-md">
+              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-blue-600/30 via-cyan-400/10 to-violet-600/30 blur-2xl" />
+
+              <div className="tech-card relative overflow-hidden rounded-[2rem] p-4">
+                <div className="absolute left-6 top-6 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold text-emerald-300">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  Open to Work
+                </div>
+
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-900">
+                  <img
+                    src={content.contact.photo || "/me.jpg"}
+                    alt={content.name}
+                    className="h-[520px] w-full object-cover object-center"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+
+                  <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-slate-950/65 p-4 backdrop-blur-xl">
+                    <p className="text-lg font-black text-white">{content.name}</p>
+                    <p className="mt-1 text-sm text-slate-300">{content.title}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="tech-card absolute -left-5 bottom-28 hidden w-56 rounded-2xl p-4 md:block">
+                <p className="font-code text-[11px] text-slate-500">portfolio.sql</p>
+                <div className="mt-3 space-y-1 font-code text-xs leading-relaxed">
+                  <p>
+                    <span className="text-violet-300">SELECT</span>{" "}
+                    <span className="text-cyan-200">purpose</span>
+                  </p>
+                  <p>
+                    <span className="text-violet-300">FROM</span>{" "}
+                    <span className="text-blue-200">passion</span>
+                  </p>
+                  <p>
+                    <span className="text-violet-300">WHERE</span>{" "}
+                    <span className="text-emerald-300">impact</span> &gt; 0;
+                  </p>
+                </div>
+              </div>
+
+              <div className="tech-card absolute -right-6 top-28 hidden w-48 rounded-2xl p-4 md:block">
+                <div className="flex items-center justify-between">
+                  <p className="text-xs font-bold text-slate-400">Data Projects</p>
+                  <BarChart3 size={16} className="text-blue-300" />
+                </div>
+
+                <p className="mt-3 text-3xl font-black text-white">20+</p>
+
+                <div className="mt-4 flex h-16 items-end gap-1.5">
+                  {[35, 52, 42, 68, 55, 76, 88].map((height, index) => (
+                    <span
+                      key={index}
+                      className="flex-1 rounded-t bg-gradient-to-t from-blue-600 to-cyan-300"
+                      style={{ height: `${height}%` }}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.25em]">
-              {content.labels.scroll}
-            </span>
-            <span className="h-8 w-px bg-white/30 animate-scrollDown" />
+        {featuredProject && (
+          <div className="relative mx-auto mt-14 max-w-7xl">
+            <div className="tech-card overflow-hidden rounded-[2rem]">
+              <div className="grid gap-0 lg:grid-cols-12">
+                <div className="border-b border-white/10 p-6 lg:col-span-5 lg:border-b-0 lg:border-r">
+                  <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">
+                    Featured Project
+                  </p>
+
+                  <h2 className="mt-4 text-2xl font-black leading-tight text-white md:text-3xl">
+                    {featuredProject.title}
+                  </h2>
+
+                  <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-slate-400">
+                    {featuredProject.desc}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {featuredProject.tech?.slice(0, 5).map((tech: string) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {featuredProject.link && (
+                    <a
+                      href={featuredProject.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-300 transition hover:text-white"
+                    >
+                      Open Project
+                      <ArrowUpRight size={16} />
+                    </a>
+                  )}
+                </div>
+
+                <div className="relative min-h-[280px] bg-slate-900 lg:col-span-7">
+                  {featuredProject.embed ? (
+                    <iframe
+                      src={featuredProject.embed}
+                      className="absolute inset-0 h-full w-full"
+                      loading="lazy"
+                      allow="fullscreen"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 grid place-items-center text-sm text-slate-500">
+                      Preview unavailable
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </section>
 
       {/* CONTENT */}
