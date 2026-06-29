@@ -21,7 +21,7 @@ import BackToTop from "@/components/BackToTop";
 
 function waHref(phone?: string) {
   const digits = String(phone || "").replace(/\D/g, "");
-  return digits ? `https://wa.me/${digits}` : "#";
+  return digits.length >= 10 ? `https://wa.me/${digits}` : "#";
 }
 
 export default function Home() {
@@ -1087,141 +1087,224 @@ export default function Home() {
 
 
           {/* CONTACT */}
-          <section id="kontak" className="py-24">
-            <div className="text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-blue-600">
-                {content.labels.contactKicker}
-              </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
-                {content.labels.contactTitle}
-              </h2>
-              <p className="mt-3 text-slate-600">{content.labels.contactSubtitle}</p>
-            </div>
+          <section id="kontak" className="relative overflow-hidden py-24">
+            <div className="pointer-events-none absolute left-[-120px] top-10 h-80 w-80 rounded-full bg-blue-600/10 blur-3xl" />
+            <div className="pointer-events-none absolute bottom-0 right-[-120px] h-96 w-96 rounded-full bg-violet-600/10 blur-3xl" />
 
-            <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:items-stretch">
-              <div className="lg:col-span-5">
-                <div className="relative h-[460px] overflow-hidden rounded-3xl border border-slate-200/70 bg-white/55 shadow-sm">
-                  <div className="absolute inset-0 p-1">
-                    <div className="absolute inset-0 rounded-3xl bg-[conic-gradient(from_180deg_at_50%_50%,rgba(37,99,235,0.25),rgba(15,23,42,0.10),rgba(37,99,235,0.25))]" />
-                    <div className="absolute inset-[6px] rounded-[22px] bg-white/40" />
-                  </div>
+            <div className="relative mx-auto max-w-7xl px-4">
+              <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+                <div className="lg:col-span-7">
+                  <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
+                    {content.labels.contactKicker}
+                  </p>
+                  <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight text-white md:text-5xl">
+                    {content.labels.contactTitle}
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
+                    {content.labels.contactSubtitle}
+                  </p>
+                </div>
 
-                  <img
-                    src={content.contact.photo || "/me.jpg"}
-                    alt="Photo"
-                    className="absolute inset-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] rounded-[20px] object-cover object-center"
-                  />
-
-                  <div className="absolute inset-[10px] rounded-[20px] bg-gradient-to-t from-slate-950/25 via-transparent to-transparent" />
-                  <div className="absolute inset-[10px] rounded-[20px] bg-[radial-gradient(circle_at_20%_20%,rgba(37,99,235,0.18),transparent_45%)]" />
-
-                  <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/40 bg-white/35 p-5 backdrop-blur-md">
-                    <p className="text-sm font-extrabold text-slate-950">{content.name}</p>
-                    <p className="mt-1 text-xs text-slate-700">{content.title}</p>
-                    <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/30 px-3 py-1 text-[11px] font-semibold text-slate-700">
-                      <span className="h-2 w-2 rounded-full bg-blue-600" />
-                      {content.labels.availableForCollab}
+                <div className="lg:col-span-5">
+                  <div className="tech-card rounded-[2rem] p-5">
+                    <div className="flex items-start gap-4">
+                      <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-emerald-400/20 bg-emerald-500/10 text-emerald-300">
+                        <Sparkles size={20} />
+                      </div>
+                      <div>
+                        <p className="text-sm font-black text-white">{content.labels.availableForCollab}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                          {content.labels.connectSubtitle}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-7">
-                <div className="rounded-3xl border border-slate-200/70 bg-white/60 shadow-sm overflow-hidden">
-                  <div className="relative px-6 py-5">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(37,99,235,0.14),transparent_60%)]" />
-                    <div className="relative">
-                      <p className="text-sm font-extrabold text-slate-950">{content.labels.connectTitle}</p>
-                      <p className="mt-1 text-sm text-slate-600">{content.labels.connectSubtitle}</p>
+              <div className="mt-12 grid gap-8 lg:grid-cols-12">
+                <div className="lg:col-span-5">
+                  <div className="tech-card relative overflow-hidden rounded-[2rem] p-4">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(37,99,235,0.22),transparent_42%)]" />
+                    <div className="absolute inset-0 bg-tech-grid opacity-30" />
+
+                    <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950">
+                      <img
+                        src={content.contact.photo || "/me.jpg"}
+                        alt={content.name}
+                        className="h-[430px] w-full object-cover object-center"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
+
+                      <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold text-emerald-300 backdrop-blur-xl">
+                        <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.8)]" />
+                        {content.labels.availableForCollab}
+                      </div>
+
+                      <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-slate-950/70 p-5 backdrop-blur-xl">
+                        <p className="text-lg font-black text-white">{content.name}</p>
+                        <p className="mt-1 text-sm text-slate-300">{content.title}</p>
+
+                        <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-slate-400">
+                          <MapPin size={15} className="text-blue-300" />
+                          Jakarta, Indonesia
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="divide-y divide-slate-200/70">
-                    <a
-                      href={`mailto:${content.contact.email}`}
-                      className="group flex items-center gap-4 px-6 py-4 hover:bg-blue-50/80 transition"
-                    >
-                      <div className="h-11 w-11 rounded-2xl bg-blue-600/10 grid place-items-center text-blue-700 border border-blue-200/50">
-                        <Mail size={18} />
-                      </div>
+                  <div className="tech-card mt-6 rounded-[2rem] p-5">
+                    <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">
+                      contact.config
+                    </p>
+                    <div className="mt-4 space-y-1 font-code text-xs leading-relaxed text-slate-400">
+                      <p><span className="text-violet-300">const</span> status = <span className="text-emerald-300">"open"</span>;</p>
+                      <p><span className="text-violet-300">const</span> focus = <span className="text-cyan-200">["data", "insight", "impact"]</span>;</p>
+                      <p><span className="text-slate-500">// response channel: email / linkedin / whatsapp</span></p>
+                    </div>
+                  </div>
+                </div>
 
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold tracking-wide text-slate-500">
+                <div className="lg:col-span-7">
+                  <div className="tech-card overflow-hidden rounded-[2rem]">
+                    <div className="border-b border-white/10 p-6">
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                          <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">
+                            {content.labels.connectTitle}
+                          </p>
+                          <h3 className="mt-3 text-2xl font-black text-white md:text-3xl">
+                            Choose your preferred channel
+                          </h3>
+                        </div>
+
+                        <a
+                          href={`mailto:${content.contact.email}`}
+                          className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500"
+                        >
+                          Send Email
+                          <ArrowUpRight size={16} />
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-0 md:grid-cols-2">
+                      <a
+                        href={`mailto:${content.contact.email}`}
+                        className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5 md:border-r"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                            <Mail size={20} />
+                          </div>
+                          <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
+                        </div>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
                           {content.labels.email}
                         </p>
-                        <p className="mt-0.5 text-sm font-extrabold text-slate-950 leading-snug break-words">
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
                           {content.contact.email}
                         </p>
-                      </div>
+                      </a>
 
-                      <ArrowUpRight className="text-slate-500 group-hover:text-blue-700 transition" size={18} />
-                    </a>
-
-                    <a
-                      href={content.contact.linkedin.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group flex items-center gap-4 px-6 py-4 hover:bg-blue-50/80 transition"
-                    >
-                      <div className="h-11 w-11 rounded-2xl bg-slate-900/5 grid place-items-center text-slate-700 border border-slate-200/70 group-hover:text-blue-700 transition">
-                        <Linkedin size={18} />
-                      </div>
-
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold tracking-wide text-slate-500">
+                      <a
+                        href={content.contact.linkedin.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                            <Linkedin size={20} />
+                          </div>
+                          <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
+                        </div>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
                           {content.labels.linkedin}
                         </p>
-                        <p className="mt-0.5 text-sm font-semibold text-slate-900 leading-snug break-words">
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
                           {content.contact.linkedin.label}
                         </p>
-                      </div>
+                      </a>
 
-                      <ArrowUpRight className="text-slate-500 group-hover:text-blue-700 transition" size={18} />
-                    </a>
-
-                    <a
-                      href={waHref(content.contact.whatsapp.number)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group flex items-center gap-4 px-6 py-4 hover:bg-blue-50/80 transition"
-                    >
-                      <div className="h-11 w-11 rounded-2xl bg-slate-900/5 grid place-items-center text-slate-700 border border-slate-200/70 group-hover:text-blue-700 transition">
-                        <Phone size={18} />
-                      </div>
-
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold tracking-wide text-slate-500">
+                      <a
+                        href={waHref(content.contact.whatsapp.number)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5 md:border-b-0 md:border-r"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                            <Phone size={20} />
+                          </div>
+                          <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
+                        </div>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
                           {content.labels.whatsapp}
                         </p>
-                        <p className="mt-0.5 text-sm font-semibold text-slate-900 leading-snug break-words">
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
                           {content.contact.whatsapp.label}
                         </p>
-                      </div>
+                      </a>
 
-                      <ArrowUpRight className="text-slate-500 group-hover:text-blue-700 transition" size={18} />
-                    </a>
-
-                    <a
-                      href={content.contact.instagram.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group flex items-center gap-4 px-6 py-4 hover:bg-blue-50/80 transition"
-                    >
-                      <div className="h-11 w-11 rounded-2xl bg-slate-900/5 grid place-items-center text-slate-700 border border-slate-200/70 group-hover:text-blue-700 transition">
-                        <Instagram size={18} />
-                      </div>
-
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold tracking-wide text-slate-500">
+                      <a
+                        href={content.contact.instagram.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group p-6 transition hover:bg-blue-500/5"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                            <Instagram size={20} />
+                          </div>
+                          <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
+                        </div>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
                           {content.labels.instagram}
                         </p>
-                        <p className="mt-0.5 text-sm font-semibold text-slate-900 leading-snug break-words">
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
                           {content.contact.instagram.label}
                         </p>
-                      </div>
+                      </a>
+                    </div>
+                  </div>
 
-                      <ArrowUpRight className="text-slate-500 group-hover:text-blue-700 transition" size={18} />
-                    </a>
+                  <div className="mt-6 grid gap-6 md:grid-cols-2">
+                    <div className="tech-card rounded-[2rem] p-6">
+                      <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">github.status</p>
+                      <div className="mt-5 flex items-center gap-4">
+                        <div className="grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-slate-300">
+                          <Github size={20} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="truncate text-sm font-black text-white">{content.contact.github.label}</p>
+                          <p className="mt-1 text-xs text-slate-500">Project repository & code activity</p>
+                        </div>
+                      </div>
+                      <a
+                        href={content.contact.github.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-300 transition hover:text-white"
+                      >
+                        {content.labels.footerGithub}
+                        <ArrowUpRight size={16} />
+                      </a>
+                    </div>
+
+                    <div className="tech-card rounded-[2rem] p-6">
+                      <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">response.time</p>
+                      <div className="mt-5 space-y-3">
+                        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                          <span className="text-sm font-semibold text-slate-300">Email</span>
+                          <span className="text-sm font-black text-white">Formal</span>
+                        </div>
+                        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                          <span className="text-sm font-semibold text-slate-300">LinkedIn</span>
+                          <span className="text-sm font-black text-white">Career</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1229,41 +1312,54 @@ export default function Home() {
           </section>
 
           {/* FOOTER */}
-          <section className="py-10">
-            <div className="mx-auto max-w-6xl px-4">
-              <div className="h-px w-full bg-slate-200/80" />
-              <div className="mt-6 flex flex-col items-center justify-between gap-3 text-sm text-slate-500 md:flex-row">
-                <p>
-                  © {new Date().getFullYear()} {content.name}
-                </p>
+          <footer className="relative overflow-hidden py-10">
+            <div className="mx-auto max-w-7xl px-4">
+              <div className="tech-card rounded-[2rem] p-6">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="grid h-11 w-11 place-items-center rounded-2xl border border-blue-400/25 bg-blue-500/10 text-lg font-black text-blue-300">
+                        A
+                      </span>
+                      <div>
+                        <p className="text-sm font-black text-white">{content.name}</p>
+                        <p className="mt-1 text-xs text-slate-500">{content.title}</p>
+                      </div>
+                    </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-slate-300">•</span>
-                  <a
-                    className="hover:text-slate-700 transition"
-                    href={content.contact.linkedin.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {content.labels.footerLinkedin}
-                  </a>
-                  <span className="text-slate-300">•</span>
-                  <a
-                    className="hover:text-slate-700 transition"
-                    href={content.contact.github.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {content.labels.footerGithub}
-                  </a>
-                  <span className="text-slate-300">•</span>
-                  <a className="hover:text-slate-700 transition" href={`mailto:${content.contact.email}`}>
-                    {content.labels.footerEmail}
-                  </a>
+                    <p className="mt-4 text-sm text-slate-500">
+                      © {new Date().getFullYear()} {content.name}. Built with clarity, data, and continuous learning.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-300 transition hover:border-blue-400/30 hover:text-white"
+                      href={content.contact.linkedin.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {content.labels.footerLinkedin}
+                    </a>
+                    <a
+                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-300 transition hover:border-blue-400/30 hover:text-white"
+                      href={content.contact.github.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {content.labels.footerGithub}
+                    </a>
+                    <a
+                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-300 transition hover:border-blue-400/30 hover:text-white"
+                      href={`mailto:${content.contact.email}`}
+                    >
+                      {content.labels.footerEmail}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+          </footer>
         </main>
       </div>
 
