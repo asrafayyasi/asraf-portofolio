@@ -557,231 +557,237 @@ export default function Home() {
           </section>
 
           {/* EXPERIENCE */}
-          <section id="pengalaman" className="py-20">
-            <div className="text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-blue-600">
-                {content.workSection.kicker}
-              </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
-                {content.workSection.title}
-              </h2>
-              <p className="mt-3 text-slate-600">{content.workSection.subtitle}</p>
+          <section id="pengalaman" className="relative py-24">
+            <div className="pointer-events-none absolute inset-0 -z-10">
+              <div className="absolute left-1/2 top-10 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-600/10 blur-3xl" />
+              <div className="absolute bottom-0 right-[-120px] h-80 w-80 rounded-full bg-violet-600/10 blur-3xl" />
             </div>
 
-            <div className="mt-12 mx-auto max-w-4xl space-y-4">
-              {content.workSection.items.map((it: any, idx: number) => (
-                <details
-                  key={`${it.company}-${it.role}-${idx}`}
-                  className={[
-                    "group rounded-3xl border border-slate-200/70 bg-white/60 shadow-sm overflow-hidden",
-                    "transition-all duration-200",
-                    "hover:bg-white/85 hover:shadow-md hover:border-blue-200/70",
-                    "open:bg-white/90 open:border-blue-200/70 open:ring-2 open:ring-blue-200/40",
-                  ].join(" ")}
-                >
-                  <summary className="list-none cursor-pointer px-6 py-5">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-4 min-w-0">
-                        {it.logo ? (
-                          <div className="h-12 w-12 overflow-hidden rounded-2xl border border-slate-200/70 bg-white grid place-items-center shrink-0">
-                            <img src={it.logo} alt={it.company} className="h-8 w-8 object-contain" />
-                          </div>
-                        ) : (
-                          <div className="h-12 w-12 rounded-2xl border border-slate-200/70 bg-white/70 grid place-items-center text-slate-700 font-extrabold shrink-0">
-                            {String(it.company || "C").slice(0, 1)}
-                          </div>
-                        )}
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
+                {content.workSection.kicker}
+              </p>
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
+                {content.workSection.title}
+              </h2>
+              <p className="mt-4 text-slate-400">{content.workSection.subtitle}</p>
+            </div>
 
-                        <div className="min-w-0">
-                          <h3 className="text-base md:text-lg font-extrabold text-slate-950 leading-snug">
-                            {it.role}
-                          </h3>
+            <div className="mt-14 grid gap-8 lg:grid-cols-12">
+              <div className="lg:col-span-4">
+                <div className="sticky top-28 tech-card overflow-hidden rounded-[2rem]">
+                  <div className="border-b border-white/10 px-6 py-5">
+                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
+                      work.timeline
+                    </p>
+                    <h3 className="mt-2 text-2xl font-black text-white">Professional Track</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                      Selected work experiences, responsibilities, and tools that support my data and digital portfolio.
+                    </p>
+                  </div>
 
-                          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm">
-                            <span className="font-semibold text-blue-700">{it.company}</span>
-                            {it.location && (
-                              <>
-                                <span className="text-slate-300">•</span>
-                                <span className="text-slate-600">{it.location}</span>
-                              </>
-                            )}
-                          </div>
+                  <div className="grid gap-0 divide-y divide-white/10">
+                    <div className="p-6">
+                      <div className="flex items-center gap-4">
+                        <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                          <Database size={20} />
+                        </div>
+                        <div>
+                          <p className="text-3xl font-black text-white">{content.workSection.items.length}</p>
+                          <p className="text-sm text-slate-400">Experience Records</p>
                         </div>
                       </div>
-
-                      <div className="shrink-0 flex items-center gap-2">
-                        {it.period && (
-                          <span className="hidden sm:inline-flex rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">
-                            {it.period}
-                          </span>
-                        )}
-                        {it.type && (
-                          <span className="hidden sm:inline-flex rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">
-                            {it.type}
-                          </span>
-                        )}
-
-                        <span className="h-10 w-10 rounded-2xl border border-slate-200/70 bg-white/70 grid place-items-center text-slate-600 transition group-[open]:rotate-180 group-hover:border-blue-200/70 group-hover:text-blue-700">
-                          <ChevronDown size={18} />
-                        </span>
-                      </div>
                     </div>
 
-                    <div className="mt-3 flex flex-wrap gap-2 sm:hidden">
-                      {it.period && (
-                        <span className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">
-                          {it.period}
-                        </span>
-                      )}
-                      {it.type && (
-                        <span className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">
-                          {it.type}
-                        </span>
-                      )}
-                    </div>
-                  </summary>
-
-                  <div className="px-6 pb-6">
-                    <div className="h-px w-full bg-slate-200/80" />
-
-                    {it.bullets?.length > 0 && (
-                      <ul className="mt-5 space-y-2 text-sm text-slate-700">
-                        {it.bullets.map((b: string) => (
-                          <li key={b} className="flex items-start gap-3">
-                            <span className="mt-2 h-2 w-2 rounded-full bg-blue-600 shrink-0" />
-                            <span className="leading-relaxed">{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {it.tools?.length > 0 && (
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {it.tools.slice(0, 12).map((t: string) => (
+                    <div className="p-6">
+                      <div className="flex flex-wrap gap-2">
+                        {["Analytics", "Reporting", "Research", "Operations", "Strategy"].map((tag) => (
                           <span
-                            key={t}
-                            className="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-medium text-slate-700"
+                            key={tag}
+                            className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100"
                           >
-                            {t}
+                            {tag}
                           </span>
                         ))}
                       </div>
-                    )}
+                    </div>
+
+                    <div className="bg-tech-grid p-6">
+                      <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-4 font-code text-xs leading-relaxed text-slate-400">
+                        <p><span className="text-violet-300">const</span> work = [</p>
+                        <p className="pl-4"><span className="text-emerald-300">"learn"</span>,</p>
+                        <p className="pl-4"><span className="text-emerald-300">"analyze"</span>,</p>
+                        <p className="pl-4"><span className="text-emerald-300">"deliver impact"</span></p>
+                        <p>];</p>
+                      </div>
+                    </div>
                   </div>
-                </details>
-              ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-8">
+                <div className="relative space-y-5 before:absolute before:left-6 before:top-4 before:hidden before:h-[calc(100%-2rem)] before:w-px before:bg-blue-400/20 md:before:block">
+                  {content.workSection.items.map((it: any, idx: number) => (
+                    <details
+                      key={`${it.company}-${it.role}-${idx}`}
+                      className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/45 shadow-sm backdrop-blur transition hover:border-blue-400/30 hover:bg-slate-900/60 open:border-blue-400/30 open:bg-slate-900/70"
+                    >
+                      <summary className="list-none cursor-pointer px-5 py-5 md:pl-16">
+                        <span className="absolute left-4 top-7 hidden h-4 w-4 rounded-full border border-blue-300/50 bg-slate-950 shadow-[0_0_20px_rgba(96,165,250,0.55)] md:block" />
+
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex min-w-0 items-center gap-4">
+                            {it.logo ? (
+                              <div className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
+                                <img src={it.logo} alt={it.company} className="h-9 w-9 object-contain" />
+                              </div>
+                            ) : (
+                              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-lg font-black text-blue-200">
+                                {String(it.company || "C").slice(0, 1)}
+                              </div>
+                            )}
+
+                            <div className="min-w-0">
+                              <h3 className="text-base font-black leading-snug text-white md:text-xl">
+                                {it.role}
+                              </h3>
+
+                              <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+                                <span className="font-bold text-blue-200">{it.company}</span>
+                                {it.location && (
+                                  <>
+                                    <span className="text-slate-600">•</span>
+                                    <span className="inline-flex items-center gap-1 text-slate-400">
+                                      <MapPin size={13} />
+                                      {it.location}
+                                    </span>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="shrink-0">
+                            <span className="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] text-slate-300 transition group-hover:text-blue-200 group-open:rotate-180 group-open:text-blue-200">
+                              <ChevronDown size={18} />
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 flex flex-wrap gap-2 md:pl-[72px]">
+                          {it.period && (
+                            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-300">
+                              {it.period}
+                            </span>
+                          )}
+                          {it.type && (
+                            <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100">
+                              {it.type}
+                            </span>
+                          )}
+                        </div>
+                      </summary>
+
+                      <div className="px-5 pb-6 md:pl-16">
+                        <div className="h-px w-full bg-white/10" />
+
+                        {it.bullets?.length > 0 && (
+                          <ul className="mt-5 space-y-3 text-sm text-slate-300">
+                            {it.bullets.map((b: string) => (
+                              <li key={b} className="flex items-start gap-3">
+                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400 shadow-[0_0_14px_rgba(96,165,250,0.8)]" />
+                                <span className="leading-relaxed">{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {it.tools?.length > 0 && (
+                          <div className="mt-6 flex flex-wrap gap-2">
+                            {it.tools.slice(0, 12).map((t: string) => (
+                              <span
+                                key={t}
+                                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300"
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
           {/* ORGANIZATION */}
-          <section id="organisasi" className="py-20">
-            <div className="text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-blue-600">
+          <section id="organisasi" className="relative py-24">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
                 {content.orgSection.kicker}
               </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
                 {content.orgSection.title}
               </h2>
-              <p className="mt-3 text-slate-600">{content.orgSection.subtitle}</p>
+              <p className="mt-4 text-slate-400">{content.orgSection.subtitle}</p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {content.orgSection.items.map((it: any) => (
+            <div className="mt-14 grid gap-6 md:grid-cols-2">
+              {content.orgSection.items.map((it: any, index: number) => (
                 <article
                   key={`${it.title}-${it.role}`}
-                  className={[
-                    "group overflow-hidden rounded-3xl border border-slate-200/70 bg-white/60 shadow-sm",
-                    "hover:bg-white/85 hover:shadow-md transition",
-                  ].join(" ")}
+                  className="group overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/45 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-blue-400/30 hover:bg-slate-900/70"
                 >
-                  <div className="relative md:hidden">
-                    <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                  <div className="relative">
+                    <div className="aspect-[16/10] w-full overflow-hidden bg-slate-900">
                       <img
                         src={it.image}
                         alt={it.title}
-                        className="h-full w-full object-cover md:object-center"
-                        style={{ objectPosition: "0% 20%" }}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        style={{ objectPosition: index % 2 === 0 ? "50% 20%" : "50% 35%" }}
                       />
                     </div>
 
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/25 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                    <div className="absolute left-5 top-5 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 font-code text-[11px] uppercase tracking-[0.2em] text-blue-100 backdrop-blur">
+                      leadership.log
+                    </div>
+
+                    {it.period && (
+                      <div className="absolute right-5 top-5 rounded-full border border-white/10 bg-slate-950/60 px-3 py-1 text-xs font-bold text-slate-200 backdrop-blur">
+                        {it.period}
+                      </div>
+                    )}
+
+                    <div className="absolute bottom-5 left-5 right-5">
+                      <h3 className="text-xl font-black leading-snug text-white">{it.title}</h3>
+                      <p className="mt-1 text-sm font-bold text-blue-200">{it.role}</p>
+                    </div>
                   </div>
 
                   <div className="p-6">
-                    <div className="hidden md:flex gap-5">
-                      <div className="w-full md:w-40 h-44 md:h-full shrink-0 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
-                        <img src={it.image} alt={it.title} className="h-full w-full object-cover object-top md:object-center" />
-                      </div>
+                    <ul className="space-y-3 text-sm text-slate-300">
+                      {it.bullets.slice(0, 4).map((b: string) => (
+                        <li key={b} className="flex items-start gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400 shadow-[0_0_14px_rgba(96,165,250,0.8)]" />
+                          <span className="leading-relaxed">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="min-w-0">
-                            <h3 className="text-lg font-extrabold text-slate-950 leading-snug line-clamp-2">
-                              {it.title}
-                            </h3>
-                            <p className="mt-1 text-sm font-semibold text-blue-700">{it.role}</p>
-                          </div>
-
-                          {it.period && (
-                            <span className="shrink-0 rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600">
-                              {it.period}
-                            </span>
-                          )}
-                        </div>
-
-                        <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                          {it.bullets.slice(0, 4).map((b: string) => (
-                            <li key={b} className="flex items-start gap-3">
-                              <span className="mt-2 h-2 w-2 rounded-full bg-blue-600 shrink-0" />
-                              <span className="leading-relaxed">{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {it.bullets.length > 4 && (
-                          <p className="mt-4 text-xs text-slate-500">
-                            +{it.bullets.length - 4} {content.labels.morePoints}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="md:hidden">
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0">
-                          <h3 className="text-base font-extrabold text-slate-950 leading-snug">
-                            {it.title}
-                          </h3>
-                          <p className="mt-1 text-sm font-semibold text-blue-700">{it.role}</p>
-                        </div>
-
-                        {it.period && (
-                          <span className="shrink-0 rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-[11px] font-semibold text-slate-600">
-                            {it.period}
-                          </span>
-                        )}
-                      </div>
-
-                      <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                        {it.bullets.slice(0, 4).map((b: string) => (
-                          <li key={b} className="flex items-start gap-3">
-                            <span className="mt-2 h-2 w-2 rounded-full bg-blue-600 shrink-0" />
-                            <span className="leading-relaxed">{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {it.bullets.length > 4 && (
-                        <p className="mt-4 text-xs text-slate-500">
-                          +{it.bullets.length - 4} {content.labels.morePoints}
-                        </p>
-                      )}
-                    </div>
+                    {it.bullets.length > 4 && (
+                      <p className="mt-5 text-xs font-semibold text-slate-500">
+                        +{it.bullets.length - 4} {content.labels.morePoints}
+                      </p>
+                    )}
                   </div>
                 </article>
               ))}
             </div>
           </section>
+
 
           {/* PROJECTS */}
           <section id="proyek" className="py-20">
