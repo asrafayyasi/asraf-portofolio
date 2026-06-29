@@ -1,27 +1,38 @@
-import type { Metadata } from 'next';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-plus-jakarta',
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio Asraf',
-  description: 'Portfolio Asraf Ayyasi Putra',
+  title: "Asraf Ayyasi Putra | Portfolio",
+  description: "Data Analyst and Digital Marketing Portfolio of Asraf Ayyasi Putra",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="id" className={`${inter.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
-      <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}>{children}</body>
+    <html
+      lang="id"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { getContent, Lang } from "@/data/content";
 
-type NavItem = { label: string; href: string };
+type NavItem = {
+  label: string;
+  href: string;
+};
 
 type NavbarProps = {
   lang: Lang;
@@ -28,99 +31,104 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
   );
 
   const [open, setOpen] = useState(false);
-  const [pastHero, setPastHero] = useState(false);
   const [active, setActive] = useState<string>("#beranda");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
   }, [lang]);
 
   useEffect(() => {
-    const hero = document.getElementById("beranda");
-
     const onScroll = () => {
-      const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
-      setPastHero(window.scrollY + 88 >= heroBottom);
+      setScrolled(window.scrollY > 24);
 
-      const ids = navItems.map((n) => n.href).filter((h) => h.startsWith("#"));
+      const ids = navItems.map((item) => item.href);
       let current = ids[0] || "#beranda";
 
       for (const id of ids) {
         const el = document.querySelector(id) as HTMLElement | null;
         if (!el) continue;
+
         const top = el.getBoundingClientRect().top;
-        if (top <= 140) current = id;
+        if (top <= 130) current = id;
       }
 
       setActive(current);
     };
 
     onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [navItems]);
 
-  const shellClass = pastHero
-    ? "border-slate-200/70 bg-white/70 text-slate-900 shadow-md"
-    : "border-white/10 bg-slate-950/30 text-white shadow-sm";
-
-  const linkBase = pastHero ? "text-slate-700 hover:text-slate-950" : "text-white/80 hover:text-white";
-  const linkActive = pastHero ? "text-blue-700" : "text-white";
-
-  const cvBtnClass = pastHero
-    ? "bg-slate-950 text-white hover:bg-slate-900 border-slate-900/10"
-    : "bg-white/10 text-white hover:bg-white/15 border-white/15";
-
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className={`mt-4 rounded-2xl border backdrop-blur-md transition-all duration-200 ${shellClass}`}>
+      <div className="mx-auto max-w-7xl px-4">
+        <div
+          className={`mt-4 rounded-2xl border border-white/10 bg-slate-950/65 backdrop-blur-xl transition-all duration-300 ${
+            scrolled ? "shadow-2xl shadow-blue-950/30" : "shadow-sm"
+          }`}
+        >
           <div className="flex items-center justify-between px-4 py-3">
-            <a href="#beranda" className="text-lg font-extrabold tracking-tight">
-              <span className={pastHero ? "text-blue-600" : "text-blue-400"}>Asraf </span>
-              <span className={pastHero ? "text-slate-900" : "text-white"}>Ayyasi</span>
+            <a href="#beranda" className="group flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-xl border border-blue-400/25 bg-blue-500/10 text-lg font-black text-blue-300 shadow-lg shadow-blue-950/30">
+                A
+              </span>
+
+              <div className="leading-tight">
+                <p className="font-space text-base font-bold tracking-tight text-white">
+                  Asraf Ayyasi
+                </p>
+                <p className="hidden text-[10px] uppercase tracking-[0.28em] text-slate-500 sm:block">
+                  Data Portfolio
+                </p>
+              </div>
             </a>
 
-            <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-              {navItems.map((it) => (
-                <a
-                  key={it.href}
-                  href={it.href}
-                  className={`transition ${active === it.href ? linkActive : linkBase}`}
-                >
-                  {it.label}
-                </a>
-              ))}
+            <nav className="hidden items-center gap-7 text-sm font-medium lg:flex">
+              {navItems.map((item) => {
+                const isActive = active === item.href;
+
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className={`relative transition ${
+                      isActive ? "text-blue-300" : "text-slate-300 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+
+                    {isActive && (
+                      <span className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-blue-400 shadow-[0_0_16px_rgba(96,165,250,0.8)]" />
+                    )}
+                  </a>
+                );
+              })}
             </nav>
 
             <div className="flex items-center gap-2">
-              <div
-                className={`hidden md:flex items-center rounded-xl border p-1 ${
-                  pastHero ? "border-slate-200/70 bg-white/60" : "border-white/15 bg-white/5"
-                }`}
-              >
+              <div className="hidden items-center rounded-xl border border-white/10 bg-white/[0.04] p-1 md:flex">
                 <button
                   type="button"
                   onClick={() => setLang("en")}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                  className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                     lang === "en"
-                      ? "bg-blue-600 text-white"
-                      : pastHero
-                      ? "text-slate-700"
-                      : "text-white/80"
+                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
+                      : "text-slate-400 hover:text-white"
                   }`}
                 >
                   EN
                 </button>
+
                 <button
                   type="button"
                   onClick={() => setLang("id")}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                  className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                     lang === "id"
-                      ? "bg-blue-600 text-white"
-                      : pastHero
-                      ? "text-slate-700"
-                      : "text-white/80"
+                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
+                      : "text-slate-400 hover:text-white"
                   }`}
                 >
                   ID
@@ -131,56 +139,60 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 href={content.cta?.cv || "#"}
                 target={content.cta?.cv ? "_blank" : undefined}
                 rel={content.cta?.cv ? "noreferrer" : undefined}
-                className={`hidden md:inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition ${cvBtnClass}`}
+                className="hidden items-center gap-2 rounded-xl border border-blue-400/25 bg-blue-600 px-4 py-2 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500 md:inline-flex"
               >
-                {content.labels.downloadCv} <Download size={16} />
+                {content.labels.downloadCv}
+                <Download size={16} />
               </a>
 
               <button
                 type="button"
-                className={`md:hidden rounded-xl border p-2 transition ${
-                  pastHero ? "border-slate-200/70 bg-white/60 text-slate-900" : "border-white/10 bg-slate-950/30 text-white"
-                }`}
-                onClick={() => setOpen((v) => !v)}
+                onClick={() => setOpen((value) => !value)}
+                className="inline-flex rounded-xl border border-white/10 bg-white/[0.04] p-2 text-white transition hover:bg-white/[0.08] lg:hidden"
                 aria-label="Toggle menu"
               >
-                {open ? <X size={18} /> : <Menu size={18} />}
+                {open ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
 
           {open && (
-            <div className={`md:hidden border-t px-4 py-3 transition ${pastHero ? "border-slate-200/70" : "border-white/10"}`}>
-              <div className="mb-3 flex items-center rounded-xl border border-slate-200/70 bg-white/60 p-1">
+            <div className="border-t border-white/10 px-4 pb-4 pt-3 lg:hidden">
+              <div className="mb-4 flex items-center rounded-xl border border-white/10 bg-white/[0.04] p-1 md:hidden">
                 <button
                   type="button"
                   onClick={() => setLang("en")}
-                  className={`flex-1 rounded-lg px-3 py-2 text-xs font-semibold transition ${
-                    lang === "en" ? "bg-blue-600 text-white" : "text-slate-700"
+                  className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition ${
+                    lang === "en" ? "bg-blue-600 text-white" : "text-slate-400"
                   }`}
                 >
                   EN
                 </button>
+
                 <button
                   type="button"
                   onClick={() => setLang("id")}
-                  className={`flex-1 rounded-lg px-3 py-2 text-xs font-semibold transition ${
-                    lang === "id" ? "bg-blue-600 text-white" : "text-slate-700"
+                  className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition ${
+                    lang === "id" ? "bg-blue-600 text-white" : "text-slate-400"
                   }`}
                 >
                   ID
                 </button>
               </div>
 
-              <nav className={`flex flex-col gap-3 text-sm font-medium ${pastHero ? "text-slate-700" : "text-white/80"}`}>
-                {navItems.map((it) => (
+              <nav className="flex flex-col gap-2 text-sm font-medium">
+                {navItems.map((item) => (
                   <a
-                    key={it.href}
-                    href={it.href}
+                    key={item.href}
+                    href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`py-1 transition ${active === it.href ? (pastHero ? "text-blue-700" : "text-white") : ""}`}
+                    className={`rounded-xl px-3 py-2 transition ${
+                      active === item.href
+                        ? "bg-blue-500/10 text-blue-300"
+                        : "text-slate-300 hover:bg-white/[0.04] hover:text-white"
+                    }`}
                   >
-                    {it.label}
+                    {item.label}
                   </a>
                 ))}
 
@@ -188,9 +200,10 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                   href={content.cta?.cv || "#"}
                   target={content.cta?.cv ? "_blank" : undefined}
                   rel={content.cta?.cv ? "noreferrer" : undefined}
-                  className={`mt-2 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition ${cvBtnClass}`}
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-500"
                 >
-                  {content.labels.downloadCv} <Download size={16} />
+                  {content.labels.downloadCv}
+                  <Download size={16} />
                 </a>
               </nav>
             </div>
