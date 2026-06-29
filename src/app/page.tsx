@@ -1,35 +1,22 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
-import { getContent, Lang } from "@/data/content";
-import {
-  Mail,
-  Linkedin,
-  Phone,
-  Instagram,
-  ArrowUpRight,
-  ChevronDown,
-  Github,
-  MapPin,
-  BarChart3,
-  Code2,
-  Database,
-  Sparkles,
-} from "lucide-react";
-import BackToTop from "@/components/BackToTop";
+import { useEffect, useState } from 'react';
+import Navbar from '@/components/Navbar';
+import { getContent, Lang } from '@/data/content';
+import { Mail, Linkedin, Phone, Instagram, ArrowUpRight, ChevronDown, Github, MapPin, BarChart3, Code2, Database, Sparkles } from 'lucide-react';
+import BackToTop from '@/components/BackToTop';
 
 function waHref(phone?: string) {
-  const digits = String(phone || "").replace(/\D/g, "");
-  return digits.length >= 10 ? `https://wa.me/${digits}` : "#";
+  const digits = String(phone || '').replace(/\D/g, '');
+  return digits.length >= 10 ? `https://wa.me/${digits}` : '#';
 }
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>('en');
 
   useEffect(() => {
-    const saved = localStorage.getItem("lang") as Lang | null;
-    if (saved === "en" || saved === "id") {
+    const saved = localStorage.getItem('lang') as Lang | null;
+    if (saved === 'en' || saved === 'id') {
       setLang(saved);
     }
   }, []);
@@ -38,17 +25,17 @@ export default function Home() {
   const featuredProject = content.projects?.[0];
 
   const heroStats = [
-    { value: "3+", label: "Years of Learning", icon: BarChart3 },
-    { value: "20+", label: "Projects Completed", icon: Code2 },
-    { value: "5+", label: "Certificates Earned", icon: Database },
-    { value: "100%", label: "Commitment", icon: Sparkles },
+    { value: '3+', label: 'Years of Learning', icon: BarChart3 },
+    { value: '20+', label: 'Projects Completed', icon: Code2 },
+    { value: '5+', label: 'Certificates Earned', icon: Database },
+    { value: '100%', label: 'Commitment', icon: Sparkles },
   ];
 
   const skillHighlights = [
-    { title: "Data Analytics", desc: "SQL, Python, EDA, dashboarding", icon: BarChart3 },
-    { title: "Data Engineering Basics", desc: "Database, cleaning, transformation", icon: Database },
-    { title: "Machine Learning", desc: "Modeling, computer vision, evaluation", icon: Code2 },
-    { title: "Digital Growth", desc: "Campaign, SEO, reporting", icon: Sparkles },
+    { title: 'Data Analytics', desc: 'SQL, Python, EDA, dashboarding', icon: BarChart3 },
+    { title: 'Data Engineering Basics', desc: 'Database, cleaning, transformation', icon: Database },
+    { title: 'Machine Learning', desc: 'Modeling, computer vision, evaluation', icon: Code2 },
+    { title: 'Digital Growth', desc: 'Campaign, SEO, reporting', icon: Sparkles },
   ];
 
   return (
@@ -74,14 +61,9 @@ export default function Home() {
               <span className="text-gradient-blue block">Putra</span>
             </h1>
 
-            <p className="mt-5 text-xl font-semibold text-blue-100 md:text-2xl">
-              {content.title}
-            </p>
+            <p className="mt-5 text-xl font-semibold text-blue-100 md:text-2xl">{content.title}</p>
 
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-              Turning raw data into actionable insights and building strategies that drive growth,
-              clarity, and measurable impact.
-            </p>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">Turning raw data into actionable insights and building strategies that drive growth, clarity, and measurable impact.</p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
@@ -165,11 +147,7 @@ export default function Home() {
                 </div>
 
                 <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-900">
-                  <img
-                    src={content.contact.photo || "/me.jpg"}
-                    alt={content.name}
-                    className="h-[520px] w-full object-cover object-center"
-                  />
+                  <img src={content.contact.photo || '/me.jpg'} alt={content.name} className="h-[520px] w-full object-cover object-center" />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
 
@@ -184,16 +162,13 @@ export default function Home() {
                 <p className="font-code text-[11px] text-slate-500">portfolio.sql</p>
                 <div className="mt-3 space-y-1 font-code text-xs leading-relaxed">
                   <p>
-                    <span className="text-violet-300">SELECT</span>{" "}
-                    <span className="text-cyan-200">purpose</span>
+                    <span className="text-violet-300">SELECT</span> <span className="text-cyan-200">purpose</span>
                   </p>
                   <p>
-                    <span className="text-violet-300">FROM</span>{" "}
-                    <span className="text-blue-200">passion</span>
+                    <span className="text-violet-300">FROM</span> <span className="text-blue-200">passion</span>
                   </p>
                   <p>
-                    <span className="text-violet-300">WHERE</span>{" "}
-                    <span className="text-emerald-300">impact</span> &gt; 0;
+                    <span className="text-violet-300">WHERE</span> <span className="text-emerald-300">impact</span> &gt; 0;
                   </p>
                 </div>
               </div>
@@ -208,11 +183,7 @@ export default function Home() {
 
                 <div className="mt-4 flex h-16 items-end gap-1.5">
                   {[35, 52, 42, 68, 55, 76, 88].map((height, index) => (
-                    <span
-                      key={index}
-                      className="flex-1 rounded-t bg-gradient-to-t from-blue-600 to-cyan-300"
-                      style={{ height: `${height}%` }}
-                    />
+                    <span key={index} className="flex-1 rounded-t bg-gradient-to-t from-blue-600 to-cyan-300" style={{ height: `${height}%` }} />
                   ))}
                 </div>
               </div>
@@ -225,36 +196,22 @@ export default function Home() {
             <div className="tech-card overflow-hidden rounded-[2rem]">
               <div className="grid gap-0 lg:grid-cols-12">
                 <div className="border-b border-white/10 p-6 lg:col-span-5 lg:border-b-0 lg:border-r">
-                  <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">
-                    Featured Project
-                  </p>
+                  <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">Featured Project</p>
 
-                  <h2 className="mt-4 text-2xl font-black leading-tight text-white md:text-3xl">
-                    {featuredProject.title}
-                  </h2>
+                  <h2 className="mt-4 text-2xl font-black leading-tight text-white md:text-3xl">{featuredProject.title}</h2>
 
-                  <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-slate-400">
-                    {featuredProject.desc}
-                  </p>
+                  <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-slate-400">{featuredProject.desc}</p>
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {featuredProject.tech?.slice(0, 5).map((tech: string) => (
-                      <span
-                        key={tech}
-                        className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100"
-                      >
+                      <span key={tech} className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100">
                         {tech}
                       </span>
                     ))}
                   </div>
 
                   {featuredProject.link && (
-                    <a
-                      href={featuredProject.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-300 transition hover:text-white"
-                    >
+                    <a href={featuredProject.link} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-300 transition hover:text-white">
                       Open Project
                       <ArrowUpRight size={16} />
                     </a>
@@ -263,16 +220,9 @@ export default function Home() {
 
                 <div className="relative min-h-[280px] bg-slate-900 lg:col-span-7">
                   {featuredProject.embed ? (
-                    <iframe
-                      src={featuredProject.embed}
-                      className="absolute inset-0 h-full w-full"
-                      loading="lazy"
-                      allow="fullscreen"
-                    />
+                    <iframe src={featuredProject.embed} className="absolute inset-0 h-full w-full" loading="lazy" allow="fullscreen" />
                   ) : (
-                    <div className="absolute inset-0 grid place-items-center text-sm text-slate-500">
-                      Preview unavailable
-                    </div>
+                    <div className="absolute inset-0 grid place-items-center text-sm text-slate-500">Preview unavailable</div>
                   )}
                 </div>
               </div>
@@ -296,17 +246,11 @@ export default function Home() {
                 <div className="sticky top-28 space-y-5">
                   <div className="tech-card overflow-hidden rounded-[2rem] p-4">
                     <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-900">
-                      <img
-                        src={content.contact.photo || "/me.jpg"}
-                        alt={content.name}
-                        className="h-[420px] w-full object-cover object-center"
-                      />
+                      <img src={content.contact.photo || '/me.jpg'} alt={content.name} className="h-[420px] w-full object-cover object-center" />
 
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
 
-                      <div className="absolute left-5 top-5 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 font-code text-[11px] uppercase tracking-[0.2em] text-blue-200 backdrop-blur">
-                        profile.config
-                      </div>
+                      <div className="absolute left-5 top-5 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 font-code text-[11px] uppercase tracking-[0.2em] text-blue-200 backdrop-blur">profile.config</div>
 
                       <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-slate-950/70 p-4 backdrop-blur-xl">
                         <p className="text-lg font-black text-white">{content.name}</p>
@@ -326,15 +270,13 @@ export default function Home() {
 
                   <div className="tech-card rounded-[2rem] p-5">
                     <div className="flex items-center justify-between">
-                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
-                        education.track
-                      </p>
+                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">education.track</p>
                       <Database size={18} className="text-blue-300" />
                     </div>
 
                     <div className="mt-5 space-y-5">
                       {content.about.timeline
-                        .filter((t: any) => ["pendidikan", "education"].includes(t.title?.toLowerCase()))
+                        .filter((t: any) => ['pendidikan', 'education'].includes(t.title?.toLowerCase()))
                         .map((t: any) => (
                           <div key={`${t.title}-${t.year}`} className="relative pl-6">
                             <span className="absolute left-0 top-2 h-3 w-3 rounded-full bg-blue-400 shadow-[0_0_20px_rgba(96,165,250,0.8)]" />
@@ -346,15 +288,12 @@ export default function Home() {
                                 <p className="mt-1 text-sm font-semibold text-blue-200">{t.desc}</p>
                               </div>
 
-                              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-300">
-                                {t.year}
-                              </span>
+                              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-300">{t.year}</span>
                             </div>
 
                             {t.thesis && (
                               <p className="mt-4 text-sm leading-relaxed text-slate-400">
-                                <span className="font-semibold text-slate-200">{content.labels.thesis}:</span>{" "}
-                                <span className="italic">{t.thesis}</span>
+                                <span className="font-semibold text-slate-200">{content.labels.thesis}:</span> <span className="italic">{t.thesis}</span>
                               </p>
                             )}
                           </div>
@@ -365,17 +304,11 @@ export default function Home() {
               </div>
 
               <div className="lg:col-span-7">
-                <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
-                  {content.about.kicker}
-                </p>
+                <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">{content.about.kicker}</p>
 
-                <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
-                  {content.about.headline}
-                </h2>
+                <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">{content.about.headline}</h2>
 
-                <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-400 md:text-lg">
-                  {content.about.summary}
-                </p>
+                <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-400 md:text-lg">{content.about.summary}</p>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
                   {skillHighlights.map((item) => {
@@ -411,10 +344,18 @@ export default function Home() {
                   <div className="grid gap-0 lg:grid-cols-12">
                     <div className="border-b border-white/10 p-6 lg:col-span-7 lg:border-b-0 lg:border-r">
                       <div className="space-y-2 font-code text-sm leading-relaxed">
-                        <p><span className="text-violet-300">const</span> profile = &#123;</p>
-                        <p className="pl-4"><span className="text-blue-200">role</span>: <span className="text-emerald-300">"Data Analyst"</span>,</p>
-                        <p className="pl-4"><span className="text-blue-200">focus</span>: <span className="text-emerald-300">"Insight, dashboard, growth"</span>,</p>
-                        <p className="pl-4"><span className="text-blue-200">mindset</span>: <span className="text-emerald-300">"analytical + impact-oriented"</span>,</p>
+                        <p>
+                          <span className="text-violet-300">const</span> profile = &#123;
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-blue-200">role</span>: <span className="text-emerald-300">"Data Analyst"</span>,
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-blue-200">focus</span>: <span className="text-emerald-300">"Insight, dashboard, growth"</span>,
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-blue-200">mindset</span>: <span className="text-emerald-300">"analytical + impact-oriented"</span>,
+                        </p>
                         <p>&#125;;</p>
                       </div>
                     </div>
@@ -423,10 +364,7 @@ export default function Home() {
                       <p className="text-sm font-bold text-slate-200">Profile Keywords</p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {content.about.skills.slice(0, 10).map((s: string) => (
-                          <span
-                            key={s}
-                            className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100"
-                          >
+                          <span key={s} className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100">
                             {s}
                           </span>
                         ))}
@@ -441,12 +379,8 @@ export default function Home() {
           {/* SKILLS */}
           <section id="keahlian" className="relative py-24">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
-                {content.skillsSection.kicker}
-              </p>
-              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
-                {content.skillsSection.title}
-              </h2>
+              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">{content.skillsSection.kicker}</p>
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">{content.skillsSection.title}</h2>
               <p className="mt-4 text-slate-400">{content.skillsSection.subtitle}</p>
             </div>
 
@@ -454,9 +388,7 @@ export default function Home() {
               <div className="tech-card rounded-[2rem] p-6 lg:col-span-7">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div>
-                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
-                      stack.matrix
-                    </p>
+                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">stack.matrix</p>
                     <h3 className="mt-2 text-2xl font-black text-white">{content.labels.coreSkills}</h3>
                   </div>
 
@@ -467,22 +399,14 @@ export default function Home() {
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {content.skillsSection.hard.map((s: string, index: number) => (
-                    <div
-                      key={s}
-                      className="group rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-blue-400/30 hover:bg-blue-500/10"
-                    >
+                    <div key={s} className="group rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:-translate-y-0.5 hover:border-blue-400/30 hover:bg-blue-500/10">
                       <div className="flex items-center justify-between gap-3">
                         <p className="text-sm font-bold text-slate-100">{s}</p>
-                        <span className="font-code text-[10px] text-slate-500">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
+                        <span className="font-code text-[10px] text-slate-500">{String(index + 1).padStart(2, '0')}</span>
                       </div>
 
                       <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800">
-                        <div
-                          className="h-full rounded-full bg-gradient-to-r from-blue-600 via-cyan-400 to-violet-500"
-                          style={{ width: `${72 + (index % 5) * 5}%` }}
-                        />
+                        <div className="h-full rounded-full bg-gradient-to-r from-blue-600 via-cyan-400 to-violet-500" style={{ width: `${72 + (index % 5) * 5}%` }} />
                       </div>
                     </div>
                   ))}
@@ -493,9 +417,7 @@ export default function Home() {
                 <div className="tech-card rounded-[2rem] p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
-                        human.skills
-                      </p>
+                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">human.skills</p>
                       <h3 className="mt-2 text-2xl font-black text-white">{content.labels.softSkills}</h3>
                     </div>
                     <Sparkles size={22} className="text-blue-300" />
@@ -503,10 +425,7 @@ export default function Home() {
 
                   <div className="mt-6 grid gap-3">
                     {content.skillsSection.soft.map((s: string) => (
-                      <div
-                        key={s}
-                        className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3"
-                      >
+                      <div key={s} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3">
                         <span className="grid h-8 w-8 place-items-center rounded-xl border border-emerald-400/20 bg-emerald-500/10 text-emerald-300">
                           <Sparkles size={14} />
                         </span>
@@ -519,9 +438,7 @@ export default function Home() {
                 <div className="tech-card rounded-[2rem] p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
-                        learning.log
-                      </p>
+                      <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">learning.log</p>
                       <h3 className="mt-2 text-2xl font-black text-white">{content.labels.coursesTraining}</h3>
                     </div>
                     <Database size={22} className="text-blue-300" />
@@ -536,9 +453,7 @@ export default function Home() {
                             <p className="mt-1 text-sm text-slate-400">{t.org}</p>
                           </div>
 
-                          <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-blue-100">
-                            {t.year}
-                          </span>
+                          <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-blue-100">{t.year}</span>
                         </div>
                       </div>
                     ))}
@@ -564,12 +479,8 @@ export default function Home() {
             </div>
 
             <div className="mx-auto max-w-3xl text-center">
-              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
-                {content.workSection.kicker}
-              </p>
-              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
-                {content.workSection.title}
-              </h2>
+              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">{content.workSection.kicker}</p>
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">{content.workSection.title}</h2>
               <p className="mt-4 text-slate-400">{content.workSection.subtitle}</p>
             </div>
 
@@ -577,13 +488,9 @@ export default function Home() {
               <div className="lg:col-span-4">
                 <div className="sticky top-28 tech-card overflow-hidden rounded-[2rem]">
                   <div className="border-b border-white/10 px-6 py-5">
-                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
-                      work.timeline
-                    </p>
+                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">work.timeline</p>
                     <h3 className="mt-2 text-2xl font-black text-white">Professional Track</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-400">
-                      Selected work experiences, responsibilities, and tools that support my data and digital portfolio.
-                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-400">Selected work experiences, responsibilities, and tools that support my data and digital portfolio.</p>
                   </div>
 
                   <div className="grid gap-0 divide-y divide-white/10">
@@ -601,11 +508,8 @@ export default function Home() {
 
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2">
-                        {["Analytics", "Reporting", "Research", "Operations", "Strategy"].map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100"
-                          >
+                        {['Analytics', 'Reporting', 'Research', 'Operations', 'Strategy'].map((tag) => (
+                          <span key={tag} className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100">
                             {tag}
                           </span>
                         ))}
@@ -614,10 +518,18 @@ export default function Home() {
 
                     <div className="bg-tech-grid p-6">
                       <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-4 font-code text-xs leading-relaxed text-slate-400">
-                        <p><span className="text-violet-300">const</span> work = [</p>
-                        <p className="pl-4"><span className="text-emerald-300">"learn"</span>,</p>
-                        <p className="pl-4"><span className="text-emerald-300">"analyze"</span>,</p>
-                        <p className="pl-4"><span className="text-emerald-300">"deliver impact"</span></p>
+                        <p>
+                          <span className="text-violet-300">const</span> work = [
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-emerald-300">"learn"</span>,
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-emerald-300">"analyze"</span>,
+                        </p>
+                        <p className="pl-4">
+                          <span className="text-emerald-300">"deliver impact"</span>
+                        </p>
                         <p>];</p>
                       </div>
                     </div>
@@ -642,15 +554,11 @@ export default function Home() {
                                 <img src={it.logo} alt={it.company} className="h-9 w-9 object-contain" />
                               </div>
                             ) : (
-                              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-lg font-black text-blue-200">
-                                {String(it.company || "C").slice(0, 1)}
-                              </div>
+                              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-lg font-black text-blue-200">{String(it.company || 'C').slice(0, 1)}</div>
                             )}
 
                             <div className="min-w-0">
-                              <h3 className="text-base font-black leading-snug text-white md:text-xl">
-                                {it.role}
-                              </h3>
+                              <h3 className="text-base font-black leading-snug text-white md:text-xl">{it.role}</h3>
 
                               <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
                                 <span className="font-bold text-blue-200">{it.company}</span>
@@ -675,16 +583,8 @@ export default function Home() {
                         </div>
 
                         <div className="mt-4 flex flex-wrap gap-2 md:pl-[72px]">
-                          {it.period && (
-                            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-300">
-                              {it.period}
-                            </span>
-                          )}
-                          {it.type && (
-                            <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100">
-                              {it.type}
-                            </span>
-                          )}
+                          {it.period && <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-300">{it.period}</span>}
+                          {it.type && <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-100">{it.type}</span>}
                         </div>
                       </summary>
 
@@ -705,10 +605,7 @@ export default function Home() {
                         {it.tools?.length > 0 && (
                           <div className="mt-6 flex flex-wrap gap-2">
                             {it.tools.slice(0, 12).map((t: string) => (
-                              <span
-                                key={t}
-                                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300"
-                              >
+                              <span key={t} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300">
                                 {t}
                               </span>
                             ))}
@@ -725,12 +622,8 @@ export default function Home() {
           {/* ORGANIZATION */}
           <section id="organisasi" className="relative py-24">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
-                {content.orgSection.kicker}
-              </p>
-              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
-                {content.orgSection.title}
-              </h2>
+              <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">{content.orgSection.kicker}</p>
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">{content.orgSection.title}</h2>
               <p className="mt-4 text-slate-400">{content.orgSection.subtitle}</p>
             </div>
 
@@ -742,24 +635,13 @@ export default function Home() {
                 >
                   <div className="relative">
                     <div className="aspect-[16/10] w-full overflow-hidden bg-slate-900">
-                      <img
-                        src={it.image}
-                        alt={it.title}
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                        style={{ objectPosition: index % 2 === 0 ? "50% 20%" : "50% 35%" }}
-                      />
+                      <img src={it.image} alt={it.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" style={{ objectPosition: index % 2 === 0 ? '50% 20%' : '50% 35%' }} />
                     </div>
 
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                    <div className="absolute left-5 top-5 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 font-code text-[11px] uppercase tracking-[0.2em] text-blue-100 backdrop-blur">
-                      leadership.log
-                    </div>
+                    <div className="absolute left-5 top-5 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 font-code text-[11px] uppercase tracking-[0.2em] text-blue-100 backdrop-blur">leadership.log</div>
 
-                    {it.period && (
-                      <div className="absolute right-5 top-5 rounded-full border border-white/10 bg-slate-950/60 px-3 py-1 text-xs font-bold text-slate-200 backdrop-blur">
-                        {it.period}
-                      </div>
-                    )}
+                    {it.period && <div className="absolute right-5 top-5 rounded-full border border-white/10 bg-slate-950/60 px-3 py-1 text-xs font-bold text-slate-200 backdrop-blur">{it.period}</div>}
 
                     <div className="absolute bottom-5 left-5 right-5">
                       <h3 className="text-xl font-black leading-snug text-white">{it.title}</h3>
@@ -788,7 +670,6 @@ export default function Home() {
             </div>
           </section>
 
-
           {/* PROJECTS */}
           <section id="proyek" className="relative py-24">
             <div className="pointer-events-none absolute inset-0 -z-10 opacity-80">
@@ -798,15 +679,9 @@ export default function Home() {
 
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
-                  {content.labels.portfolioKicker}
-                </p>
-                <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-5xl">
-                  {content.labels.featuredProjects}
-                </h2>
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
-                  {content.labels.projectsSubtitle}
-                </p>
+                <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">{content.labels.portfolioKicker}</p>
+                <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-5xl">{content.labels.featuredProjects}</h2>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">{content.labels.projectsSubtitle}</p>
               </div>
 
               <div className="tech-card rounded-3xl p-4">
@@ -829,29 +704,13 @@ export default function Home() {
 
             <div className="mt-12 grid gap-6 lg:grid-cols-2">
               {content.projects.slice(1, 7).map((p: any, index: number) => (
-                <article
-                  key={`${p.title}-${index}`}
-                  className="group tech-card overflow-hidden rounded-[2rem] transition duration-300 hover:-translate-y-1 hover:border-blue-400/30"
-                >
+                <article key={`${p.title}-${index}`} className="group tech-card overflow-hidden rounded-[2rem] transition duration-300 hover:-translate-y-1 hover:border-blue-400/30">
                   <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-slate-950">
                     {p.embed ? (
                       <>
-                        <iframe
-                          src={p.embed}
-                          className="absolute inset-0 h-full w-full"
-                          loading="lazy"
-                          allow="fullscreen"
-                        />
+                        <iframe src={p.embed} className="absolute inset-0 h-full w-full" loading="lazy" allow="fullscreen" />
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/10 opacity-70" />
-                        {p.link && (
-                          <a
-                            href={p.link}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="absolute inset-0"
-                            aria-label={`Open ${p.title}`}
-                          />
-                        )}
+                        {p.link && <a href={p.link} target="_blank" rel="noreferrer" className="absolute inset-0" aria-label={`Open ${p.title}`} />}
                       </>
                     ) : p.thumb ? (
                       <>
@@ -859,29 +718,19 @@ export default function Home() {
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
                       </>
                     ) : (
-                      <div className="absolute inset-0 grid place-items-center bg-tech-grid text-sm text-slate-500">
-                        {content.labels.previewUnavailable}
-                      </div>
+                      <div className="absolute inset-0 grid place-items-center bg-tech-grid text-sm text-slate-500">{content.labels.previewUnavailable}</div>
                     )}
 
                     <div className="absolute left-5 top-5 flex flex-wrap gap-2">
-                      {(p.type || p.year) && (
-                        <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-blue-100 backdrop-blur">
-                          {p.type || p.year}
-                        </span>
-                      )}
+                      {(p.type || p.year) && <span className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-blue-100 backdrop-blur">{p.type || p.year}</span>}
                     </div>
                   </div>
 
                   <div className="p-6">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="font-code text-[11px] uppercase tracking-[0.22em] text-slate-500">
-                          project.{String(index + 1).padStart(2, "0")}
-                        </p>
-                        <h3 className="mt-3 text-xl font-black leading-snug text-white">
-                          {p.title}
-                        </h3>
+                        <p className="font-code text-[11px] uppercase tracking-[0.22em] text-slate-500">project.{String(index + 1).padStart(2, '0')}</p>
+                        <h3 className="mt-3 text-xl font-black leading-snug text-white">{p.title}</h3>
                       </div>
 
                       {p.link && (
@@ -897,16 +746,11 @@ export default function Home() {
                       )}
                     </div>
 
-                    <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-slate-400">
-                      {p.desc}
-                    </p>
+                    <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-slate-400">{p.desc}</p>
 
                     <div className="mt-5 flex flex-wrap gap-2">
                       {p.tech?.slice(0, 7).map((t: string) => (
-                        <span
-                          key={t}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-300"
-                        >
+                        <span key={t} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-300">
                           {t}
                         </span>
                       ))}
@@ -920,21 +764,17 @@ export default function Home() {
               <div className="mt-8 tech-card rounded-[2rem] p-5">
                 <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
                   <div>
-                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">
-                      project.archive
-                    </p>
-                    <p className="mt-2 text-sm text-slate-400">
-                      Additional portfolio works are kept in a compact archive to keep the page clean and fast.
-                    </p>
+                    <p className="font-code text-xs uppercase tracking-[0.25em] text-blue-300">project.archive</p>
+                    <p className="mt-2 text-sm text-slate-400">Additional portfolio works are kept in a compact archive to keep the page clean and fast.</p>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
                     {content.projects.slice(7).map((p: any, index: number) => (
                       <a
                         key={`${p.title}-archive-${index}`}
-                        href={p.link || "#"}
-                        target={p.link ? "_blank" : undefined}
-                        rel={p.link ? "noreferrer" : undefined}
+                        href={p.link || '#'}
+                        target={p.link ? '_blank' : undefined}
+                        rel={p.link ? 'noreferrer' : undefined}
                         className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold text-slate-300 transition hover:border-blue-400/30 hover:bg-blue-500/10 hover:text-white"
                       >
                         {p.title.length > 34 ? `${p.title.slice(0, 34)}...` : p.title}
@@ -955,15 +795,9 @@ export default function Home() {
             <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
               <div className="lg:col-span-4">
                 <div className="sticky top-28">
-                  <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
-                    {content.certSection.kicker}
-                  </p>
-                  <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-5xl">
-                    {content.certSection.title}
-                  </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-slate-400 md:text-base">
-                    {content.certSection.subtitle}
-                  </p>
+                  <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">{content.certSection.kicker}</p>
+                  <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-5xl">{content.certSection.title}</h2>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-400 md:text-base">{content.certSection.subtitle}</p>
 
                   <div className="mt-8 tech-card rounded-[2rem] p-5">
                     <div className="flex items-center gap-4">
@@ -971,17 +805,15 @@ export default function Home() {
                         <Sparkles size={20} />
                       </div>
                       <div>
-                        <p className="text-3xl font-black text-white">
-                          {content.certSection.featured.length + content.certSection.micro.length}+
-                        </p>
-                        <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
-                          Verified learning records
-                        </p>
+                        <p className="text-3xl font-black text-white">{content.certSection.featured.length + content.certSection.micro.length}+</p>
+                        <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Verified learning records</p>
                       </div>
                     </div>
 
                     <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/60 p-4 font-code text-xs leading-relaxed text-slate-400">
-                      <p><span className="text-blue-300">const</span> learning = [</p>
+                      <p>
+                        <span className="text-blue-300">const</span> learning = [
+                      </p>
                       <p className="pl-4 text-slate-300">"Machine Learning",</p>
                       <p className="pl-4 text-slate-300">"Digital Marketing",</p>
                       <p className="pl-4 text-slate-300">"Data Analytics"</p>
@@ -994,10 +826,7 @@ export default function Home() {
               <div className="lg:col-span-8">
                 <div className="grid gap-6 md:grid-cols-2">
                   {content.certSection.featured.map((c: any) => (
-                    <article
-                      key={c.title}
-                      className="group tech-card rounded-[2rem] p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-400/30"
-                    >
+                    <article key={c.title} className="group tech-card rounded-[2rem] p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-400/30">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-4">
                           <div className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-white/10 bg-white p-2">
@@ -1010,14 +839,10 @@ export default function Home() {
                           </div>
                         </div>
 
-                        <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-300">
-                          {c.year}
-                        </span>
+                        <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-300">{c.year}</span>
                       </div>
 
-                      <p className="mt-5 line-clamp-6 text-sm leading-relaxed text-slate-400">
-                        {c.desc}
-                      </p>
+                      <p className="mt-5 line-clamp-6 text-sm leading-relaxed text-slate-400">{c.desc}</p>
 
                       {c.link && (
                         <a
@@ -1036,9 +861,7 @@ export default function Home() {
 
                 <div className="mt-10 flex items-center gap-4">
                   <div className="h-px flex-1 bg-white/10" />
-                  <p className="font-code text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
-                    {content.labels.otherCertificates}
-                  </p>
+                  <p className="font-code text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">{content.labels.otherCertificates}</p>
                   <div className="h-px flex-1 bg-white/10" />
                 </div>
 
@@ -1046,34 +869,22 @@ export default function Home() {
                   {content.certSection.micro.map((m: any, index: number) => (
                     <a
                       key={`${m.title}-${m.issuer}-${index}`}
-                      href={m.link || "#"}
-                      target={m.link ? "_blank" : undefined}
-                      rel={m.link ? "noreferrer" : undefined}
+                      href={m.link || '#'}
+                      target={m.link ? '_blank' : undefined}
+                      rel={m.link ? 'noreferrer' : undefined}
                       className="group tech-card flex items-center gap-4 rounded-2xl p-4 transition duration-300 hover:-translate-y-0.5 hover:border-blue-400/30"
                     >
                       <div className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-xl border border-white/10 bg-white p-2">
-                        <img
-                          src={m.icon || "/icons/certificate.svg"}
-                          alt={m.issuer}
-                          className="h-9 w-9 object-contain"
-                        />
+                        <img src={m.icon || '/icons/certificate.svg'} alt={m.issuer} className="h-9 w-9 object-contain" />
                       </div>
 
                       <div className="min-w-0 flex-1">
-                        <p className="line-clamp-1 text-sm font-black text-white group-hover:text-blue-100">
-                          {m.title}
-                        </p>
-                        <p className="mt-1 truncate text-xs font-semibold text-slate-500">
-                          {m.issuer}
-                        </p>
+                        <p className="line-clamp-1 text-sm font-black text-white group-hover:text-blue-100">{m.title}</p>
+                        <p className="mt-1 truncate text-xs font-semibold text-slate-500">{m.issuer}</p>
                       </div>
 
                       <div className="flex shrink-0 items-center gap-3">
-                        {m.year && (
-                          <span className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-400 sm:inline-flex">
-                            {m.year}
-                          </span>
-                        )}
+                        {m.year && <span className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-slate-400 sm:inline-flex">{m.year}</span>}
                         <span className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-400 transition group-hover:border-blue-400/30 group-hover:text-white">
                           <ArrowUpRight size={16} />
                         </span>
@@ -1085,7 +896,6 @@ export default function Home() {
             </div>
           </section>
 
-
           {/* CONTACT */}
           <section id="kontak" className="relative overflow-hidden py-24">
             <div className="pointer-events-none absolute left-[-120px] top-10 h-80 w-80 rounded-full bg-blue-600/10 blur-3xl" />
@@ -1094,15 +904,9 @@ export default function Home() {
             <div className="relative mx-auto max-w-7xl px-4">
               <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
                 <div className="lg:col-span-7">
-                  <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">
-                    {content.labels.contactKicker}
-                  </p>
-                  <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight text-white md:text-5xl">
-                    {content.labels.contactTitle}
-                  </h2>
-                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
-                    {content.labels.contactSubtitle}
-                  </p>
+                  <p className="font-code text-xs font-semibold uppercase tracking-[0.35em] text-blue-300">{content.labels.contactKicker}</p>
+                  <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight text-white md:text-5xl">{content.labels.contactTitle}</h2>
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">{content.labels.contactSubtitle}</p>
                 </div>
 
                 <div className="lg:col-span-5">
@@ -1113,9 +917,7 @@ export default function Home() {
                       </div>
                       <div>
                         <p className="text-sm font-black text-white">{content.labels.availableForCollab}</p>
-                        <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                          {content.labels.connectSubtitle}
-                        </p>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-400">{content.labels.connectSubtitle}</p>
                       </div>
                     </div>
                   </div>
@@ -1129,11 +931,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-tech-grid opacity-30" />
 
                     <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950">
-                      <img
-                        src={content.contact.photo || "/me.jpg"}
-                        alt={content.name}
-                        className="h-[430px] w-full object-cover object-center"
-                      />
+                      <img src={content.contact.photo || '/me.jpg'} alt={content.name} className="h-[430px] w-full object-cover object-center" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
 
                       <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold text-emerald-300 backdrop-blur-xl">
@@ -1154,13 +952,17 @@ export default function Home() {
                   </div>
 
                   <div className="tech-card mt-6 rounded-[2rem] p-5">
-                    <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">
-                      contact.config
-                    </p>
+                    <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">contact.config</p>
                     <div className="mt-4 space-y-1 font-code text-xs leading-relaxed text-slate-400">
-                      <p><span className="text-violet-300">const</span> status = <span className="text-emerald-300">"open"</span>;</p>
-                      <p><span className="text-violet-300">const</span> focus = <span className="text-cyan-200">["data", "insight", "impact"]</span>;</p>
-                      <p><span className="text-slate-500">// response channel: email / linkedin / whatsapp</span></p>
+                      <p>
+                        <span className="text-violet-300">const</span> status = <span className="text-emerald-300">"open"</span>;
+                      </p>
+                      <p>
+                        <span className="text-violet-300">const</span> focus = <span className="text-cyan-200">["data", "insight", "impact"]</span>;
+                      </p>
+                      <p>
+                        <span className="text-slate-500">// response channel: email / linkedin / whatsapp</span>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1170,12 +972,8 @@ export default function Home() {
                     <div className="border-b border-white/10 p-6">
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
-                          <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">
-                            {content.labels.connectTitle}
-                          </p>
-                          <h3 className="mt-3 text-2xl font-black text-white md:text-3xl">
-                            Choose your preferred channel
-                          </h3>
+                          <p className="font-code text-xs uppercase tracking-[0.28em] text-blue-300">{content.labels.connectTitle}</p>
+                          <h3 className="mt-3 text-2xl font-black text-white md:text-3xl">Choose your preferred channel</h3>
                         </div>
 
                         <a
@@ -1189,82 +987,48 @@ export default function Home() {
                     </div>
 
                     <div className="grid gap-0 md:grid-cols-2">
-                      <a
-                        href={`mailto:${content.contact.email}`}
-                        className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5 md:border-r"
-                      >
+                      <a href={`mailto:${content.contact.email}`} className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5 md:border-r">
                         <div className="flex items-start justify-between gap-4">
                           <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
                             <Mail size={20} />
                           </div>
                           <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
                         </div>
-                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
-                          {content.labels.email}
-                        </p>
-                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
-                          {content.contact.email}
-                        </p>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">{content.labels.email}</p>
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">{content.contact.email}</p>
                       </a>
 
-                      <a
-                        href={content.contact.linkedin.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5"
-                      >
+                      <a href={content.contact.linkedin.url} target="_blank" rel="noreferrer" className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5">
                         <div className="flex items-start justify-between gap-4">
                           <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
                             <Linkedin size={20} />
                           </div>
                           <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
                         </div>
-                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
-                          {content.labels.linkedin}
-                        </p>
-                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
-                          {content.contact.linkedin.label}
-                        </p>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">{content.labels.linkedin}</p>
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">{content.contact.linkedin.label}</p>
                       </a>
 
-                      <a
-                        href={waHref(content.contact.whatsapp.number)}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5 md:border-b-0 md:border-r"
-                      >
+                      <a href={waHref(content.contact.whatsapp.number)} target="_blank" rel="noreferrer" className="group border-b border-white/10 p-6 transition hover:bg-blue-500/5 md:border-b-0 md:border-r">
                         <div className="flex items-start justify-between gap-4">
                           <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
                             <Phone size={20} />
                           </div>
                           <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
                         </div>
-                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
-                          {content.labels.whatsapp}
-                        </p>
-                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
-                          {content.contact.whatsapp.label}
-                        </p>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">{content.labels.whatsapp}</p>
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">{content.contact.whatsapp.label}</p>
                       </a>
 
-                      <a
-                        href={content.contact.instagram.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group p-6 transition hover:bg-blue-500/5"
-                      >
+                      <a href={content.contact.instagram.url} target="_blank" rel="noreferrer" className="group p-6 transition hover:bg-blue-500/5">
                         <div className="flex items-start justify-between gap-4">
                           <div className="grid h-12 w-12 place-items-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
                             <Instagram size={20} />
                           </div>
                           <ArrowUpRight className="text-slate-600 transition group-hover:text-blue-300" size={18} />
                         </div>
-                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">
-                          {content.labels.instagram}
-                        </p>
-                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">
-                          {content.contact.instagram.label}
-                        </p>
+                        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">{content.labels.instagram}</p>
+                        <p className="mt-2 break-words text-sm font-bold leading-relaxed text-white">{content.contact.instagram.label}</p>
                       </a>
                     </div>
                   </div>
@@ -1281,12 +1045,7 @@ export default function Home() {
                           <p className="mt-1 text-xs text-slate-500">Project repository & code activity</p>
                         </div>
                       </div>
-                      <a
-                        href={content.contact.github.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-300 transition hover:text-white"
-                      >
+                      <a href={content.contact.github.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-300 transition hover:text-white">
                         {content.labels.footerGithub}
                         <ArrowUpRight size={16} />
                       </a>
@@ -1318,9 +1077,7 @@ export default function Home() {
                 <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                   <div>
                     <div className="flex items-center gap-3">
-                      <span className="grid h-11 w-11 place-items-center rounded-2xl border border-blue-400/25 bg-blue-500/10 text-lg font-black text-blue-300">
-                        A
-                      </span>
+                      <span className="grid h-11 w-11 place-items-center rounded-2xl border border-blue-400/25 bg-blue-500/10 text-lg font-black text-blue-300">A</span>
                       <div>
                         <p className="text-sm font-black text-white">{content.name}</p>
                         <p className="mt-1 text-xs text-slate-500">{content.title}</p>
@@ -1349,10 +1106,7 @@ export default function Home() {
                     >
                       {content.labels.footerGithub}
                     </a>
-                    <a
-                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-300 transition hover:border-blue-400/30 hover:text-white"
-                      href={`mailto:${content.contact.email}`}
-                    >
+                    <a className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-300 transition hover:border-blue-400/30 hover:text-white" href={`mailto:${content.contact.email}`}>
                       {content.labels.footerEmail}
                     </a>
                   </div>
